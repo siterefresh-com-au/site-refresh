@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Before & After — SiteRefresh</title>
+<meta name="description" content="See the difference a proper rebuild makes. Drag the slider on each to reveal the refresh — from dated and clunky to fast, modern and mobile-first." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101613; --ink2:#3B443F; --muted:#6B7772; --bg:#FFFFFF; --soft:#EEF8F2; --soft2:#F3F6F4;
+    --card:#FFFFFF; --line:#E6EDE9;
+    --acc:#10CE7C; --acc-dk:#0AA866; --acc-soft:#DBF6E9;   /* PLACEHOLDER accent — same var as homepage */
+    --r:26px; --rs:18px; --maxw:1180px;
+    --f:'Plus Jakarta Sans',system-ui,sans-serif;
+    --sh:0 24px 50px -22px rgba(16,22,19,.22); --shs:0 12px 26px -16px rgba(16,22,19,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--f);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit} img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.03em}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc-soft);color:var(--acc-dk);font-weight:700;font-size:.8rem;padding:.5rem 1rem;border-radius:999px}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--f);font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:999px;cursor:pointer;border:none;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+  .btn:focus-visible{outline:3px solid var(--acc-dk);outline-offset:3px}
+  .btn-acc{background:var(--acc);color:#052a1b} .btn-acc:hover{background:var(--acc-dk);color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(16,206,124,.5)}
+  .btn-ink{background:var(--ink);color:#fff} .btn-ink:hover{transform:translateY(-2px);box-shadow:var(--shs)}
+  .btn-ghost{background:#fff;border:1.6px solid var(--line);color:var(--ink)} .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:1.4rem;height:78px}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.3rem;letter-spacing:-.03em}
+  .brand .mk{width:38px;height:38px;flex:none}
+  .nav nav{display:flex;gap:1.6rem;margin-left:auto}
+  .nav nav a{font-weight:600;font-size:.96rem;color:#40473f} .nav nav a:hover{color:var(--acc-dk)} .nav nav a.on{color:var(--acc-dk)}
+  .burger{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:.4rem}
+  .burger span{display:block;width:26px;height:2.6px;background:var(--ink);margin:5px 0;border-radius:2px}
+
+  .intro{padding:70px 0 26px;text-align:center}
+  .intro h1{font-size:clamp(2.5rem,5vw,3.9rem);margin-top:1.1rem}
+  .intro p{font-size:1.18rem;color:var(--muted);margin:1.1rem auto 0;max-width:52ch}
+  .intro .acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
+  .intro .note{margin-top:1.4rem;font-size:.86rem;color:#9aa39e}
+
+  .showcase{padding:40px 0 70px;display:grid;gap:60px}
+  .ba{max-width:960px;margin:0 auto;width:100%}
+  .ba .head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:16px;flex-wrap:wrap}
+  .ba .head h3{font-size:1.5rem}
+  .ba .head .tt{font-size:.82rem;font-weight:700;color:var(--acc-dk);background:var(--acc-soft);padding:.35rem .9rem;border-radius:999px}
+  .ba .cap{margin-top:14px;color:var(--muted);font-size:1rem}
+  .ba .cap b{color:var(--ink)}
+
+  .stage{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);touch-action:none;user-select:none;background:#fff}
+  .layer{position:absolute;inset:0;overflow:hidden}
+  .layer.before{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+  .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.06);z-index:5;cursor:ew-resize}
+  .handle .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--shs);display:grid;place-items:center;color:var(--ink)}
+  .handle:focus-visible{outline:none} .handle:focus-visible .grip{outline:3px solid var(--acc);outline-offset:2px}
+  .lab{position:absolute;top:14px;font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:5px 12px;border-radius:999px;z-index:4}
+  .lab-b{left:14px;background:rgba(16,22,19,.72);color:#fff}
+  .lab-a{right:14px;background:var(--acc);color:#052a1b}
+
+  /* ---- AFTER mini-site (modern) ---- */
+  .m{position:absolute;inset:0;background:#fff;font-size:10px}
+  .m-nav{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #eef2f0}
+  .m-logo{width:16px;height:16px;border-radius:6px;background:var(--acc);flex:none}
+  .m-bn{height:7px;width:66px;border-radius:4px;background:#d7ded9}
+  .m-nd{margin-left:auto;display:flex;gap:10px}
+  .m-nd i{width:26px;height:6px;border-radius:3px;background:#e4eae7;display:block}
+  .m-cta{background:var(--acc);color:#052a1b;font-weight:800;font-size:8px;padding:6px 12px;border-radius:999px}
+  .m-hero{padding:26px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center;background:linear-gradient(180deg,#fff, var(--soft))}
+  .m-hb1{height:16px;width:88%;border-radius:6px;background:var(--ink)}
+  .m-hb2{height:16px;width:60%;border-radius:6px;background:var(--acc-dk);margin-top:7px}
+  .m-hb3{height:8px;width:80%;border-radius:4px;background:#c7cfca;margin-top:11px}
+  .m-hpill{display:inline-block;margin-top:13px;background:var(--ink);color:#fff;font-weight:800;font-size:8px;padding:7px 14px;border-radius:999px}
+  .m-himg{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(150deg,var(--acc),#39ddA0);box-shadow:var(--shs);position:relative;overflow:hidden}
+  .m-himg::after{content:"";position:absolute;right:-20%;top:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 60%)}
+  .m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 22px 22px}
+  .m-c{border:1px solid #e9efec;border-radius:14px;padding:12px;background:#fff}
+  .m-ci{width:22px;height:22px;border-radius:8px;background:var(--acc-soft);margin-bottom:9px}
+  .m-cl{height:7px;border-radius:3px;background:#d7ded9;margin-bottom:6px}
+  .m-cl.s{width:60%}
+
+  /* ---- BEFORE mini-site (dated) ---- */
+  .o{position:absolute;inset:0;background:#e9e6da;font-family:'Times New Roman',Times,serif;color:#222;overflow:hidden}
+  .o-top{background:#1c2c6b;color:#fff;text-align:center;padding:9px;font-size:15px;font-weight:700;letter-spacing:.5px}
+  .o-nav{background:#c9c4b2;border-top:1px solid #fff;border-bottom:1px solid #8a856f;text-align:center;padding:5px;font-size:11px}
+  .o-nav a{color:#1a3fbd;text-decoration:underline;margin:0 5px}
+  .o-ban{background:repeating-linear-gradient(45deg,#ffe000,#ffe000 12px,#ffd000 12px,#ffd000 24px);color:#b00;text-align:center;font-weight:700;font-size:12px;padding:6px;border-top:2px solid #b00;border-bottom:2px solid #b00}
+  .o-body{display:grid;grid-template-columns:1.4fr .6fr;gap:12px;padding:12px 14px}
+  .o-h{font-size:14px;font-weight:700;color:#1c2c6b;text-decoration:underline;margin-bottom:6px}
+  .o-t{font-size:10px;line-height:1.5;color:#333}
+  .o-t .bar{height:6px;background:#cfcabb;border-radius:1px;margin:5px 0}
+  .o-side{border:2px ridge #b9b3a0;background:#fff;padding:8px;text-align:center}
+  .o-clip{width:100%;aspect-ratio:1.2/1;background:linear-gradient(135deg,#9aa,#668);border:1px solid #888;display:grid;place-items:center;color:#fff;font-size:9px}
+  .o-btn{display:inline-block;margin-top:8px;background:#d8d2bf;border:2px outset #fff;padding:4px 8px;font-size:10px;color:#333}
+  .o-foot{position:absolute;left:0;right:0;bottom:0;background:#c9c4b2;border-top:1px solid #8a856f;text-align:center;font-size:9px;color:#555;padding:5px}
+
+  /* CTA */
+  .cta{padding:20px 0 96px}
+  .cta .box{background:linear-gradient(150deg,var(--acc) 0%,#31d998 100%);border-radius:38px;padding:66px 40px;text-align:center;color:#052a1b;position:relative;overflow:hidden;box-shadow:var(--sh)}
+  .cta .box::after{content:"";position:absolute;left:-80px;bottom:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 60%)}
+  .cta h2{font-size:clamp(2rem,4vw,3rem);position:relative}
+  .cta p{font-size:1.14rem;margin:1rem auto 0;max-width:44ch;font-weight:500;position:relative}
+  .cta .acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.9rem;position:relative}
+
+  footer{background:var(--ink);color:#9aa39e;padding:56px 0 30px}
+  footer .top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.09)}
+  footer .brand{color:#fff;margin-bottom:.7rem} footer p.t{max-width:34ch;font-size:.93rem}
+  footer h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#cfd6d2;margin-bottom:.9rem}
+  footer ul{list-style:none;display:grid;gap:.5rem;font-size:.93rem} footer a:hover{color:var(--acc)}
+  footer .bot{padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+  .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--acc);color:#052a1b;text-align:center;font-weight:800;padding:.95rem;box-shadow:0 -8px 22px -12px rgba(0,0,0,.3)}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease} .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:600px){
+    .nav nav{display:none} .burger{display:block}
+    .m-hero{grid-template-columns:1fr} .m-himg{display:none} .m-cards{grid-template-columns:1fr 1fr}
+    .mcta{display:block} body{padding-bottom:56px} footer .top{grid-template-columns:1fr} .cta .box{padding:48px 22px}
+    .stage{aspect-ratio:4/5}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="SiteRefresh home">
+      <svg class="mk" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#10CE7C"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#052a1b" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#052a1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SiteRefresh
+    </a>
+    <nav id="menu">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#services">What we do</a>
+      <a href="#" class="on">Before &amp; After</a>
+      <a href="index.html#pricing">Pricing</a>
+    </nav>
+    <a class="btn btn-acc" href="index.html#contact" style="margin-left:.3rem">Get a free redesign</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <span class="chip">Before &amp; After</span>
+    <h1>See the difference a refresh makes.</h1>
+    <p>Drag the slider on each one to reveal the transformation — from dated, clunky and hard to read on a phone, to fast, modern and built to bring in work.</p>
+    <div class="acts">
+      <a class="btn btn-acc" href="index.html#contact">See your site refreshed — free</a>
+      <a class="btn btn-ghost" href="index.html#how">How it works</a>
+    </div>
+    <p class="note">Example rebuilds shown. Your free redesign is built from your own brand — so you see exactly what yours would look like.</p>
+  </div>
+</section>
+
+<section class="showcase" id="work">
+
+  <!-- template repeated x3 -->
+  <div class="ba reveal">
+    <div class="head"><h3>Coastline Plumbing</h3><span class="tt">Plumbing</span></div>
+    <div class="stage" data-pos="52">
+      <div class="layer after">
+        <div class="m">
+          <div class="m-nav"><span class="m-logo"></span><span class="m-bn"></span><span class="m-nd"><i></i><i></i><i></i></span><span class="m-cta">Get a quote</span></div>
+          <div class="m-hero"><div><div class="m-hb1"></div><div class="m-hb2"></div><div class="m-hb3"></div><span class="m-hpill">Book a plumber</span></div><div class="m-himg"></div></div>
+          <div class="m-cards"><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div></div>
+        </div>
+      </div>
+      <div class="layer before">
+        <div class="o">
+          <div class="o-top">Welcome to Coastline Plumbing</div>
+          <div class="o-nav"><a href="#">Home</a>|<a href="#">Services</a>|<a href="#">About Us</a>|<a href="#">Contact</a></div>
+          <div class="o-ban">★ CALL NOW 07 5xxx xxxx — NO JOB TOO SMALL ★</div>
+          <div class="o-body"><div><div class="o-h">Your Local Plumber</div><div class="o-t">We do all types of plumbing work in the local area.<div class="bar"></div><div class="bar" style="width:85%"></div><div class="bar" style="width:70%"></div>Please call for a quote.</div></div><div class="o-side"><div class="o-clip">[ photo ]</div><a class="o-btn" href="#">Email Us</a></div></div>
+          <div class="o-foot">© 2011 Coastline Plumbing · Best viewed in Internet Explorer · Visitors: 004213</div>
+        </div>
+      </div>
+      <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <span class="lab lab-b">Before</span><span class="lab lab-a">After</span>
+    </div>
+    <p class="cap"><b>What changed:</b> mobile-first, loads in a second, and a "get a quote" button on every screen instead of a phone number buried in a banner.</p>
+  </div>
+
+  <div class="ba reveal">
+    <div class="head"><h3>Northshore Electrical</h3><span class="tt">Electrical</span></div>
+    <div class="stage" data-pos="48">
+      <div class="layer after">
+        <div class="m">
+          <div class="m-nav"><span class="m-logo"></span><span class="m-bn"></span><span class="m-nd"><i></i><i></i><i></i></span><span class="m-cta">Get a quote</span></div>
+          <div class="m-hero"><div><div class="m-hb1"></div><div class="m-hb2"></div><div class="m-hb3"></div><span class="m-hpill">Book an electrician</span></div><div class="m-himg"></div></div>
+          <div class="m-cards"><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div></div>
+        </div>
+      </div>
+      <div class="layer before">
+        <div class="o">
+          <div class="o-top">Northshore Electrical Services</div>
+          <div class="o-nav"><a href="#">Home</a>|<a href="#">Our Services</a>|<a href="#">Gallery</a>|<a href="#">Contact</a></div>
+          <div class="o-ban">✦ Fully Licensed &amp; Insured — Free Quotes ✦</div>
+          <div class="o-body"><div><div class="o-h">About Our Business</div><div class="o-t">Established electrician servicing the region for many years.<div class="bar"></div><div class="bar" style="width:78%"></div><div class="bar" style="width:64%"></div></div></div><div class="o-side"><div class="o-clip">[ logo.gif ]</div><a class="o-btn" href="#">Enquire</a></div></div>
+          <div class="o-foot">© 2013 · This site is under construction · Sign our guestbook!</div>
+        </div>
+      </div>
+      <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="48"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <span class="lab lab-b">Before</span><span class="lab lab-a">After</span>
+    </div>
+    <p class="cap"><b>What changed:</b> a clear layout with services up front, real trust signals, and an enquiry form that actually works on a phone.</p>
+  </div>
+
+  <div class="ba reveal">
+    <div class="head"><h3>Bayside Tiling</h3><span class="tt">Tiling</span></div>
+    <div class="stage" data-pos="50">
+      <div class="layer after">
+        <div class="m">
+          <div class="m-nav"><span class="m-logo"></span><span class="m-bn"></span><span class="m-nd"><i></i><i></i><i></i></span><span class="m-cta">Get a quote</span></div>
+          <div class="m-hero"><div><div class="m-hb1"></div><div class="m-hb2"></div><div class="m-hb3"></div><span class="m-hpill">Free tiling quote</span></div><div class="m-himg"></div></div>
+          <div class="m-cards"><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div><div class="m-c"><div class="m-ci"></div><div class="m-cl"></div><div class="m-cl s"></div></div></div>
+        </div>
+      </div>
+      <div class="layer before">
+        <div class="o">
+          <div class="o-top">BAYSIDE TILING</div>
+          <div class="o-nav"><a href="#">Home</a>|<a href="#">Services</a>|<a href="#">Prices</a>|<a href="#">Contact</a></div>
+          <div class="o-ban">CLICK HERE for a FREE quote!!!</div>
+          <div class="o-body"><div><div class="o-h">Wall &amp; Floor Tiling</div><div class="o-t">Quality tiling for bathrooms, kitchens and floors.<div class="bar"></div><div class="bar" style="width:82%"></div><div class="bar" style="width:60%"></div>Phone for details.</div></div><div class="o-side"><div class="o-clip">[ tiles.jpg ]</div><a class="o-btn" href="#">Contact</a></div></div>
+          <div class="o-foot">© 2010 Bayside Tiling · Page last updated 14/06/2012</div>
+        </div>
+      </div>
+      <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <span class="lab lab-b">Before</span><span class="lab lab-a">After</span>
+    </div>
+    <p class="cap"><b>What changed:</b> a proper gallery to show the work off, clean pricing, and a design that finally looks as good as the tiling does.</p>
+  </div>
+
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="box reveal">
+      <h2>Want to see yours?</h2>
+      <p>We'll rebuild your homepage for free, with your own brand and photos. Open the link, then decide.</p>
+      <div class="acts">
+        <a class="btn btn-ink" href="index.html#contact">Get my free homepage redesign</a>
+        <a class="btn btn-ghost" href="tel:0400000000">Call us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="brand" style="display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.25rem"><svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#10CE7C"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#052a1b" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#052a1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>SiteRefresh</div>
+        <p class="t">Custom, modern websites for local services &amp; trades. We redesign, deploy and look after the lot — so your site brings in work instead of gathering dust.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html#how">How it works</a></li><li><a href="index.html#services">What we do</a></li><li><a href="#">Before &amp; After</a></li><li><a href="index.html#pricing">Pricing</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="index.html#contact">Free homepage redesign</a></li><li><a href="mailto:hello@siterefresh.com.au">hello@siterefresh.com.au</a></li><li><a href="tel:0400000000">[04xx xxx xxx]</a></li><li>Australia-wide</li></ul></div>
+    </div>
+    <div class="bot"><span>© <span id="yr"></span> SiteRefresh. Custom websites for local services &amp; trades.</span><span>Australia-wide</span></div>
+  </div>
+</footer>
+
+<a class="mcta" href="index.html#contact">Get my free homepage redesign →</a>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=getComputedStyle(m).display==='none';
+    if(o){m.style.cssText='display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:#fff;padding:18px 26px;border-bottom:1px solid var(--line);gap:1rem';}else{m.style.cssText='';}
+    b.setAttribute('aria-expanded',o);});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // before/after sliders
+  document.querySelectorAll('.stage').forEach(function(stage){
+    var handle=stage.querySelector('.handle'),
+        before=stage.querySelector('.before'),
+        start=parseFloat(stage.dataset.pos||50);
+    function set(pct){
+      pct=Math.max(0,Math.min(100,pct));
+      stage.style.setProperty('--pos',pct+'%');
+      handle.setAttribute('aria-valuenow',Math.round(pct));
+    }
+    set(start);
+    var dragging=false;
+    function fromEvent(e){
+      var r=stage.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+      set(x/r.width*100);
+    }
+    stage.addEventListener('pointerdown',function(e){dragging=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
+    stage.addEventListener('pointermove',function(e){if(dragging)fromEvent(e);});
+    stage.addEventListener('pointerup',function(){dragging=false;});
+    stage.addEventListener('pointercancel',function(){dragging=false;});
+    handle.addEventListener('keydown',function(e){
+      var cur=parseFloat(handle.getAttribute('aria-valuenow'));
+      if(e.key==='ArrowLeft'){set(cur-4);e.preventDefault();}
+      if(e.key==='ArrowRight'){set(cur+4);e.preventDefault();}
+    });
+  });
+</script>
+</body>
+</html>
