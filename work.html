@@ -7,43 +7,44 @@
 <meta name="description" content="See the difference a proper rebuild makes. Drag the slider on each to reveal the refresh — from dated and clunky to fast, modern and mobile-first." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#101613; --ink2:#3B443F; --muted:#6B7772; --bg:#FFFFFF; --soft:#EEF8F2; --soft2:#F3F6F4;
-    --card:#FFFFFF; --line:#E6EDE9;
-    --acc:#10CE7C; --acc-dk:#0AA866; --acc-soft:#DBF6E9;   /* PLACEHOLDER accent — same var as homepage */
+    --ink:#121412; --ink2:#33372F; --muted:#5F655D; --bg:#FFFFFF; --soft:#F3F5F1; --soft2:#F7F8F6;
+    --card:#FFFFFF; --line:#E6E8E4;
+    --acc:#A8F04A; --acc-dk:#478A1B; --acc-soft:#EDFBDA; --dark:#0B0C0A; --cream:#F4F6F0;
     --r:26px; --rs:18px; --maxw:1180px;
-    --f:'Plus Jakarta Sans',system-ui,sans-serif;
-    --sh:0 24px 50px -22px rgba(16,22,19,.22); --shs:0 12px 26px -16px rgba(16,22,19,.16);
+    --f:'Inter',system-ui,sans-serif;
+    --sh:0 24px 50px -22px rgba(10,12,9,.18); --shs:0 12px 26px -16px rgba(10,12,9,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--f);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:var(--f);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;max-width:100%}
   a{text-decoration:none;color:inherit} img{display:block;max-width:100%}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
   h1,h2,h3{font-weight:800;line-height:1.05;letter-spacing:-.03em}
   .chip{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc-soft);color:var(--acc-dk);font-weight:700;font-size:.8rem;padding:.5rem 1rem;border-radius:999px}
-  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--f);font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:999px;cursor:pointer;border:none;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--f);font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:999px;cursor:pointer;border:none;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
   .btn:focus-visible{outline:3px solid var(--acc-dk);outline-offset:3px}
-  .btn-acc{background:var(--acc);color:#052a1b} .btn-acc:hover{background:var(--acc-dk);color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(16,206,124,.5)}
+  .btn-acc{background:var(--acc);color:#0E100C} .btn-acc:hover{background:var(--acc-dk);color:#fff;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(30,92,65,.5)}
   .btn-ink{background:var(--ink);color:#fff} .btn-ink:hover{transform:translateY(-2px);box-shadow:var(--shs)}
   .btn-ghost{background:#fff;border:1.6px solid var(--line);color:var(--ink)} .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
 
-  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,255,255,.92));backdrop-filter:blur(14px);border-bottom:1px solid rgba(168,240,74,.25)}
   .nav{display:flex;align-items:center;gap:1.4rem;height:78px}
   .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.3rem;letter-spacing:-.03em}
   .brand .mk{width:38px;height:38px;flex:none}
   .nav nav{display:flex;gap:1.6rem;margin-left:auto}
-  .nav nav a{font-weight:600;font-size:.96rem;color:#40473f} .nav nav a:hover{color:var(--acc-dk)} .nav nav a.on{color:var(--acc-dk)}
+  .nav nav a{font-weight:600;font-size:.96rem;color:#3C4A42} .nav nav a:hover{color:var(--acc-dk)} .nav nav a.on{color:var(--acc-dk)}
   .burger{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:.4rem}
   .burger span{display:block;width:26px;height:2.6px;background:var(--ink);margin:5px 0;border-radius:2px}
 
-  .intro{padding:70px 0 26px;text-align:center}
+  .intro{padding:70px 0 26px;text-align:center;background:radial-gradient(1000px 460px at 50% -10%,rgba(30,92,65,.10),transparent 60%)}
+  h1,h2{font-weight:800;letter-spacing:-.028em}
   .intro h1{font-size:clamp(2.5rem,5vw,3.9rem);margin-top:1.1rem}
   .intro p{font-size:1.18rem;color:var(--muted);margin:1.1rem auto 0;max-width:52ch}
   .intro .acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
-  .intro .note{margin-top:1.4rem;font-size:.86rem;color:#9aa39e}
+  .intro .note{margin-top:1.4rem;font-size:.86rem;color:#9BA098}
 
   .showcase{padding:40px 0 70px;display:grid;gap:60px}
   .ba{max-width:960px;margin:0 auto;width:100%}
@@ -60,8 +61,8 @@
   .handle .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--shs);display:grid;place-items:center;color:var(--ink)}
   .handle:focus-visible{outline:none} .handle:focus-visible .grip{outline:3px solid var(--acc);outline-offset:2px}
   .lab{position:absolute;top:14px;font-size:.7rem;font-weight:800;letter-spacing:.08em;padding:5px 12px;border-radius:999px;z-index:4}
-  .lab-b{left:14px;background:rgba(16,22,19,.72);color:#fff}
-  .lab-a{right:14px;background:var(--acc);color:#052a1b}
+  .lab-b{left:14px;background:rgba(10,12,9,.72);color:#fff}
+  .lab-a{right:14px;background:var(--acc);color:#0E100C}
 
   /* ---- AFTER mini-site (modern) ---- */
   .m{position:absolute;inset:0;background:#fff;font-size:10px}
@@ -70,7 +71,7 @@
   .m-bn{height:7px;width:66px;border-radius:4px;background:#d7ded9}
   .m-nd{margin-left:auto;display:flex;gap:10px}
   .m-nd i{width:26px;height:6px;border-radius:3px;background:#e4eae7;display:block}
-  .m-cta{background:var(--acc);color:#052a1b;font-weight:800;font-size:8px;padding:6px 12px;border-radius:999px}
+  .m-cta{background:var(--acc);color:#0E100C;font-weight:800;font-size:8px;padding:6px 12px;border-radius:999px}
   .m-hero{padding:26px 22px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center;background:linear-gradient(180deg,#fff, var(--soft))}
   .m-hb1{height:16px;width:88%;border-radius:6px;background:var(--ink)}
   .m-hb2{height:16px;width:60%;border-radius:6px;background:var(--acc-dk);margin-top:7px}
@@ -101,20 +102,20 @@
 
   /* CTA */
   .cta{padding:20px 0 96px}
-  .cta .box{background:linear-gradient(150deg,var(--acc) 0%,#31d998 100%);border-radius:38px;padding:66px 40px;text-align:center;color:#052a1b;position:relative;overflow:hidden;box-shadow:var(--sh)}
+  .cta .box{background:var(--dark);border-radius:38px;padding:66px 40px;text-align:center;color:#0E100C;position:relative;overflow:hidden;box-shadow:var(--sh)}
   .cta .box::after{content:"";position:absolute;left:-80px;bottom:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(255,255,255,.3),transparent 60%)}
   .cta h2{font-size:clamp(2rem,4vw,3rem);position:relative}
   .cta p{font-size:1.14rem;margin:1rem auto 0;max-width:44ch;font-weight:500;position:relative}
   .cta .acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.9rem;position:relative}
 
-  footer{background:var(--ink);color:#9aa39e;padding:56px 0 30px}
+  footer{background:var(--dark);color:#9BA098;padding:56px 0 30px}
   footer .top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.09)}
   footer .brand{color:#fff;margin-bottom:.7rem} footer p.t{max-width:34ch;font-size:.93rem}
-  footer h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#cfd6d2;margin-bottom:.9rem}
+  footer h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#DFE2DC;margin-bottom:.9rem}
   footer ul{list-style:none;display:grid;gap:.5rem;font-size:.93rem} footer a:hover{color:var(--acc)}
   footer .bot{padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
-  .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--acc);color:#052a1b;text-align:center;font-weight:800;padding:.95rem;box-shadow:0 -8px 22px -12px rgba(0,0,0,.3)}
+  .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--acc);color:#0E100C;text-align:center;font-weight:800;padding:.95rem;box-shadow:0 -8px 22px -12px rgba(0,0,0,.3)}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease} .reveal.in{opacity:1;transform:none}
 
   @media(max-width:600px){
@@ -123,6 +124,24 @@
     .mcta{display:block} body{padding-bottom:56px} footer .top{grid-template-columns:1fr} .cta .box{padding:48px 22px}
     .stage{aspect-ratio:4/5}
   }
+  @keyframes srFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes srPop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
+  .hero .chip{animation:srFadeUp .7s .05s both}
+  .hero h1{animation:srFadeUp .75s .16s both}
+  .hero .lead{animation:srFadeUp .75s .3s both}
+  .hero .acts{animation:srFadeUp .75s .44s both}
+  .hero .chips{animation:srFadeUp .75s .56s both}
+  .hero .visual{animation:srPop .9s .34s both}
+  .intro .chip{animation:srFadeUp .7s .05s both}
+  .intro h1{animation:srFadeUp .75s .16s both}
+  .intro p{animation:srFadeUp .75s .3s both}
+  .intro .acts{animation:srFadeUp .75s .44s both}
+  .grid4 .reveal:nth-child(2),.steps .reveal:nth-child(2),.why .reveal:nth-child(2),.tiers .reveal:nth-child(2){transition-delay:.09s}
+  .grid4 .reveal:nth-child(3),.steps .reveal:nth-child(3),.tiers .reveal:nth-child(3){transition-delay:.18s}
+  .grid4 .reveal:nth-child(4),.steps .reveal:nth-child(4){transition-delay:.27s}
+  .showcase .ba:nth-child(2){transition-delay:.1s} .showcase .ba:nth-child(3){transition-delay:.2s}
+  .angled{clip-path:polygon(0 0,100% 1.8vw,100% 100%,0 calc(100% - 1.8vw))}
+  .angled.rev{clip-path:polygon(0 1.8vw,100% 0,100% calc(100% - 1.8vw),0 100%)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -131,7 +150,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="SiteRefresh home">
-      <svg class="mk" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#10CE7C"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#052a1b" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#052a1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="mk" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#A8F04A"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#0E100C" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#0E100C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       SiteRefresh
     </a>
     <nav id="menu">
@@ -244,7 +263,7 @@
       <h2>Want to see yours?</h2>
       <p>We'll rebuild your homepage for free, with your own brand and photos. Open the link, then decide.</p>
       <div class="acts">
-        <a class="btn btn-ink" href="index.html#contact">Get my free homepage redesign</a>
+        <a class="btn btn-acc" href="index.html#contact">Get my free homepage redesign</a>
         <a class="btn btn-ghost" href="tel:+61403955231">Call us</a>
       </div>
     </div>
@@ -255,7 +274,7 @@
   <div class="wrap">
     <div class="top">
       <div>
-        <div class="brand" style="display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.25rem"><svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#10CE7C"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#052a1b" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#052a1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>SiteRefresh</div>
+        <div class="brand" style="display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.25rem"><svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#A8F04A"/><path d="M27.5 15.5A8 8 0 1 0 29 22" stroke="#0E100C" stroke-width="3" stroke-linecap="round"/><path d="M27.5 10v6h-6" stroke="#0E100C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>SiteRefresh</div>
         <p class="t">Custom, modern websites for local services &amp; trades. We redesign, deploy and look after the lot — so your site brings in work instead of gathering dust.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="index.html#how">How it works</a></li><li><a href="index.html#services">What we do</a></li><li><a href="#">Before &amp; After</a></li><li><a href="index.html#pricing">Pricing</a></li></ul></div>
