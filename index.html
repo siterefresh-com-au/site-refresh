@@ -41,7 +41,7 @@
 
   /* hero */
   .hero{position:relative;overflow:hidden;background:radial-gradient(1250px 660px at 85% -12%,rgba(168,240,74,.25),transparent 58%)}
-  .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;padding:64px 26px 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center;padding:64px 26px 78px}
   .hero h1{font-size:clamp(2.7rem,5.6vw,4.4rem);font-weight:800;letter-spacing:-.03em}
   h2{font-weight:800;letter-spacing:-.025em}
   .hero h1 .hl{color:var(--acc-dk)}
@@ -82,16 +82,16 @@
 
   /* hook */
   .hook .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
-  .hook .big{background:linear-gradient(150deg,var(--acc) 0%,#37dc9b 100%);border-radius:var(--r);padding:40px;color:#0E100C;position:relative;overflow:hidden;box-shadow:var(--sh)}
+  .hook .big{background:linear-gradient(150deg,var(--acc) 0%,#C3F97A 100%);border-radius:var(--r);padding:28px 32px;color:#0E100C;position:relative;overflow:hidden;box-shadow:var(--sh)}
   .hook .big::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 60%)}
-  .hook .big .free{font-size:4rem;font-weight:800;line-height:1;letter-spacing:-.04em}
+  .hook .big .free{font-size:3rem;font-weight:800;line-height:1;letter-spacing:-.04em}
   .hook .big .sub{font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:.5rem}
-  .hook .big ul{list-style:none;margin-top:1.6rem;display:grid;gap:.7rem}
-  .hook .big li{display:flex;gap:.55rem;align-items:flex-start;font-weight:600;font-size:.98rem}
+  .hook .big ul{list-style:none;margin-top:1.15rem;display:grid;gap:.55rem}
+  .hook .big li{display:flex;gap:.55rem;align-items:flex-start;font-weight:600;font-size:.93rem}
   .hook .big li svg{flex:none;margin-top:3px}
 
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:58px}
   .rc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .2s ease,box-shadow .2s ease}
   .rc:hover{transform:translateY(-6px);box-shadow:var(--sh)}
   .rc .ic{width:52px;height:52px;border-radius:16px;background:var(--acc-soft);display:grid;place-items:center;margin-bottom:16px;color:var(--acc-dk)}
@@ -270,7 +270,7 @@
   @media(max-width:940px){.why-art{display:none}}
   .why-art .needle{transform-box:fill-box;transform-origin:left bottom;animation:sweep 2.4s ease-in-out infinite alternate}
   @keyframes sweep{from{transform:rotate(-30deg)}to{transform:rotate(8deg)}}
-  @media(prefers-reduced-motion:reduce){.why-art,.why-art .needle{animation:none}.hero .hquote{animation:srFadeUp .8s .62s both}}
+  @media(prefers-reduced-motion:reduce){.why-art,.why-art .needle{animation:none}.hquote{animation:none}.plusdiv svg{animation:none}}
   .steps-path{display:block;width:100%;height:auto;margin:2px auto 0;pointer-events:none}
   @media(max-width:940px){.steps-path{display:none}}
   #why{padding:78px 0 122px}
@@ -305,14 +305,19 @@
   .rart .b2{animation-delay:.13s}.rart .b3{animation-delay:.26s}.rart .b4{animation-delay:.39s}.rart .b5{animation-delay:.52s}
   @keyframes wv{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
   @media(prefers-reduced-motion:reduce){.rart *{animation:none!important}}
-  .hquote{background:#fff;border:1px solid var(--line);border-radius:18px;padding:38px 26px 22px 28px;box-shadow:var(--shs);font-size:.98rem;color:var(--ink2);line-height:1.6;position:relative}
+  .hquote{transform:rotate(-1.6deg);background:#fff;border:1px solid var(--line);border-radius:18px;padding:38px 26px 22px 28px;box-shadow:var(--shs);font-size:.98rem;color:var(--ink2);line-height:1.6;position:relative}
   .hquote .qh{font-weight:800;color:var(--ink);font-size:1.12rem;line-height:1.4;margin-bottom:.45rem;letter-spacing:-.01em}
   .hquote .hlx{font-size:1.02em;padding:.02em .3em .08em}
   .hquote::before{content:"\201C";position:absolute;top:-19px;left:20px;width:36px;height:36px;border-radius:11px;background:var(--acc);border:2.5px solid var(--ink);color:var(--ink);font-size:2.1rem;font-weight:800;display:grid;place-items:center;line-height:0;padding-top:12px}
-  .hero .hquote{animation:srFadeUp .8s .62s both,qFloat 6s ease-in-out 1.6s infinite}
-  @keyframes qFloat{0%,100%{transform:rotate(-1.6deg) translate(0,0)}50%{transform:rotate(-.8deg) translate(4px,-8px)}}
-  .vwrap{display:flex;flex-direction:column;justify-content:space-between;gap:28px} .hero .visual{margin-top:58px}
+  .hquote{animation:qPulse 5.2s ease-in-out infinite}
+  @keyframes qPulse{0%,100%{transform:rotate(-1.6deg) scale(1)}50%{transform:rotate(-1.6deg) scale(1.06)}}
+  .vwrap{display:flex;flex-direction:column;justify-content:center}
   .hlx{background:var(--ink);color:var(--acc);padding:.02em .18em .07em;border-radius:.22em;display:inline-block;line-height:1.08}
+  .fcol{display:grid;gap:48px;align-content:center}
+  .hook.sec{padding-top:118px;padding-bottom:126px}
+  .plusdiv{display:grid;place-items:center;margin-top:96px}
+  .plusdiv svg{width:94px;height:94px;filter:drop-shadow(0 14px 22px rgba(10,12,9,.15));animation:plusPulse 4.2s ease-in-out infinite}
+  @keyframes plusPulse{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(-4deg) scale(1.08)}}
 </style>
 </head>
 <body>
@@ -373,7 +378,6 @@
       </div>
       <span class="tagf">Refreshed ✦</span>
     </div>
-    <div class="hquote reveal"><p class="qh">A good website can increase your revenue by more than <span class="hlx">30%</span></p><p>Why? Because a modern website helps you get found in search, builds trust, and turns more visitors into enquiries.</p></div>
     </div>
   </div>
 </section>
@@ -387,6 +391,7 @@
       <p style="font-size:1.13rem;color:var(--muted);margin-top:1rem;max-width:48ch">Before you spend a cent, we rebuild your existing homepage with your own logo, photos and details, and send you a live link. Love it? We build the rest. Don't? Keep the ideas — no hard feelings.</p>
       <a class="btn btn-ink" href="#contact" style="margin-top:1.8rem">Get my free homepage</a>
     </div>
+    <div class="fcol">
     <div class="big reveal">
       <div class="free">$0</div>
       <div class="sub">Your free homepage concept</div>
@@ -395,6 +400,8 @@
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#0E100C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>A live link you can open on your phone</li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#0E100C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation, no pressure, no catch</li>
       </ul>
+    </div>
+    <div class="hquote reveal"><p class="qh">A good website can increase your revenue by more than <span class="hlx">30%</span></p><p>Why? Because a modern website helps you get found in search, builds trust, and turns more visitors into enquiries.</p></div>
     </div>
   </div>
 </section>
@@ -511,7 +518,8 @@
       <div class="tier reveal"><div class="nm">Premium</div><div class="pr">$14,900<small> from</small></div><p>Bespoke custom website + automation. Think AI email drafting, automatic Google review requests and a digital human receptionist — never miss a call.</p><a class="btn btn-ghost" href="#contact">Let's talk</a></div>
     </div>
     <div class="care reveal"><div><b>Every site includes a care plan from $99/month.</b><p>Hosting, security, backups, support and updates — all handled.</p></div><div class="amt">$99<small>PER MONTH</small></div></div>
-    <div class="reveal center" style="max-width:940px;margin:66px auto 0">
+    <div class="plusdiv reveal" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><path d="M60 16v88M16 60h88" style="stroke:var(--ink)" stroke-width="34" stroke-linecap="round"/><path d="M60 16v88M16 60h88" style="stroke:var(--acc)" stroke-width="21" stroke-linecap="round"/></svg></div>
+    <div class="reveal center" style="max-width:940px;margin:30px auto 0">
       <span class="chip">Bolt-ons</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem);margin-top:.8rem">Make your website &amp; business more <span class="hlx">efficient</span>.</h2>
       <p style="color:var(--muted);margin-top:.8rem">Optional custom functionality we can build right into your site.</p>
