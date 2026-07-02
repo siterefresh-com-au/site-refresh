@@ -312,10 +312,22 @@
       var r=stage.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
       set(x/r.width*100);
     }
-    stage.addEventListener('pointerdown',function(e){dragging=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
+    var interacted=false,played=false;
+    stage.addEventListener('pointerdown',function(e){dragging=true;interacted=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
     stage.addEventListener('pointermove',function(e){if(dragging)fromEvent(e);});
     stage.addEventListener('pointerup',function(){dragging=false;});
     stage.addEventListener('pointercancel',function(){dragging=false;});
+    if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var io=new IntersectionObserver(function(es){es.forEach(function(x){
+        if(x.isIntersecting&&!played){played=true;io.disconnect();
+          setTimeout(function(){if(interacted)return;var t0=performance.now(),D=2200;
+            (function f(now){if(interacted){set(start);return;}var u=Math.min(1,(now-t0)/D);
+              set(start+17*Math.sin(u*Math.PI*2)*(1-u));
+              if(u<1)requestAnimationFrame(f);else set(start);})(t0);
+          },450);}
+      });},{threshold:.55});
+      io.observe(stage);
+    }
     handle.addEventListener('keydown',function(e){
       var cur=parseFloat(handle.getAttribute('aria-valuenow'));
       if(e.key==='ArrowLeft'){set(cur-4);e.preventDefault();}
