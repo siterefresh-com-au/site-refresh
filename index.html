@@ -66,10 +66,10 @@
   .dsite .tile{height:58px;border-radius:12px;background:var(--soft);position:relative;display:flex;align-items:flex-end;padding:8px 9px}.dsite .tile b{font-size:.55rem;font-weight:700;color:var(--ink2);letter-spacing:.02em}
   .dsite .tile::before{content:"";position:absolute;top:9px;left:9px;width:18px;height:18px;border-radius:6px;background:var(--acc)}
   
-  .hcard{position:absolute;left:-6px;bottom:-14px;width:150px;background:#fbfbf9;border:1px solid #e3e3dd;border-radius:12px;box-shadow:var(--shs);padding:11px;transform:rotate(-6deg);filter:grayscale(.3);z-index:3}
-  .hcard .t{font-family:Times New Roman,serif;font-weight:700;font-size:.66rem;color:#2a3a86}
-  .hcard .l{font-family:Times New Roman,serif;font-size:.55rem;color:#2a52be;text-decoration:underline;margin-top:4px}
-  .hcard .x{height:5px;background:#e5e2da;border-radius:2px;margin-top:5px}
+  .hcard{position:absolute;left:-14px;bottom:-20px;width:196px;background:#fbfbf9;border:1px solid #e3e3dd;border-radius:12px;box-shadow:var(--shs);padding:15px 14px 13px;transform:rotate(-6deg);filter:grayscale(.25);z-index:3}
+  .hcard .t{font-family:Times New Roman,serif;font-weight:700;font-size:.82rem;color:#2a3a86}
+  .hcard .l{font-family:Times New Roman,serif;font-size:.68rem;color:#2a52be;text-decoration:underline;margin-top:5px}
+  .hcard .x{height:6px;background:#e5e2da;border-radius:2px;margin-top:6px}
   .tagf{position:absolute;top:6px;right:-6px;background:var(--ink);color:#fff;font-weight:700;font-size:.7rem;padding:7px 13px;border-radius:999px;z-index:4;box-shadow:var(--shs)}
 
   section{scroll-margin-top:88px}
@@ -471,6 +471,22 @@
   .mockn{text-align:center;color:#6B7370;font-size:.85rem;margin-top:10px}
   .fback{position:absolute;inset:0;display:grid;place-items:center;background:#F4F6F0;color:#6B7370;font-weight:700;text-align:center;line-height:1.5}
   .fback small{font-weight:600;color:#98A09C}
+  .hlab{position:absolute;top:-12px;left:-10px;background:rgba(10,12,9,.82);color:#fff;font-family:var(--f);font-weight:800;font-size:.66rem;letter-spacing:.06em;padding:5px 12px;border-radius:999px;transform:rotate(-2deg)}
+  .tagf{overflow:visible!important}
+  .sp{position:absolute;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:twk 2.2s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 0 10px rgba(168,240,74,.75)) drop-shadow(0 2px 6px rgba(10,12,9,.18))}
+  .s1{width:38px;height:38px;top:-34px;left:-40px;background:var(--acc)}
+  .s2{width:24px;height:24px;bottom:-26px;right:-24px;background:var(--acc);animation-delay:.5s;animation-duration:1.9s}
+  .s3{width:18px;height:18px;top:-38px;right:30px;background:#0E100C;animation-delay:1.1s;animation-duration:2.6s;filter:drop-shadow(0 2px 5px rgba(10,12,9,.25))}
+  .s4{width:28px;height:28px;left:-56px;bottom:-8px;background:#0E100C;animation-delay:.8s;animation-duration:2.3s;filter:drop-shadow(0 2px 5px rgba(10,12,9,.25))}
+  .s5{width:16px;height:16px;top:8px;right:-32px;background:var(--acc);animation-delay:1.5s;animation-duration:2s}
+  @keyframes twk{0%,100%{transform:scale(.3) rotate(0deg);opacity:.2}50%{transform:scale(1.08) rotate(45deg);opacity:1}}
+  @media(prefers-reduced-motion:reduce){.sp{animation:none;opacity:.6;transform:scale(.8)}}
+  .steps-path.armed .wipeR{width:0}
+  .steps-path.go .wipeR{animation:sweep 3s cubic-bezier(.3,.55,.25,1) .15s forwards}
+  @keyframes sweep{to{width:1116px}}
+  .steps-path.go .darc{animation:dmarch 1.1s linear infinite}
+  @keyframes dmarch{to{stroke-dashoffset:-11.5}}
+  @media(prefers-reduced-motion:reduce){.steps-path.armed .wipeR{width:1116px}}
 </style>
 </head>
 <body>
@@ -525,11 +541,11 @@
           <div class="dbody"><div class="tile"><b>Services</b></div><div class="tile"><b>Gallery</b></div><div class="tile"><b>Reviews</b></div></div>
         </div>
       </div>
-      <div class="hcard" aria-hidden="true">
+      <div class="hcard" aria-hidden="true"><span class="hlab">Before</span>
         <div class="t">Welcome to our site</div><div class="l">Home | Services</div>
         <div class="x"></div><div class="x" style="width:75%"></div><div class="x" style="width:60%"></div>
       </div>
-      <span class="tagf">Refreshed ✦</span>
+      <span class="tagf">Refreshed ✦<i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i></span>
     </div>
     </div>
   </div>
@@ -602,10 +618,12 @@
       <div class="stp reveal"><div class="no">4</div><h3>We keep it fresh</h3><p>Hosting, security, updates and support, all handled.</p></div>
     </div>
     <svg class="steps-path" viewBox="0 0 1116 96" fill="none" aria-hidden="true">
-      <defs><marker id="arw" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2 10 6 2 10Z" style="fill:var(--acc);stroke:var(--ink)" stroke-width="1.6" stroke-linejoin="round"/></marker></defs>
-      <path d="M150 10 Q283 92 400 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
-      <path d="M430 10 Q562 92 679 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
-      <path d="M709 10 Q841 92 958 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
+      <defs><clipPath id="swipe"><rect class="wipeR" x="0" y="0" width="1116" height="96"/></clipPath><marker id="arw" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2 10 6 2 10Z" style="fill:var(--acc);stroke:var(--ink)" stroke-width="1.6" stroke-linejoin="round"/></marker></defs>
+      <g clip-path="url(#swipe)">
+      <path class="darc" d="M150 10 Q283 92 400 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
+      <path class="darc" d="M430 10 Q562 92 679 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
+      <path class="darc" d="M709 10 Q841 92 958 14" style="stroke:var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 11" marker-end="url(#arw)"/>
+      </g>
     </svg>
   </div>
 </section>
@@ -902,6 +920,12 @@
   function fit(){var vw=st.clientWidth<640?430:1360,s=st.clientWidth/vw;
     f.style.width=vw+'px';f.style.height=(st.clientHeight/s)+'px';f.style.transform='scale('+s+')'}
   fit();addEventListener('resize',fit);
+})();
+(function(){
+  var sp=document.querySelector('.steps-path');if(!sp)return;
+  sp.classList.add('armed');
+  var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){sp.classList.add('go');o.disconnect()}},{threshold:.5});
+  o.observe(sp);
 })();
 </script>
 </body>
