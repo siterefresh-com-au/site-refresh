@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Coastal Tiling — Wall & Floor Tiling | the coast & Bayview</title>
-<meta name="description" content="Coastal Tiling — precision wall & floor tiling across the coast and surrounding suburbs. Bathrooms, kitchens, floors, waterproofing. Free quotes. Call (07) 5550 1234." />
+<title>Coastal Tiling — Wall & Floor Tiling | Sunshine Coast</title>
+<meta name="description" content="Coastal Tiling — precision wall & floor tiling across the Sunshine Coast. Bathrooms, kitchens, floors, waterproofing. Free quotes. Call (07) 5550 1234." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -36,8 +36,8 @@
   .nav{display:flex;align-items:center;gap:1.3rem;height:76px}
   .brand{display:flex;align-items:center;gap:.66rem}
   .brand .mk{width:38px;height:38px;flex:none}
-  .brand .nm{font-family:var(--fd);font-weight:600;font-size:1.18rem;line-height:1.05}
-  .brand .nm small{display:block;font-family:var(--fb);font-weight:600;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-dk)}
+  .brand .nm{font-family:var(--fd);font-weight:600;font-size:1.18rem;line-height:1.25}
+  .brand .nm small{display:block;font-family:var(--fb);font-weight:600;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-dk);margin-top:3px;line-height:1.3}
   .nav nav{display:flex;gap:1.4rem;margin-left:auto}
   .nav nav a{font-weight:500;font-size:.95rem;color:#42474d} .nav nav a:hover{color:var(--clay-dk)}
   .nav .ph{display:flex;align-items:center;gap:.45rem;font-weight:700;color:var(--ink);font-size:.98rem}
@@ -59,6 +59,8 @@
   /* tile sample board */
   .board{position:relative}
   .board .panel{background:#cdbfb0;border-radius:var(--r);padding:10px;box-shadow:var(--sh);display:grid;grid-template-columns:repeat(4,1fr);gap:7px;aspect-ratio:1.04/1}
+  .board .panel.photo{display:block}
+  .board .panel.photo img{width:100%;height:100%;object-fit:cover;border-radius:10px}
   .board .panel i{border-radius:6px;display:block}
   .t-stone{background:var(--stone)} .t-sand{background:var(--sand)} .t-clay{background:var(--clay)} .t-slate{background:var(--ink2)} .t-taupe{background:var(--taupe)} .t-lt{background:#F6F0E8}
   .board .panel i.span2{grid-column:span 2} .board .panel i.row2{grid-row:span 2}
@@ -69,43 +71,98 @@
   .board .tag{position:absolute;top:16px;right:16px;background:rgba(35,40,46,.82);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:7px;backdrop-filter:blur(4px)}
 
   section{scroll-margin-top:86px}
-  .sec{padding:90px 0}
+  .sec{padding:130px 0;position:relative;overflow:hidden}
+  .sec>.wrap{position:relative;z-index:1}
+  .deco{position:absolute;pointer-events:none;z-index:0;animation:drift 14s ease-in-out infinite}
+  .deco.d2{animation-duration:18s;animation-delay:-6s}
+  @keyframes drift{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-14px) rotate(var(--rot,0deg))}}
+  /* angled section tops: two overlaid wedges, mild shade difference */
+  .aw{position:absolute;top:-1px;left:0;width:100%;height:4.5vw;max-height:64px;min-height:34px;pointer-events:none;z-index:0}
+  .aw i{position:absolute;inset:0;display:block}
+  .aw .a2{background:var(--tint,rgba(193,95,60,.12))}
+  .aw .a1{background:var(--pc,var(--bg))}
+  .aw-l .a1{clip-path:polygon(0 0,100% 0,100% 22%,0 100%)}
+  .aw-l .a2{clip-path:polygon(0 0,100% 0,100% 46%,0 100%);transform:scaleY(1.3);transform-origin:top}
+  .aw-r .a1{clip-path:polygon(0 0,100% 0,100% 100%,0 22%)}
+  .aw-r .a2{clip-path:polygon(0 0,100% 0,100% 100%,0 46%);transform:scaleY(1.3);transform-origin:top}
+
+  /* craftsmanship */
+  .craft .grout-bg{position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:linear-gradient(rgba(185,146,110,.13) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(185,146,110,.13) 1.5px,transparent 1.5px);background-size:64px 64px;mask-image:radial-gradient(120% 100% at 30% 40%,#000 30%,transparent 78%);-webkit-mask-image:radial-gradient(120% 100% at 30% 40%,#000 30%,transparent 78%)}
+  .craft .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:84px;align-items:center}
+  .craft .photo{position:relative}
+  .craft .photo img{width:100%;border-radius:22px;box-shadow:0 40px 80px -34px rgba(35,40,46,.55);display:block}
+  .craft .badge{position:absolute;background:#fff;border-radius:13px;box-shadow:var(--sh);padding:12px 16px;display:flex;align-items:center;gap:11px;animation:drift 12s ease-in-out infinite}
+  .craft .badge.b1{top:22px;left:-24px}
+  .craft .badge.b2{bottom:64px;right:-20px;animation-delay:-5s}
+  .craft .badge.b3{bottom:-22px;left:34px;animation-delay:-9s}
+  .craft .badge .bic{width:38px;height:38px;border-radius:10px;background:var(--clay);display:grid;place-items:center;flex:none}
+  .craft .badge b{font-family:var(--fd);font-weight:600;font-size:.98rem;display:block;line-height:1.15}
+  .craft .badge span{font-size:.74rem;color:var(--muted)}
+  .craft h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-top:.7rem}
+  .craft .pts{margin-top:2.6rem;display:grid;gap:1.7rem}
+  .craft .pt{display:flex;gap:.95rem;align-items:flex-start}
+  .craft .pt .tick{width:30px;height:30px;border-radius:9px;background:#F4E7DF;display:grid;place-items:center;flex:none;margin-top:2px}
+  .craft .pt b{font-family:var(--fd);font-weight:600;font-size:1.12rem;display:block}
+  .craft .pt p{font-size:.94rem;color:var(--muted);margin-top:.15rem}
+
   .bg2{background:var(--bg2)} .dark{background:var(--ink);color:#f4efe8}
   .sec-head{max-width:660px}
   .sec-head h2{font-size:clamp(2rem,3.8vw,2.9rem);margin-top:.7rem}
-  .sec-head p{font-size:1.1rem;color:var(--muted);margin-top:.9rem}
+  .sec-head p{font-size:1.1rem;color:var(--muted);margin-top:1.1rem}
   .dark .sec-head p{color:#c7c1b7}
   .center{margin-left:auto;margin-right:auto;text-align:center}
 
   /* services */
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
-  .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .2s ease,box-shadow .2s ease}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:64px}
+  .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:transform .2s ease,box-shadow .2s ease}
   .svc:hover{transform:translateY(-5px);box-shadow:var(--shs)}
-  .svc .ic{width:48px;height:48px;border-radius:12px;background:#F4E7DF;display:grid;place-items:center;margin-bottom:15px}
-  .svc h3{font-size:1.28rem;font-weight:600;margin-bottom:.45rem}
+  .svc .ic{width:54px;height:54px;border-radius:13px;background:#F4E7DF;display:grid;place-items:center;margin-bottom:22px;transition:background .3s ease}
+  .svc:hover .ic{background:var(--clay)}
+  .svc .ic svg *{transition:stroke .3s ease}
+  .svc:hover .ic svg *{stroke:#fff}
+  .grid3 .svc:nth-child(2),.steps .step:nth-child(2){transition-delay:.08s}
+  .grid3 .svc:nth-child(3),.steps .step:nth-child(3){transition-delay:.16s}
+  .grid3 .svc:nth-child(4),.steps .step:nth-child(4){transition-delay:.24s}
+  .grid3 .svc:nth-child(5){transition-delay:.32s}
+  .grid3 .svc:nth-child(6){transition-delay:.4s}
+  .svc h3{font-size:1.28rem;font-weight:600;margin-bottom:.6rem}
   .svc p{font-size:.95rem;color:var(--muted)}
 
   /* why */
-  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
-  .wcard{display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:24px}
-  .wcard .n{font-family:var(--fd);font-weight:600;font-size:1.3rem;color:var(--clay-br);flex:none;width:40px}
-  .wcard h3{font-size:1.2rem;font-weight:600;margin-bottom:.35rem}
-  .wcard p{font-size:.95rem;color:#c7c1b7}
+  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:68px}
+  .wcard{position:relative;overflow:hidden;display:block;background:linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:42px 36px 38px;transition:background .3s ease,border-color .3s ease,transform .3s ease,opacity .6s ease}
+  .wcard:hover{background:linear-gradient(155deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border-color:rgba(208,110,72,.45);transform:translateY(-4px)}
+  .wcard::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--clay),var(--clay-br));transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.22,.9,.3,1) .3s}
+  .wcard.in::after{transform:scaleX(1)}
+  .why .wcard:nth-child(2){transition-delay:.1s} .why .wcard:nth-child(2)::after{transition-delay:.4s}
+  .why .wcard:nth-child(3){transition-delay:.2s} .why .wcard:nth-child(3)::after{transition-delay:.5s}
+  .why .wcard:nth-child(4){transition-delay:.3s} .why .wcard:nth-child(4)::after{transition-delay:.6s}
+  .wcard .n{position:absolute;top:2px;right:16px;font-family:var(--fd);font-weight:600;font-size:5.4rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(208,110,72,.5);pointer-events:none;transition:-webkit-text-stroke .3s ease}
+  .wcard:hover .n{-webkit-text-stroke:1.5px rgba(208,110,72,.9)}
+  .wcard h3{font-size:1.32rem;font-weight:600;margin-bottom:.5rem;padding-right:90px}
+  .wcard h3::before{content:'';display:block;width:34px;height:3px;border-radius:2px;background:var(--clay-br);margin-bottom:.9rem}
+  .wcard p{font-size:.96rem;color:#c7c1b7;max-width:44ch}
 
-  /* process */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
-  .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-  .step .no{width:40px;height:40px;border-radius:10px;background:var(--ink);color:#fff;font-family:var(--fd);font-weight:600;display:grid;place-items:center;margin-bottom:13px}
-  .step h3{font-size:1.12rem;font-weight:600;margin-bottom:.35rem}
-  .step p{font-size:.92rem;color:var(--muted)}
+  /* process — connected timeline */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:84px;position:relative}
+  .steps::before{content:'';position:absolute;top:26px;left:12.5%;right:12.5%;height:2px;background:var(--line)}
+  .steps::after{content:'';position:absolute;top:26px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--clay),var(--clay-br));transform:scaleX(0);transform-origin:left;transition:transform 1.8s cubic-bezier(.4,0,.2,1) .4s}
+  .steps.in::after{transform:scaleX(1)}
+  .step{position:relative;text-align:center;padding:0 10px;transition:opacity .6s ease,transform .6s ease}
+  .step .no{width:52px;height:52px;border-radius:50%;background:var(--bg);border:2.5px solid var(--ink);color:var(--ink);font-family:var(--fd);font-weight:600;font-size:1.25rem;display:grid;place-items:center;margin:0 auto 18px;position:relative;z-index:1;transition:background .3s ease,border-color .3s ease,color .3s ease,box-shadow .3s ease}
+  .step:hover .no{background:var(--clay);border-color:var(--clay);color:#fff;box-shadow:0 10px 22px -10px rgba(193,95,60,.6)}
+  .step .si{display:block;margin:.2rem auto .8rem;width:26px;height:26px;opacity:.9}
+  .step h3{font-size:1.14rem;font-weight:600;margin-bottom:.4rem}
+  .step p{font-size:.92rem;color:var(--muted);max-width:24ch;margin:0 auto}
 
   /* gallery */
-  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
   .gcell{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line)}
-  .gcell .ph{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:5px;padding:8px;background:#c9bbac}
-  .gcell .ph i{border-radius:4px}
-  .gcell .lbl{position:absolute;left:10px;bottom:10px;background:rgba(35,40,46,.78);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:6px;backdrop-filter:blur(3px)}
-  .gal-note{text-align:center;margin-top:18px;font-size:.86rem;color:var(--muted)}
+  .gcell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#c9bbac;transition:transform .5s ease}
+  .gcell:hover img{transform:scale(1.04)}
+  .gcell::after{content:'';position:absolute;inset:auto 0 0 0;height:46%;background:linear-gradient(to top,rgba(35,40,46,.55),transparent);pointer-events:none}
+  .gcell .lbl{position:absolute;left:10px;bottom:10px;z-index:2;background:rgba(35,40,46,.78);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:6px;backdrop-filter:blur(3px)}
+  .gal-note{text-align:center;margin-top:30px;font-size:.86rem;color:var(--muted)}
 
   /* area */
   .area{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
@@ -115,7 +172,7 @@
   /* cta */
   .cta-band{position:relative;overflow:hidden}
   .cta-band .grout{position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.06) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.06) 2px,transparent 2px);background-size:54px 54px}
-  .cta-band .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:76px 26px}
+  .cta-band .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding:110px 26px}
   .cta-band h2{font-size:clamp(2rem,4vw,3rem);color:#fff}
   .cta-band p{color:#cfc9bf;font-size:1.12rem;margin-top:1rem;max-width:42ch}
   .form{background:#fff;border-radius:var(--r);padding:26px;box-shadow:var(--sh)}
@@ -133,6 +190,17 @@
   footer .bottom{padding-top:18px;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
   .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--clay);color:#fff;text-align:center;font-weight:700;padding:.92rem;box-shadow:0 -8px 22px -12px rgba(0,0,0,.4)}
+
+  /* area ticker */
+  .ticker{background:var(--ink);overflow:hidden;padding:19px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+  .ticker .tk{display:flex;width:max-content;animation:tick 30s linear infinite}
+  .ticker:hover .tk{animation-play-state:paused}
+  .ticker .set{display:inline-flex;align-items:center;white-space:nowrap}
+  .ticker .set span{display:inline-flex;align-items:center;gap:2rem;padding-right:2rem;color:#F4EFE8;font-weight:600;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+  .ticker .set svg{flex:none}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker .tk{animation:none}}
+
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 
@@ -140,13 +208,16 @@
     .hero .wrap,.cta-band .wrap,.area{grid-template-columns:1fr;gap:40px}
     .board{order:-1}
     .grid3,.steps{grid-template-columns:repeat(2,1fr)}
+    .steps::before,.steps::after{display:none}
+    .craft .wrap{grid-template-columns:1fr;gap:70px}
+    .craft .badge.b1{left:10px} .craft .badge.b2{right:10px}
     .why{grid-template-columns:1fr}
     footer .top{grid-template-columns:1fr 1fr}
   }
   @media(max-width:600px){
     .nav nav,.nav .ph,.nav .cta{display:none} .burger{display:block}
     .grid3,.steps,.gal{grid-template-columns:1fr}
-    .sec{padding:60px 0} .mcta{display:block} body{padding-bottom:54px}
+    .sec{padding:84px 0} .mcta{display:block} body{padding-bottom:54px}
     footer .top{grid-template-columns:1fr}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -187,9 +258,9 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Wall &amp; Floor Tiling · the coast &amp; Bayview</span>
+      <span class="eyebrow">Wall &amp; Floor Tiling · Sunshine Coast</span>
       <h1 style="margin-top:1rem">Tiling done <span class="em">right</span>, the first time.</h1>
-      <p class="lead">Bathrooms, kitchens and floors — laid level, sealed watertight and finished neatly. Local, reliable, and quoted free across the local coastal region.</p>
+      <p class="lead">Bathrooms, kitchens and floors — laid level, sealed watertight and finished neatly. Local, reliable, and quoted free across the Sunshine Coast.</p>
       <div class="acts">
         <a class="btn btn-acc" href="#quote">Get a free quote</a>
         <a class="btn btn-ghost" href="tel:0755501234">Call (07) 5550 1234</a>
@@ -201,23 +272,39 @@
       </div>
     </div>
     <div class="board">
-      <div class="panel" aria-hidden="true">
-        <i class="t-stone span2 row2"></i><i class="t-clay"></i><i class="t-sand"></i>
-        <i class="t-lt"></i><i class="t-slate"></i>
-        <i class="t-sand span2"></i><i class="t-taupe"></i><i class="t-stone"></i>
-        <i class="t-clay"></i><i class="t-lt span2"></i><i class="t-stone"></i>
+      <div class="panel photo">
+        <img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783409209011_eb02d460_1783409209071_4c369999.png" alt="Tiler laying a warm beige porcelain floor tile with spacers and trowel">
       </div>
       <span class="tag">Sample finish</span>
       <div class="chip">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><b>Free quotes</b><span>across the local coastal region</span></div>
+        <div><b>Free quotes</b><span>across the Sunshine Coast</span></div>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- AREA TICKER -->
+<div class="ticker" aria-label="Service areas: Maroochydore, Alexandra Headland, Mooloolaba, Buderim, Warana, Caloundra, Golden Beach, Maleny, Montville, Noosa Heads, Coolum Beach, Nambour, Sippy Downs, Kawana Waters, Peregian Beach">
+  <div class="tk">
+    <div class="set"><span>Maroochydore <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Alexandra Headland <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Mooloolaba <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Buderim <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Warana <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Caloundra <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Golden Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Maleny <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Montville <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Noosa Heads <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Coolum Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Nambour <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Sippy Downs <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Kawana Waters <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Peregian Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span></div>
+    <div class="set" aria-hidden="true"><span>Maroochydore <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Alexandra Headland <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Mooloolaba <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Buderim <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Warana <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Caloundra <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Golden Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Maleny <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Montville <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Noosa Heads <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Coolum Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Nambour <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Sippy Downs <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Kawana Waters <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span><span>Peregian Beach <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.6" y="1.6" width="6.8" height="6.8" rx="1.4" transform="rotate(45 5 5)" fill="#C15F3C"/></svg></span></div>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section class="sec bg2" id="services">
+  <div class="aw aw-l" style="--pc:var(--ink);--tint:rgba(35,40,46,.28)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
+  <svg class="deco" style="top:-30px;right:-30px;--rot:8deg" width="520" height="520" viewBox="0 0 420 420" fill="none" aria-hidden="true">
+    <defs><linearGradient id="fadeTile" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C15F3C" stop-opacity=".32"/><stop offset=".55" stop-color="#B9926E" stop-opacity=".14"/><stop offset="1" stop-color="#B9926E" stop-opacity="0"/></linearGradient></defs>
+    <g stroke="url(#fadeTile)" stroke-width="2.5">
+      <rect x="230" y="20" width="80" height="80" rx="8"/><rect x="320" y="20" width="80" height="80" rx="8" fill="#C15F3C" fill-opacity=".16"/>
+      <rect x="140" y="110" width="80" height="80" rx="8"/><rect x="230" y="110" width="80" height="80" rx="8" fill="#B9926E" fill-opacity=".15"/><rect x="320" y="110" width="80" height="80" rx="8"/>
+      <rect x="230" y="200" width="80" height="80" rx="8"/><rect x="320" y="200" width="80" height="80" rx="8"/>
+      <rect x="320" y="290" width="80" height="80" rx="8" fill="#C15F3C" fill-opacity=".12"/>
+    </g>
+  </svg>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">What we do</span>
@@ -225,25 +312,61 @@
       <p>From a single splashback to a full bathroom renovation — wall and floor tiling, done properly.</p>
     </div>
     <div class="grid3">
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#C15F3C" stroke-width="2"/><path d="M3 9h18M9 3v18" stroke="#C15F3C" stroke-width="2"/></svg></div><h3>Bathroom &amp; ensuite tiling</h3><p>Floors, walls and niches tiled and sealed watertight — the room that has to be done right.</p></div>
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="#C15F3C" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Kitchen &amp; splashbacks</h3><p>Crisp splashbacks and feature walls that lift the whole kitchen, cut and laid neatly.</p></div>
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="1" stroke="#C15F3C" stroke-width="2"/><rect x="13" y="3" width="8" height="8" rx="1" stroke="#C15F3C" stroke-width="2"/><rect x="3" y="13" width="8" height="8" rx="1" stroke="#C15F3C" stroke-width="2"/><rect x="13" y="13" width="8" height="8" rx="1" stroke="#C15F3C" stroke-width="2"/></svg></div><h3>Floor tiling</h3><p>Indoor and outdoor floors, including large-format tiles, laid level with clean grout lines.</p></div>
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s7 7 7 12a7 7 0 0 1-14 0c0-5 7-12 7-12Z" stroke="#C15F3C" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Waterproofing</h3><p>Wet areas sealed to Australian standards before a tile goes down — no shortcuts, no leaks.</p></div>
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11" stroke="#C15F3C" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Outdoor, patios &amp; pools</h3><p>Patios, alfresco areas and pool surrounds in slip-rated tiles built for the Queensland weather.</p></div>
-      <div class="svc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 4l6 6-10 10H4v-6L14 4Z" stroke="#C15F3C" stroke-width="2" stroke-linejoin="round"/></svg></div><h3>Repairs &amp; re-grouting</h3><p>Cracked tiles replaced, tired grout renewed, leaking showers sorted — bring it back to new.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path pathLength="1" d="M4 15h20v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3Z" stroke="#C15F3C" stroke-width="1.8" stroke-linejoin="round"/><path pathLength="1" d="M6 15V6.5A2.5 2.5 0 0 1 8.5 4 2.5 2.5 0 0 1 11 6.5" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/><path pathLength="1" d="M11 8.5c0-.8 1-.8 1 0M14 8.5c0-.8 1-.8 1 0M12.5 11c0-.8 1-.8 1 0" stroke="#C15F3C" stroke-width="1.6" stroke-linecap="round"/><path pathLength="1" d="M8 23l-1 2M20 23l1 2" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Bathroom &amp; ensuite tiling</h3><p>Floors, walls and niches tiled and sealed watertight — the room that has to be done right.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect pathLength="1" x="4" y="4" width="20" height="10" rx="1.5" stroke="#C15F3C" stroke-width="1.8"/><path pathLength="1" d="M10.5 4v10M17.5 4v10M4 9h20" stroke="#C15F3C" stroke-width="1.6"/><path pathLength="1" d="M4 18h20M8 18v6M14 18v4" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Kitchen &amp; splashbacks</h3><p>Crisp splashbacks and feature walls that lift the whole kitchen, cut and laid neatly.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect pathLength="1" x="4" y="4" width="9" height="9" rx="1" stroke="#C15F3C" stroke-width="1.8"/><rect pathLength="1" x="15" y="4" width="9" height="9" rx="1" stroke="#C15F3C" stroke-width="1.8"/><rect pathLength="1" x="4" y="15" width="9" height="9" rx="1" stroke="#C15F3C" stroke-width="1.8"/><path pathLength="1" d="M15 19.5 19.5 15l4.5 4.5M17 24l4-4" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Floor tiling</h3><p>Indoor and outdoor floors, including large-format tiles, laid level with clean grout lines.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path pathLength="1" d="M14 3s8 8.2 8 13.6A8 8 0 0 1 6 16.6C6 11.2 14 3 14 3Z" stroke="#C15F3C" stroke-width="1.8" stroke-linejoin="round"/><path pathLength="1" d="M10.5 17a3.5 3.5 0 0 0 3.5 3.5" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Waterproofing</h3><p>Wet areas sealed to Australian standards before a tile goes down — no shortcuts, no leaks.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle pathLength="1" cx="14" cy="10" r="4" stroke="#C15F3C" stroke-width="1.8"/><path pathLength="1" d="M14 2v2.2M14 15.8V18M6 10H3.8M24.2 10H22M8.3 4.3l1.6 1.6M19.7 4.3l-1.6 1.6" stroke="#C15F3C" stroke-width="1.7" stroke-linecap="round"/><path pathLength="1" d="M4 22c2-2.4 4.5 2.4 6.7 0 2-2.4 4.6 2.4 6.6 0 2.2-2.4 4.7 2.4 6.7 0" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Outdoor, patios &amp; pools</h3><p>Patios, alfresco areas and pool surrounds in slip-rated tiles built for the Queensland weather.</p></div>
+      <div class="svc reveal"><div class="ic"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path pathLength="1" d="M16.5 5 23 11.5 11.5 23H5v-6.5L16.5 5Z" stroke="#C15F3C" stroke-width="1.8" stroke-linejoin="round"/><path pathLength="1" d="M13.5 8 20 14.5" stroke="#C15F3C" stroke-width="1.8" stroke-linecap="round"/><path pathLength="1" d="M22 22.5h3M23.5 21v3" stroke="#C15F3C" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Repairs &amp; re-grouting</h3><p>Cracked tiles replaced, tired grout renewed, leaking showers sorted — bring it back to new.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFTSMANSHIP -->
+<section class="sec craft" id="craft">
+  <div class="aw aw-r" style="--pc:var(--bg2);--tint:rgba(185,146,110,.2)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
+  <div class="grout-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="photo reveal">
+      <img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783411199392_5241e7f1_1783411199852_7b4b4084.png" alt="Tiler checking freshly laid porcelain floor tiles with a spirit level, perfectly straight grout lines" loading="lazy">
+      <div class="badge b1"><div class="bic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3.5v5c0 4.5-3 7.7-7 9.5-4-1.8-7-5-7-9.5v-5L12 3Z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></div><div><b>Waterproofed</b><span>sealed to AS 3740</span></div></div>
+      <div class="badge b2"><div class="bic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="5" rx="1.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12.5" r="1.2" fill="#fff"/></svg></div><div><b>Laser-level laid</b><span>checked as we go</span></div></div>
+      <div class="badge b3"><div class="bic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Clean finish</b><span>site left tidy, every job</span></div></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">The craft</span>
+      <h2>The difference is in the details.</h2>
+      <div class="pts">
+        <div class="pt"><div class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#C15F3C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Prep before pretty</b><p>Substrates levelled, primed and dry before a single tile goes down.</p></div></div>
+        <div class="pt"><div class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#C15F3C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Grout lines that run true</b><p>Laid off laser lines and checked constantly — straight from every angle.</p></div></div>
+        <div class="pt"><div class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#C15F3C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>Waterproofing done properly</b><p>Wet areas sealed to Australian standards. The part you never see, done right.</p></div></div>
+        <div class="pt"><div class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#C15F3C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b>A finish we'd put our name on</b><p>Grouted, sealed, silicone neat — and the site left cleaner than we found it.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- WHY -->
 <section class="sec dark" id="why">
+  <div class="aw aw-l" style="--pc:var(--bg);--tint:rgba(251,248,244,.14)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
+  <svg class="deco d2" style="top:-140px;left:-160px;--rot:-6deg" width="460" height="460" viewBox="0 0 480 480" fill="none" aria-hidden="true">
+    <defs><linearGradient id="fadeArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D06E48" stop-opacity=".3"/><stop offset=".6" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+    <g stroke="url(#fadeArc)" stroke-width="7" stroke-linecap="round">
+      <path d="M40 440A340 340 0 0 1 380 100"/>
+      <path d="M70 440A310 310 0 0 1 380 130"/>
+      <path d="M100 440A280 280 0 0 1 380 160"/>
+      <path d="M130 440A250 250 0 0 1 380 190"/>
+      <path d="M160 440A220 220 0 0 1 380 220"/>
+      <path d="M190 440A190 190 0 0 1 380 250"/>
+    </g>
+  </svg>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow lt">Why locals call us</span>
       <h2>A neat finish you'll be glad you paid for.</h2>
     </div>
     <div class="why">
-      <div class="wcard reveal"><div class="n">01</div><div><h3>Local &amp; reliable</h3><p>Based right here in the local coastal region. We turn up when we say we will and keep you posted through the job.</p></div></div>
+      <div class="wcard reveal"><div class="n">01</div><div><h3>Local &amp; reliable</h3><p>Based right here on the Sunshine Coast. We turn up when we say we will and keep you posted through the job.</p></div></div>
       <div class="wcard reveal"><div class="n">02</div><div><h3>Precision that lasts</h3><p>Tiles laid level, lines kept straight, edges finished cleanly. The kind of work that still looks good in ten years.</p></div></div>
       <div class="wcard reveal"><div class="n">03</div><div><h3>Watertight, properly</h3><p>Waterproofing done to standard before tiling — the part you can't see that stops the leaks you don't want.</p></div></div>
       <div class="wcard reveal"><div class="n">04</div><div><h3>Free, honest quotes</h3><p>We'll come and measure up, talk through your tiles, and give you a clear price with no surprises.</p></div></div>
@@ -253,28 +376,41 @@
 
 <!-- PROCESS -->
 <section class="sec" id="process">
+  <div class="aw aw-r" style="--pc:var(--ink);--tint:rgba(35,40,46,.26)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
+  <svg class="deco" style="top:20px;right:-30px;--rot:0deg" width="470" height="445" viewBox="0 0 380 360" fill="none" aria-hidden="true">
+    <defs><linearGradient id="fadeDia" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C15F3C" stop-opacity=".3"/><stop offset=".6" stop-color="#B9926E" stop-opacity=".12"/><stop offset="1" stop-color="#B9926E" stop-opacity="0"/></linearGradient></defs>
+    <g stroke="url(#fadeDia)" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M270 20l45 45-45 45-45-45z" fill="#C15F3C" fill-opacity=".14"/>
+      <path d="M330 90l40 40-40 40-40-40z"/>
+      <path d="M240 120l40 40-40 40-40-40z"/>
+      <path d="M310 190l45 45-45 45-45-45z" fill="#B9926E" fill-opacity=".15"/>
+      <path d="M225 235l32 32-32 32-32-32z"/>
+    </g>
+    <path d="M60 300c40-24 78 24 118 0" stroke="url(#fadeDia)" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">How it works</span><h2>Simple, from quote to clean-up.</h2></div>
-    <div class="steps">
-      <div class="step reveal"><div class="no">1</div><h3>Free quote</h3><p>Give us a call and we'll come measure up and price the job.</p></div>
-      <div class="step reveal"><div class="no">2</div><h3>Prep &amp; waterproof</h3><p>Surfaces prepped and wet areas sealed to standard.</p></div>
-      <div class="step reveal"><div class="no">3</div><h3>Precision tiling</h3><p>Tiles cut and laid level, with clean, even grout lines.</p></div>
-      <div class="step reveal"><div class="no">4</div><h3>Clean finish</h3><p>Grouted, sealed, and the site left tidy behind us.</p></div>
+    <div class="steps reveal">
+      <div class="step reveal"><div class="no">1</div><span class="si"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path pathLength="1" d="M6 4h11l4 4v14H6V4Z" stroke="#B9926E" stroke-width="1.7" stroke-linejoin="round"/><path pathLength="1" d="M9 12h8M9 16h8M9 8h4" stroke="#B9926E" stroke-width="1.6" stroke-linecap="round"/></svg></span><h3>Free quote</h3><p>Give us a call and we'll come measure up and price the job.</p></div>
+      <div class="step reveal"><div class="no">2</div><span class="si"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path pathLength="1" d="M13 3l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V7l8-4Z" stroke="#B9926E" stroke-width="1.7" stroke-linejoin="round"/><path pathLength="1" d="M13 9.5s2.6 2.8 2.6 4.6a2.6 2.6 0 1 1-5.2 0c0-1.8 2.6-4.6 2.6-4.6Z" stroke="#B9926E" stroke-width="1.6" stroke-linejoin="round"/></svg></span><h3>Prep &amp; waterproof</h3><p>Surfaces prepped and wet areas sealed to standard.</p></div>
+      <div class="step reveal"><div class="no">3</div><span class="si"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect pathLength="1" x="4" y="4" width="8" height="8" rx="1" stroke="#B9926E" stroke-width="1.7"/><rect pathLength="1" x="14" y="4" width="8" height="8" rx="1" stroke="#B9926E" stroke-width="1.7"/><rect pathLength="1" x="4" y="14" width="8" height="8" rx="1" stroke="#B9926E" stroke-width="1.7"/><path pathLength="1" d="m15 18.5 2.5 2.5 4.5-5" stroke="#B9926E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Precision tiling</h3><p>Tiles cut and laid level, with clean, even grout lines.</p></div>
+      <div class="step reveal"><div class="no">4</div><span class="si"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path pathLength="1" d="M16 3l1.2 3.1L20 7l-2.8.9L16 11l-1.2-3.1L12 7l2.8-.9L16 3Z" stroke="#B9926E" stroke-width="1.6" stroke-linejoin="round"/><path pathLength="1" d="M8 12l.9 2.3 2.1.7-2.1.7L8 18l-.9-2.3-2.1-.7 2.1-.7L8 12Z" stroke="#B9926E" stroke-width="1.5" stroke-linejoin="round"/><path pathLength="1" d="M16 16l.9 2.3 2.1.7-2.1.7-.9 2.3-.9-2.3-2.1-.7 2.1-.7.9-2.3Z" stroke="#B9926E" stroke-width="1.5" stroke-linejoin="round"/></svg></span><h3>Clean finish</h3><p>Grouted, sealed, and the site left tidy behind us.</p></div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section class="sec bg2" id="gallery">
+  <div class="aw aw-l" style="--pc:var(--bg);--tint:rgba(193,95,60,.1)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
   <div class="wrap">
     <div class="sec-head center reveal"><span class="eyebrow">Recent work</span><h2>Tiling we're proud of.</h2></div>
     <div class="gal">
-      <div class="gcell reveal"><div class="ph"><i class="t-stone"></i><i class="t-sand"></i><i class="t-clay"></i><i class="t-lt"></i><i class="t-taupe"></i><i class="t-stone"></i><i class="t-sand"></i><i class="t-lt"></i><i class="t-slate"></i></div><span class="lbl">Bathroom · floor &amp; walls</span></div>
-      <div class="gcell reveal"><div class="ph"><i class="t-lt"></i><i class="t-lt"></i><i class="t-clay"></i><i class="t-stone"></i><i class="t-sand"></i><i class="t-lt"></i><i class="t-taupe"></i><i class="t-stone"></i><i class="t-lt"></i></div><span class="lbl">Kitchen splashback</span></div>
-      <div class="gcell reveal"><div class="ph"><i class="t-sand"></i><i class="t-taupe"></i><i class="t-sand"></i><i class="t-stone"></i><i class="t-stone"></i><i class="t-taupe"></i><i class="t-sand"></i><i class="t-stone"></i><i class="t-taupe"></i></div><span class="lbl">Outdoor patio</span></div>
-      <div class="gcell reveal"><div class="ph"><i class="t-slate"></i><i class="t-slate"></i><i class="t-stone"></i><i class="t-slate"></i><i class="t-stone"></i><i class="t-slate"></i><i class="t-stone"></i><i class="t-slate"></i><i class="t-slate"></i></div><span class="lbl">Feature wall</span></div>
-      <div class="gcell reveal"><div class="ph"><i class="t-stone"></i><i class="t-lt"></i><i class="t-stone"></i><i class="t-lt"></i><i class="t-clay"></i><i class="t-lt"></i><i class="t-stone"></i><i class="t-lt"></i><i class="t-stone"></i></div><span class="lbl">Ensuite</span></div>
-      <div class="gcell reveal"><div class="ph"><i class="t-sand"></i><i class="t-stone"></i><i class="t-lt"></i><i class="t-taupe"></i><i class="t-sand"></i><i class="t-stone"></i><i class="t-lt"></i><i class="t-sand"></i><i class="t-taupe"></i></div><span class="lbl">Laundry floor</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408810691_3e87cc19_1783408811483_3d3969c2.png" alt="Bathroom renovation with travertine-look floor tiles and stacked ivory wall tiles" loading="lazy"><span class="lbl">Bathroom · floor &amp; walls</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408821874_cef486a9_1783408821983_524c455a.png" alt="Kitchen splashback in handmade-look glazed subway tiles with timber benchtop" loading="lazy"><span class="lbl">Kitchen splashback</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408832135_fe665ff8_1783408832176_5b9d8652.png" alt="Outdoor alfresco patio tiled with large-format sandy porcelain pavers" loading="lazy"><span class="lbl">Outdoor patio</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408840222_ec80b184_1783408841249_8472e8e9.png" alt="Charcoal slate-look feature wall with warm accent lighting" loading="lazy"><span class="lbl">Feature wall</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408849773_38f10abf_1783408849952_59f778d4.png" alt="Compact ensuite with mosaic shower wall and frameless glass screen" loading="lazy"><span class="lbl">Ensuite</span></div>
+      <div class="gcell reveal"><img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783408859766_90f29672_1783408859801_714be871.png" alt="Laundry floor in warm sandy-taupe matte porcelain tiles" loading="lazy"><span class="lbl">Laundry floor</span></div>
     </div>
     <p class="gal-note reveal">A selection of recent jobs — call us to see more from your area.</p>
   </div>
@@ -285,18 +421,15 @@
   <div class="wrap area">
     <div class="reveal">
       <span class="eyebrow">Where we work</span>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:.7rem">Serving the coast &amp; the Bayview</h2>
-      <p style="color:var(--muted);margin-top:.9rem">From town out through the hinterland and across to the coast — if you're in the region, we'll come to you.</p>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:.7rem">Serving the Sunshine Coast</h2>
+      <p style="color:var(--muted);margin-top:.9rem">From Caloundra to Noosa and up into the hinterland — if you're on the Coast, we'll come to you.</p>
       <div class="chips">
-        <span>the coast</span><span>Seacliff</span><span>Southside</span><span>Victory Heights</span><span>Jones Hill</span><span>Bayview</span><span>Kybong</span><span>Cooloola Cove</span><span>Rainbow Beach</span><span>Tin Can Bay</span>
+        <span>Maroochydore</span><span>Mooloolaba</span><span>Alexandra Headland</span><span>Buderim</span><span>Warana</span><span>Caloundra</span><span>Golden Beach</span><span>Nambour</span><span>Maleny</span><span>Montville</span><span>Noosa Heads</span><span>Coolum Beach</span>
       </div>
     </div>
     <div class="board reveal">
-      <div class="panel" aria-hidden="true">
-        <i class="t-sand"></i><i class="t-stone span2"></i><i class="t-clay"></i>
-        <i class="t-lt row2"></i><i class="t-taupe"></i><i class="t-stone"></i><i class="t-slate"></i>
-        <i class="t-stone"></i><i class="t-sand"></i><i class="t-lt"></i>
-        <i class="t-clay"></i><i class="t-stone span2"></i><i class="t-sand"></i>
+      <div class="panel photo">
+        <img src="https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783409220798_93bda9cb_1783409220871_18e11bca.png" alt="Open plan coastal living area with newly laid travertine-look floor tiles" loading="lazy">
       </div>
       <span class="tag">Quality finish</span>
     </div>
@@ -305,6 +438,7 @@
 
 <!-- CTA / QUOTE -->
 <section class="cta-band dark" id="quote">
+  <div class="aw aw-r" style="--pc:var(--bg);--tint:rgba(35,40,46,.14)" aria-hidden="true"><i class="a2"></i><i class="a1"></i></div>
   <div class="grout"></div>
   <div class="wrap">
     <div>
@@ -327,7 +461,7 @@
     <div class="top">
       <div>
         <div class="nm">Coastal Tiling</div>
-        <p style="max-width:34ch">Wall &amp; floor tiling specialists serving the coast and surrounding suburbs. Bathrooms, kitchens, floors and waterproofing — done right.</p>
+        <p style="max-width:34ch">Wall &amp; floor tiling specialists serving the Sunshine Coast and hinterland. Bathrooms, kitchens, floors and waterproofing — done right.</p>
       </div>
       <div>
         <h4>Services</h4>
@@ -342,7 +476,7 @@
         <h4>Get in touch</h4>
         <ul>
           <li><a href="tel:0755501234">(07) 5550 1234</a></li>
-          <li>Seacliff, QLD 4570</li>
+          <li>Maroochydore, QLD 4558</li>
           <li><a href="#quote">Request a free quote</a></li>
           <li>[email / ABN to add]</li>
         </ul>
@@ -350,7 +484,7 @@
     </div>
     <div class="bottom">
       <span>© <span id="yr"></span> Coastal Tiling</span>
-      <span>the coast &amp; Bayview · QLD</span>
+      <span>Sunshine Coast · QLD</span>
     </div>
   </div>
 </footer>
