@@ -194,7 +194,7 @@
   /* area ticker */
   .ticker{background:var(--ink);overflow:hidden;padding:21px 0;border-top:1px solid rgba(255,255,255,.08)}
   .ticker .tk{display:flex;width:max-content;animation:tick 30s linear infinite}
-  .ticker:hover .tk{animation-play-state:paused}
+  @media(hover:hover) and (pointer:fine){.ticker:hover .tk{animation-play-state:paused}}
   .ticker .set{display:inline-flex;align-items:center;white-space:nowrap}
   .ticker .set span{display:inline-flex;align-items:center;gap:2rem;padding-right:2rem;color:#F4EFE8;font-weight:600;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
   .ticker .set svg{flex:none}
