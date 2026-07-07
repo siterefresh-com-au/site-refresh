@@ -492,6 +492,8 @@
 <a class="mcta" href="tel:0755501234">📞 Call (07) 5550 1234 — free quote</a>
 
 <script>
+  if('scrollRestoration' in history){history.scrollRestoration='manual';}
+  if(!location.hash){window.scrollTo(0,0);window.addEventListener('load',function(){window.scrollTo(0,0);});}
   document.getElementById('yr').textContent=new Date().getFullYear();
   var b=document.getElementById('burger'),m=document.getElementById('menu');
   b.addEventListener('click',function(){var o=getComputedStyle(m).display==='none';
