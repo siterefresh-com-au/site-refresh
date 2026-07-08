@@ -81,7 +81,7 @@
   @media(prefers-reduced-motion:reduce){.sdeco{animation:none}}
   .sec>.wrap{position:relative;z-index:1}
   .sec .trustnote{position:absolute;top:118px;right:10vw;z-index:0;text-align:center;pointer-events:none;opacity:0;transform:rotate(-3deg) scale(.85);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
-  .sec .trustnote.in{opacity:1;transform:rotate(-3deg) scale(1);animation:trustpulse 1.5s ease-in-out .55s 3}
+  .sec .trustnote.in{opacity:1;transform:rotate(-3deg) scale(1);animation:trustpulse 1.5s ease-in-out .55s infinite}
   @keyframes trustpulse{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(-1deg) scale(1.09)}}
   .trustnote .l1{font-weight:900;font-size:clamp(1.4rem,2vw,1.9rem);letter-spacing:.01em;line-height:1.25}
   .trustnote .l1 .hlx{transform:rotate(-2deg)}
@@ -89,7 +89,8 @@
   .trustnote svg{display:block;margin:.5rem auto 0}
   @media(max-width:1230px){.trustnote{display:none}}
   .sec{padding:106px 0}
-  .soft{background:var(--soft)} .soft2{background:var(--soft2)}
+  .soft{background-color:var(--soft);background-image:radial-gradient(rgba(14,16,12,.075) 1.1px,transparent 1.1px);background-size:24px 24px}
+  .soft2{background-color:var(--soft2);background-image:linear-gradient(rgba(14,16,12,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(14,16,12,.055) 1px,transparent 1px);background-size:56px 56px}
   .lime-art{position:absolute;top:26px;right:6vw;width:min(24vw,370px);z-index:0;pointer-events:none;transform:rotate(3deg);animation:limefloat 9s ease-in-out infinite}
   .lime-art img,.lime-art canvas{width:100%;display:block}
   @keyframes limefloat{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(1deg) translateY(-16px)}}
@@ -586,7 +587,7 @@
   <div class="wrap">
     <div class="reveal">
       <span class="chip">No guesswork</span>
-      <h2 style="font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.9rem">We'll refresh your homepage first — <span class="hlx">FREE</span>.</h2>
+      <h2 style="font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.9rem">We'll refresh your homepage first — <span style="white-space:nowrap"><span class="hlx" style="margin-top:.18em">FREE</span>.</span></h2>
       <p style="font-size:1.13rem;color:var(--muted);margin-top:1rem;max-width:48ch">Before you spend a cent, we rebuild your existing homepage with your own logo, photos and details, and send you a live link. Love it? We build the rest. Don't? Keep the ideas — no hard feelings.</p>
       <a class="btn btn-ink" href="#contact" style="margin-top:1.8rem">Get my free homepage</a>
     </div>
