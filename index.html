@@ -40,7 +40,7 @@
   .burger span{display:block;width:26px;height:2.6px;background:var(--ink);margin:5px 0;border-radius:2px}
 
   /* hero */
-  .hero{position:relative;overflow:hidden;background:radial-gradient(1250px 660px at 85% -12%,rgba(168,240,74,.25),transparent 58%)}
+  .hero{position:relative;overflow:hidden;background:radial-gradient(1750px 950px at 88% -14%,rgba(168,240,74,.42),transparent 62%)}
   .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center;padding:64px 26px 78px}
   .hero h1{font-size:clamp(2.7rem,5.6vw,4.4rem);font-weight:800;letter-spacing:-.03em}
   h2{font-weight:800;letter-spacing:-.025em}
@@ -80,7 +80,7 @@
   @media(max-width:900px){.sdeco{display:none}}
   @media(prefers-reduced-motion:reduce){.sdeco{animation:none}}
   .sec>.wrap{position:relative;z-index:1}
-  .sec .trustnote{position:absolute;top:118px;right:10vw;z-index:0;text-align:center;pointer-events:none;opacity:0;transform:rotate(-3deg) scale(.85);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
+  .sec .trustnote{position:absolute;top:34px;right:0;z-index:0;text-align:center;pointer-events:none;opacity:0;transform:rotate(-3deg) scale(.85);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
   .sec .trustnote.in{opacity:1;transform:rotate(-3deg) scale(1);animation:trustpulse 1.5s ease-in-out .55s infinite}
   @keyframes trustpulse{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(-1deg) scale(1.09)}}
   .trustnote .l1{font-weight:900;font-size:clamp(1.4rem,2vw,1.9rem);letter-spacing:.01em;line-height:1.25}
@@ -89,7 +89,8 @@
   .trustnote svg{display:block;margin:.5rem auto 0}
   @media(max-width:1230px){.trustnote{display:none}}
   .sec{padding:106px 0}
-  .soft{background-color:var(--soft);background-image:radial-gradient(rgba(14,16,12,.075) 1.1px,transparent 1.1px);background-size:24px 24px}
+  .soft{background-color:var(--soft);position:relative}
+  .soft::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(14,16,12,.095) 1.7px,transparent 1.7px);background-size:19px 19px;-webkit-mask-image:linear-gradient(180deg,#000 6%,rgba(0,0,0,.22) 42%,rgba(0,0,0,.22) 58%,#000 94%);mask-image:linear-gradient(180deg,#000 6%,rgba(0,0,0,.22) 42%,rgba(0,0,0,.22) 58%,#000 94%)}
   .soft2{background-color:var(--soft2);background-image:linear-gradient(rgba(14,16,12,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(14,16,12,.055) 1px,transparent 1px);background-size:56px 56px}
   .lime-art{position:absolute;top:-64px;right:-235px;width:min(24vw,370px);z-index:-1;pointer-events:none;transform:rotate(3deg);animation:limefloat 9s ease-in-out infinite}
   .lime-art img,.lime-art canvas{width:100%;display:block}
@@ -493,9 +494,10 @@
   @container (max-width:640px){.ow4{font-size:2.2cqw}.ow4 .cols{grid-template-columns:1fr 1fr}.ow4 .col:last-child{display:none}.ow4 .n10 span{padding:.4em .7em}.ow4 .wel p{display:none}.ow4 .wel .tst{margin-top:.2em}}
 
   .frame{position:absolute;left:0;top:0;transform-origin:0 0;border:0;background:#fff}
-  .seebtn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:6;background:var(--acc);color:#0E100C;border:2px solid #0E100C;padding:.9rem 1.7rem;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;box-shadow:0 12px 28px rgba(10,12,9,.35);white-space:nowrap;animation:seepulse 1.3s ease-in-out 1s 6}
-  .seebtn:hover{transform:translateX(-50%) scale(1.05);animation:none}
-  @keyframes seepulse{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 12px 28px rgba(10,12,9,.35),0 0 0 0 rgba(168,240,74,.9)}50%{transform:translateX(-50%) scale(1.12);box-shadow:0 12px 28px rgba(10,12,9,.35),0 0 0 22px rgba(168,240,74,0)}}
+  .seebtn-row{text-align:center;margin:26px 0 40px}
+  .seebtn{display:inline-block;background:var(--acc);color:#0E100C;border:2px solid #0E100C;padding:.9rem 1.7rem;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;box-shadow:0 10px 24px rgba(10,12,9,.22);white-space:nowrap;animation:seepulse 1.3s ease-in-out 1s 6}
+  .seebtn:hover{transform:scale(1.05);animation:none}
+  @keyframes seepulse{0%,100%{transform:scale(1);box-shadow:0 10px 24px rgba(10,12,9,.22),0 0 0 0 rgba(168,240,74,.9)}50%{transform:scale(1.1);box-shadow:0 10px 24px rgba(10,12,9,.22),0 0 0 18px rgba(168,240,74,0)}}
   @media(prefers-reduced-motion:reduce){.seebtn{animation:none}}
   @media(max-width:640px){.seebtn{font-size:.85rem;padding:.75rem 1.2rem}}
   .mockn{text-align:center;color:#6B7370;font-size:.85rem;margin-top:10px}
@@ -548,10 +550,10 @@
   <div class="wrap">
     <div>
       <span class="chip">✦ Custom, modern websites for local services &amp; trades</span>
-      <h1 style="margin-top:1.1rem">Your work looks professional. <span class="hl">Your website should too.</span></h1>
+      <h1 style="margin-top:1.1rem">Your work is professional.<br><span class="hl">Your website should be too.</span></h1>
       <p class="lead">We rebuild dated trade and service websites into fast, modern sites that help win more work — then host, secure and look after everything for you.</p>
       <div class="acts">
-        <a class="btn btn-acc" href="#contact">See your free redesign</a>
+        <a class="btn btn-acc" href="#contact">Get your free redesign</a>
         <a class="btn btn-ghost" href="#how">How it works</a>
       </div>
       <div class="chips">
@@ -588,7 +590,7 @@
     <div class="reveal">
       <span class="chip">No guesswork</span>
       <h2 style="font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.9rem">We'll refresh your homepage first — <span style="white-space:nowrap"><span class="hlx" style="margin-top:.18em">FREE</span>.</span></h2>
-      <p style="font-size:1.13rem;color:var(--muted);margin-top:1rem;max-width:48ch">Before you spend a cent, we rebuild your existing homepage with your own logo, photos and details, and send you a live link. Love it? We build the rest. Don't? Keep the ideas — no hard feelings.</p>
+      <p style="font-size:1.13rem;color:var(--muted);margin-top:1rem;max-width:48ch">Before you spend a cent, we rebuild your existing homepage with <u>your own logo, photos and details</u>, and send you a live link. Love it? We build the rest. Don't? Keep the ideas — no hard feelings.</p>
       <a class="btn btn-ink" href="#contact" style="margin-top:1.8rem">Get my free homepage</a>
     </div>
     <div class="fcol">
@@ -610,7 +612,7 @@
 <!-- BEFORE/AFTER EXAMPLE -->
 <section class="sec" id="examples">
   <div class="wrap">
-    <div class="sec-head center reveal"><span class="chip">See the difference</span><h2>From dated to bringing in work.</h2><p>Drag the slider — this is the kind of transformation we build.</p></div>
+    <div class="sec-head center reveal"><span class="chip">See the difference</span><h2>From dated, to bringing in work.</h2><p>Drag the slider — this is the kind of transformation we build.</p></div>
     <div class="ba reveal" style="margin-top:42px">
       <div class="stage" data-pos="52">
         <div class="layer after">
@@ -632,9 +634,9 @@
 <div class="tst"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> &nbsp;&ldquo;Great job on our bathroom &mdash; would recommend!&rdquo; &mdash; Karen, Buderim</div></div>
 <div class="f10">&copy; 2012 Coastal Tiling &nbsp;|&nbsp; Home &nbsp;|&nbsp; Services &nbsp;|&nbsp; Contact &nbsp;|&nbsp; Site by Terracotta Web Designs</div>
 <span class="dlab b">Before</span></div></div>
-        <a class="seebtn" href="https://siterefresh.com.au/demo-site-1.html" target="_blank" rel="noopener">See the live demo site &rarr;</a>
         <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
       </div>
+      <div class="seebtn-row reveal"><a class="seebtn" href="https://siterefresh.com.au/demo-site-1.html" target="_blank" rel="noopener">See the live demo site &rarr;</a></div>
       <p class="cap"><b>What changed:</b> from a 2010 template to a fast, mobile-first site with a gallery, quote form and click-to-call. Slide across, then open the live demo and click around it for real. </p>
       <p class="mockn">&ldquo;Coastal Tiling&rdquo; is a mock business — we keep our real clients&rsquo; work private, so our demos are always fictional companies.</p>
     </div>
@@ -649,10 +651,10 @@
   <div class="lime-art" aria-hidden="true"><img src="img/LIME.png" alt="" loading="lazy"></div>
     <div class="sec-head reveal"><span class="chip">How it works</span><h2>Four steps. You stay on the tools.</h2></div>
     <div class="steps">
-      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 5.5 18.5 10 8.5 20H4v-4.5L14 5.5Z" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5 16.5 12" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 3.2l.55 1.45L21 5.2l-1.45.55L19 7.2l-.55-1.45L17 5.2l1.45-.55L19 3.2Z" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Free redesign</h3><p>We rebuild your homepage and send a live preview — no cost, no obligation.</p></div>
+      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.5 9.3A8 8 0 0 1 18 6.6" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.6 2.6v4.2h-4.2" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 14.7A8 8 0 0 1 6 17.4" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.4 21.4v-4.2h4.2" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Free redesign</h3><p>We rebuild your homepage and send a live preview — no cost, no obligation.</p></div>
       <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="2.5" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 9h18M6.2 6.8h.01M8.7 6.8h.01" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m8.8 14.4 2.3 2.3 4.4-4.7" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Build &amp; approve</h3><p>Love it? We build the full site around your brand, photos and services — with as many revision rounds as it takes.</p></div>
       <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 8.5h13l-3-3M20 15.5H7l3 3" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Zero-downtime switch</h3><p>We move your domain and protect your email — nothing goes dark.</p></div>
-      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 3.5v3.6h-3.6" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9.4l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7.7-1.9Z" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>We keep it fresh</h3><p>Hosting, security, updates and support, all handled.</p></div>
+      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill="#A8F04A" d="M11.5 6.5 13.4 10l3.9.6-2.8 2.8.6 4-3.6-1.9L7.9 17.4l.6-4-2.8-2.8 3.9-.6 1.9-3.5Z"/><path fill="#A8F04A" d="M6 2.6l.8 1.6 1.7.8-1.7.8L6 7.4l-.8-1.6-1.7-.8 1.7-.8L6 2.6Z"/><path fill="#A8F04A" d="M18.6 3.8l.7 1.3 1.4.7-1.4.7-.7 1.3-.7-1.3-1.4-.7 1.4-.7.7-1.3Z"/><path fill="#A8F04A" d="M19.3 16.8l.6 1.1 1.2.6-1.2.6-.6 1.1-.6-1.1-1.2-.6 1.2-.6.6-1.1Z"/></svg></div><h3>We keep it fresh</h3><p>Hosting, security, updates and support, all handled.</p></div>
     </div>
     <svg class="steps-path" viewBox="0 0 1116 96" fill="none" aria-hidden="true">
       <defs><clipPath id="swipe"><rect class="wipeR" x="0" y="0" width="1116" height="96"/></clipPath><marker id="arw" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M2 2 10 6 2 10Z" style="fill:var(--acc);stroke:var(--ink)" stroke-width="1.6" stroke-linejoin="round"/></marker></defs>
@@ -708,7 +710,7 @@
     <div class="why">
       <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7l9 4 9-4-9-4ZM3 12l9 4 9-4M3 17l9 4 9-4" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>Custom, not cookie-cutter</h3><p>Every site is hand-built. No drag-and-drop template, no identikit look.</p></div></div>
       <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 10V8a6 6 0 0 1 12 0v2" stroke="currentColor" stroke-width="2"/><rect x="4" y="10" width="16" height="11" rx="3" stroke="currentColor" stroke-width="2"/></svg></div><div><h3>You own everything</h3><p>Your site, your domain, your content. No lock-in, ever.</p></div></div>
-      <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="m3 8 9 6 9-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>No downtime, no lost email</h3><p>Our switch-over protects your inbox and history. The phone keeps ringing.</p></div></div>
+      <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="m3 8 9 6 9-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>No downtime</h3><p>Our switch-over protects your inbox and history. The phone keeps ringing.</p></div></div>
       <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.8-3.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div><h3>Found on Google</h3><p>Speed, clean structure, service-area pages and local-business markup — the foundations Google rewards, built in from day one.</p></div></div>
       <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 17.9l.9-5.4L4.2 8.7l5.4-.8L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>Reviews, front and centre</h3><p>Your Google rating built into the design where customers can't miss it — and we can automate the asking, too.</p></div></div>
       <div class="wc reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.3-7-10a7 7 0 0 1 14 0c0 5.7-7 10-7 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="2"/></svg></div><div><h3>Australian &amp; accountable</h3><p>Australian-run, Australia-wide. One person who knows your site and answers when you call.</p></div></div>
@@ -718,14 +720,14 @@
 
 <!-- PRICING -->
 <section class="sec soft angled" id="pricing" style="position:relative;overflow:hidden">
-  <div class="trustnote reveal" aria-hidden="true">
+  <svg class="sdeco" style="top:-50px;right:-60px;--sr:10deg" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><defs><linearGradient id="sg3" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8F04A" stop-opacity=".55"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg3)" stroke-width="2.5"><rect x="210" y="30" width="70" height="70" rx="18"/><rect x="292" y="60" width="56" height="56" rx="15"/><rect x="240" y="120" width="56" height="56" rx="15"/><rect x="310" y="150" width="70" height="70" rx="18"/><rect x="270" y="230" width="56" height="56" rx="15"/></g></svg>
+  <div class="wrap">
+    <div class="trustnote reveal" aria-hidden="true">
     <div class="l1">MORE TRUST<br>= <span class="hlx">MORE JOBS</span></div>
     <div class="l2">&hellip;and higher-quality clients.</div>
     <svg width="120" height="34" viewBox="0 0 120 34" fill="none"><path d="M6 8c30 16 66 18 108-2" stroke="#A8F04A" stroke-width="5" stroke-linecap="round"/></svg>
   </div>
-  <svg class="sdeco" style="top:-50px;right:-60px;--sr:10deg" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><defs><linearGradient id="sg3" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8F04A" stop-opacity=".55"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg3)" stroke-width="2.5"><rect x="210" y="30" width="70" height="70" rx="18"/><rect x="292" y="60" width="56" height="56" rx="15"/><rect x="240" y="120" width="56" height="56" rx="15"/><rect x="310" y="150" width="70" height="70" rx="18"/><rect x="270" y="230" width="56" height="56" rx="15"/></g></svg>
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="chip">Worth every cent</span><h2>An investment that pays for itself.</h2><p>When your site looks the part, customers see you as the professional choice before they even call — and that wins better jobs, more often.</p><p>If your average job is worth a few thousand, a site that wins you even a handful of extra jobs has paid for itself — and keeps working for you every day after that.</p></div>
+  <div class="sec-head reveal"><span class="chip">Worth every cent</span><h2>An investment that pays for itself.</h2><p>When your site looks the part, customers see you as the professional choice before they even call — and that wins better jobs, more often.</p><p>If your average job is worth a few thousand, a site that wins you even a handful of extra jobs has paid for itself — and keeps working for you every day after that.</p></div>
     <div class="tiers">
       <div class="tier reveal"><div class="nm">Essential</div><div class="pr">$5,900</div><p>Sole traders. Up to ~5 pages, mobile, tablet &amp; desktop optimised, enquiry &amp; quote form, migration and launch.</p><a class="btn btn-ghost" href="#contact">Start here</a></div>
       <div class="tier feat reveal"><span class="tag">Most popular</span><div class="nm">Professional</div><div class="pr">$9,800</div><p>Most businesses. Full multi-page build, copywriting, service-area pages, SEO setup and gallery — plus on-site WhatsApp chat.</p><a class="btn btn-acc" href="#contact">Get my free redesign</a></div>
