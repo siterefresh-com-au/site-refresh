@@ -73,8 +73,21 @@
   .tagf{position:absolute;top:6px;right:-6px;background:var(--ink);color:#fff;font-weight:700;font-size:.7rem;padding:7px 13px;border-radius:999px;z-index:4;box-shadow:var(--shs)}
 
   section{scroll-margin-top:88px}
+  /* abstract corner decorations on grey sections */
+  .sdeco{position:absolute;pointer-events:none;z-index:0;opacity:.55;animation:sdrift 16s ease-in-out infinite}
+  .sdeco.s2{animation-duration:20s;animation-delay:-8s}
+  @keyframes sdrift{0%,100%{transform:translateY(0) rotate(var(--sr,0deg))}50%{transform:translateY(-12px) rotate(var(--sr,0deg))}}
+  @media(max-width:900px){.sdeco{display:none}}
+  @media(prefers-reduced-motion:reduce){.sdeco{animation:none}}
+  .sec>.wrap{position:relative;z-index:1}
   .sec{padding:106px 0}
   .soft{background:var(--soft)} .soft2{background:var(--soft2)}
+  .lime-art{position:absolute;top:26px;right:6vw;width:min(24vw,370px);z-index:0;pointer-events:none;transform:rotate(9deg);animation:limefloat 9s ease-in-out infinite}
+  .lime-art img,.lime-art canvas{width:100%;display:block}
+  .lime-art img.blend{mix-blend-mode:multiply}
+  @keyframes limefloat{0%,100%{transform:rotate(9deg) translateY(0)}50%{transform:rotate(5deg) translateY(-16px)}}
+  @media(max-width:1280px){.lime-art{display:none}}
+  @media(prefers-reduced-motion:reduce){.lime-art{animation:none}}
   .sec-head{max-width:980px} .sec-head p{max-width:640px} .sec-head.center p{margin-left:auto;margin-right:auto}
   .sec-head h2{font-size:clamp(2rem,3.6vw,2.85rem);margin-top:.7rem;text-wrap:balance}
   .sec-head p{font-size:1.13rem;color:var(--muted);margin-top:.9rem}
@@ -315,14 +328,15 @@
   .hlx{background:var(--ink);color:var(--acc);padding:.02em .18em .07em;border-radius:.22em;display:inline-block;line-height:1.08}
   .fcol{display:grid;gap:48px;align-content:center}
   .hook.sec{padding-top:118px;padding-bottom:126px}
-  .plusdiv{display:grid;place-items:center;margin-top:96px}
+  .plusdiv{display:grid;place-items:center;margin-top:96px;margin-bottom:96px}
   .plusdiv svg{width:94px;height:94px;filter:drop-shadow(0 14px 22px rgba(10,12,9,.15));animation:plusPulse 4.2s ease-in-out infinite}
   @keyframes plusPulse{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(-4deg) scale(1.08)}}
   .stage{container-type:size}
   .stage .layer{pointer-events:none}
-  .dlab{position:absolute;top:12px;z-index:3;font-family:var(--f);font-weight:800;font-size:.7rem;letter-spacing:.06em;padding:6px 13px;border-radius:999px}
-  .dlab.b{left:12px;background:rgba(10,12,9,.78);color:#fff}
-  .dlab.a{right:12px;background:var(--acc);color:#0E100C;border:2px solid #0E100C}
+  .dlab{position:absolute;bottom:14px;z-index:3;font-family:var(--f);font-weight:800;font-size:.7rem;letter-spacing:.06em;padding:6px 13px;border-radius:999px}
+  @media(max-width:640px){.dlab{bottom:auto;top:auto;bottom:70px}}
+  .dlab.b{left:14px;background:rgba(10,12,9,.78);color:#fff}
+  .dlab.a{right:14px;background:var(--acc);color:#0E100C;border:2px solid #0E100C}
   .ow{position:absolute;inset:0;font-family:'Times New Roman',serif;background:#EDE7D6;color:#26241d;font-size:1.5cqw;line-height:1.35}
   .ow .tb{background:#1E2A5A;color:#fff;text-align:center;font-weight:700;font-size:1.75em;padding:.5em .4em;text-shadow:1px 1px 0 #000}
   .ow .nv{background:#CFC7B2;border-bottom:2px outset #fff;padding:.35em .8em;text-align:right}
@@ -440,34 +454,42 @@
   .ow3 .cols u{color:#2C5AA0;font-size:.85em;cursor:default}
   .ow3 .ftr{position:absolute;left:0;right:0;bottom:0;background:#1E3560;color:#B9C4D6;text-align:center;font-size:.78em;padding:.7em}
   @container (max-width:640px){.ow3{font-size:2.35cqw}.ow3 .u{display:none}.ow3 .cols{grid-template-columns:1fr;gap:1em}.ow3 .cols div:nth-child(3){display:none}.ow3 .nb span{padding:.7em 1em}}
-  .ow4{position:absolute;inset:0;background:#E8E8E8;font-family:Verdana,Geneva,sans-serif;color:#333;font-size:1.14cqw;line-height:1.5}
-  .ow4 .h10{display:flex;align-items:center;justify-content:space-between;padding:1.1em 1.6em;background:linear-gradient(#4A90D9,#2C5FA8);color:#fff}
-  .ow4 .l10{font-size:1.8em;font-weight:700;text-shadow:1px 2px 2px rgba(0,0,0,.35);line-height:1.1}
-  .ow4 .l10 small{display:block;font-size:.42em;font-weight:400;text-shadow:none;opacity:.9;margin-top:.35em}
-  .ow4 .p10{text-align:right;color:#FFE45C;font-weight:700;font-size:1.25em;text-shadow:1px 1px 1px rgba(0,0,0,.4)}
-  .ow4 .p10 small{display:block;color:#fff;font-size:.6em;font-weight:400}
-  .ow4 .n10{display:flex;gap:.45em;padding:.55em 1.4em;background:#C9D6E8;border-bottom:1px solid #9FB2CC}
-  .ow4 .n10 span{background:linear-gradient(#FDFDFD 50%,#D7D7D7 50%);border:1px solid #9AA5B1;border-radius:4px;padding:.4em 1.1em;font-size:.82em;font-weight:700;color:#1E3E6E;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.15)}
-  .ow4 .n10 .on{background:linear-gradient(#2C5FA8,#1E3E6E);color:#fff;border-color:#173156}
-  .ow4 .bd10{display:flex;gap:1.4em;padding:1.3em 1.6em;background:#fff;border:1px solid #C9C9C9;margin:1.1em 1.4em}
-  .ow4 .m10{flex:1}
-  .ow4 h5{color:#2C5FA8;font-size:1.35em;border-bottom:2px solid #C9D6E8;padding-bottom:.3em;margin-bottom:.6em;font-weight:700}
-  .ow4 p{font-size:.88em;text-align:justify;margin-bottom:.6em}
-  .ow4 ul{list-style:none;font-size:.88em;color:#2C5FA8;font-weight:700;display:grid;gap:.25em}
-  .ow4 .im10{float:right;margin:0 0 .8em 1em;border:1px solid #999;background:#F2F2F2;color:#888;padding:2.4em 1.2em .5em;text-align:center;font-size:.8em}
-  .ow4 .im10 small{display:block;font-style:italic;color:#999;margin-top:1.6em;font-size:.85em}
-  .ow4 .s10{width:27%;border:1px solid #9FB2CC;align-self:flex-start}
-  .ow4 .st10{background:linear-gradient(#4A90D9,#2C5FA8);color:#fff;font-weight:700;text-align:center;padding:.5em;font-size:.9em;text-shadow:1px 1px 1px rgba(0,0,0,.3)}
-  .ow4 .sb10{padding:.9em .8em;display:grid;gap:.45em;text-align:center;background:#F4F8FE}
-  .ow4 .sb10 b{color:#C0392B;font-size:1.2em}
-  .ow4 .sb10 em{color:#C0392B;font-weight:700;font-style:normal;font-size:.95em}
-  .ow4 .sb10 span{font-size:.78em;color:#444;text-align:left}
-  .ow4 .f10{position:absolute;left:0;right:0;bottom:0;background:#DADADA;border-top:1px solid #BFBFBF;text-align:center;font-size:.72em;color:#666;padding:.6em}
-  @container (max-width:640px){.ow4{font-size:2.2cqw}.ow4 .s10{display:none}.ow4 .im10{display:none}.ow4 .n10 span{padding:.4em .7em}}
+  .ow4{position:absolute;inset:0;background:#FAF7F2;font-family:Arial,Helvetica,sans-serif;color:#4a453d;font-size:1.14cqw;line-height:1.5}
+  .ow4 .tb10{background:#463f36;color:#e8e2d8;font-size:.72em;padding:.45em 1.6em;display:flex;justify-content:space-between}
+  .ow4 .h10{display:flex;align-items:center;justify-content:space-between;padding:.9em 1.6em;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.12);position:relative;z-index:2}
+  .ow4 .l10{font-family:'Brush Script MT','Segoe Script',cursive;font-size:2.1em;color:#B5613A;line-height:1}
+  .ow4 .l10 small{display:block;font-family:Arial;font-size:.32em;letter-spacing:.22em;text-transform:uppercase;color:#8f8674;margin-top:.3em}
+  .ow4 .n10{display:flex;gap:.4em}
+  .ow4 .n10 span{padding:.45em 1.1em;font-size:.8em;font-weight:700;color:#6b6357;border-radius:999px}
+  .ow4 .n10 .on{background:#B5613A;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+  .ow4 .hr10{position:relative;background:linear-gradient(180deg,#C97B4E,#B5613A);color:#fff;text-align:center;padding:2.4em 1.6em 3em;overflow:hidden}
+  .ow4 .hr10::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 25%,rgba(255,255,255,.18) 0 .35em,transparent .45em) 0 0/3.2em 3.2em}
+  .ow4 .hh{position:relative;font-family:'Brush Script MT','Segoe Script',cursive;font-size:2.6em;text-shadow:0 2px 4px rgba(0,0,0,.28)}
+  .ow4 .hs{position:relative;font-size:.95em;opacity:.95;margin-top:.5em}
+  .ow4 .hb{position:relative;display:inline-block;margin-top:1.3em;background:linear-gradient(#FBE3B0,#E9B93F);color:#5b3a12;font-weight:700;font-size:.95em;padding:.7em 1.9em;border-radius:999px;border:1px solid #C39430;box-shadow:0 3px 6px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.7);text-shadow:0 1px 0 rgba(255,255,255,.5)}
+  .ow4 .dots{position:relative;display:flex;gap:.5em;justify-content:center;margin-top:1.6em}
+  .ow4 .dots i{width:.65em;height:.65em;border-radius:50%;background:rgba(255,255,255,.45)}
+  .ow4 .dots i.on{background:#fff}
+  .ow4 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4em;padding:1.8em 1.8em 1em;background:#FAF7F2}
+  .ow4 .col{background:#fff;border:1px solid #E4DCCE;border-radius:.6em;padding:1.3em 1.1em;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,.09)}
+  .ow4 .col .ci{width:3.4em;height:3.4em;margin:0 auto .7em;border-radius:50%;background:linear-gradient(#D69065,#B5613A);box-shadow:inset 0 2px 3px rgba(255,255,255,.4),0 2px 4px rgba(0,0,0,.2)}
+  .ow4 .col h6{font-size:1em;color:#8A4526;margin-bottom:.4em}
+  .ow4 .col p{font-size:.78em;color:#7a7264;line-height:1.5}
+  .ow4 .col a{display:inline-block;margin-top:.6em;font-size:.78em;color:#B5613A;font-weight:700;text-decoration:underline}
+  .ow4 .wel{padding:.4em 2.2em 3em;background:#FAF7F2}
+  .ow4 .wel h6{font-size:1.05em;color:#8A4526;text-align:center;margin-bottom:.5em;text-decoration:underline}
+  .ow4 .wel p{font-size:.8em;color:#7a7264;text-align:justify;margin-bottom:.55em}
+  .ow4 .wel .tst{text-align:center;font-size:.8em;color:#8A4526;font-style:italic;margin-top:.8em}
+  .ow4 .wel .tst b{color:#C9962C;font-style:normal;letter-spacing:.15em}
+  .ow4 .f10{position:absolute;left:0;right:0;bottom:0;background:#463f36;text-align:center;font-size:.72em;color:#b3aa9c;padding:.6em}
+  @container (max-width:640px){.ow4{font-size:2.2cqw}.ow4 .cols{grid-template-columns:1fr 1fr}.ow4 .col:last-child{display:none}.ow4 .n10 span{padding:.4em .7em}.ow4 .wel p{display:none}.ow4 .wel .tst{margin-top:.2em}}
+
   .frame{position:absolute;left:0;top:0;transform-origin:0 0;border:0;background:#fff}
-  .seebtn{position:absolute;left:70%;bottom:16px;transform:translateX(-50%);z-index:6;background:var(--acc);color:#0E100C;border:2px solid #0E100C;padding:.85rem 1.5rem;border-radius:999px;font-weight:800;font-size:.95rem;text-decoration:none;box-shadow:0 12px 28px rgba(10,12,9,.28);white-space:nowrap}
-  .seebtn:hover{transform:translateX(-50%) scale(1.04)}
-  @media(max-width:640px){.seebtn{left:50%;font-size:.85rem;padding:.75rem 1.2rem}}
+  .seebtn{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:6;background:var(--acc);color:#0E100C;border:2px solid #0E100C;padding:.9rem 1.7rem;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;box-shadow:0 12px 28px rgba(10,12,9,.35);white-space:nowrap;animation:seepulse 1.3s ease-in-out 1s 6}
+  .seebtn:hover{transform:translateX(-50%) scale(1.05);animation:none}
+  @keyframes seepulse{0%,100%{transform:translateX(-50%) scale(1);box-shadow:0 12px 28px rgba(10,12,9,.35),0 0 0 0 rgba(168,240,74,.9)}50%{transform:translateX(-50%) scale(1.12);box-shadow:0 12px 28px rgba(10,12,9,.35),0 0 0 22px rgba(168,240,74,0)}}
+  @media(prefers-reduced-motion:reduce){.seebtn{animation:none}}
+  @media(max-width:640px){.seebtn{font-size:.85rem;padding:.75rem 1.2rem}}
   .mockn{text-align:center;color:#6B7370;font-size:.85rem;margin-top:10px}
   .fback{position:absolute;inset:0;display:grid;place-items:center;background:#F4F6F0;color:#6B7370;font-weight:700;text-align:center;line-height:1.5}
   .fback small{font-weight:600;color:#98A09C}
@@ -552,11 +574,12 @@
 </section>
 
 <!-- HOOK -->
-<section class="sec soft hook angled" id="free">
+<section class="sec soft hook angled" id="free" style="position:relative;overflow:hidden">
+  <svg class="sdeco" style="top:-70px;left:-70px;--sr:-8deg" width="360" height="360" viewBox="0 0 360 360" fill="none" aria-hidden="true"><defs><linearGradient id="sg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8F04A" stop-opacity=".5"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg1)" stroke-width="2.5"><circle cx="120" cy="120" r="150"/><circle cx="120" cy="120" r="110"/><circle cx="120" cy="120" r="70"/></g></svg>
   <div class="wrap">
     <div class="reveal">
       <span class="chip">No guesswork</span>
-      <h2 style="font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.9rem">We'll refresh your homepage first — free.</h2>
+      <h2 style="font-size:clamp(2.1rem,4vw,3.1rem);margin-top:.9rem">We'll refresh your homepage first — <span class="hlx">FREE</span>.</h2>
       <p style="font-size:1.13rem;color:var(--muted);margin-top:1rem;max-width:48ch">Before you spend a cent, we rebuild your existing homepage with your own logo, photos and details, and send you a live link. Love it? We build the rest. Don't? Keep the ideas — no hard feelings.</p>
       <a class="btn btn-ink" href="#contact" style="margin-top:1.8rem">Get my free homepage</a>
     </div>
@@ -587,15 +610,19 @@
           <span class="dlab a">After</span>
         </div>
         <div class="layer before"><div class="ow4">
-<div class="h10"><div class="l10">Coastal Tiling<small>Quality Wall &amp; Floor Tiling Since 1998</small></div><div class="p10">(07) 5550 1234<small>Call for a FREE quote!</small></div></div>
-<div class="n10"><span class="on">Home</span><span>About Us</span><span>Services</span><span>Photo Gallery</span><span>Contact Us</span></div>
-<div class="bd10"><div class="m10"><h5>Welcome to Coastal Tiling</h5>
-<div class="im10">[ Photo of our work ]<small>Recent bathroom project</small></div>
-<p>Coastal Tiling is a family owned and operated tiling business servicing the coast and surrounding suburbs. We specialise in all aspects of wall and floor tiling for both domestic and commercial customers.</p>
-<p>No job is too big or too small! Contact us today for an obligation free quote.</p>
-<ul><li>&raquo; Bathrooms &amp; Ensuites</li><li>&raquo; Kitchens &amp; Splashbacks</li><li>&raquo; Outdoor &amp; Pool Areas</li><li>&raquo; Repairs &amp; Regrouting</li></ul></div>
-<div class="s10"><div class="st10">Contact Us Today!</div><div class="sb10"><b>(07) 5550 1234</b><em>FREE QUOTES!</em><span>&#10004; Fully Insured</span><span>&#10004; Quality Workmanship</span><span>&#10004; Servicing All Areas</span></div></div></div>
-<div class="f10">&copy; 2010 Coastal Tiling. All rights reserved. &nbsp;|&nbsp; Website designed by BlueWave Web Design</div>
+<div class="tb10"><span>Servicing the Sunshine Coast</span><span>Call us: (07) 5550 1234</span></div>
+<div class="h10"><div class="l10">Coastal Tiling<small>Wall &amp; Floor Tiling</small></div>
+<div class="n10"><span class="on">Home</span><span>Services</span><span>Gallery</span><span>About</span><span>Contact</span></div></div>
+<div class="hr10"><div class="hh">Quality Tiling, Done Right</div><div class="hs">Family owned &amp; operated &middot; Servicing the Sunshine Coast since 2011</div><span class="hb">GET A FREE QUOTE</span>
+<div class="dots"><i class="on"></i><i></i><i></i><i></i></div></div>
+<div class="cols"><div class="col"><div class="ci"></div><h6>Bathrooms</h6><p>Full bathroom &amp; ensuite tiling for renovations and new builds.</p><a>Read more &raquo;</a></div>
+<div class="col"><div class="ci"></div><h6>Kitchens</h6><p>Splashbacks and feature walls to suit any style and budget.</p><a>Read more &raquo;</a></div>
+<div class="col"><div class="ci"></div><h6>Outdoor</h6><p>Patios, alfresco areas and pool surrounds, built to last.</p><a>Read more &raquo;</a></div></div>
+<div class="wel"><h6>Welcome to Coastal Tiling</h6>
+<p>Coastal Tiling is a family owned and operated tiling business servicing the Sunshine Coast and surrounding suburbs. We specialise in all aspects of wall and floor tiling for both domestic and commercial customers, and pride ourselves on quality workmanship at competitive prices.</p>
+<p>No job is too big or too small! Contact us today on (07) 5550 1234 for an obligation free quote.</p>
+<div class="tst"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> &nbsp;&ldquo;Great job on our bathroom &mdash; would recommend!&rdquo; &mdash; Karen, Buderim</div></div>
+<div class="f10">&copy; 2012 Coastal Tiling &nbsp;|&nbsp; Home &nbsp;|&nbsp; Services &nbsp;|&nbsp; Contact &nbsp;|&nbsp; Site by Terracotta Web Designs</div>
 <span class="dlab b">Before</span></div></div>
         <a class="seebtn" href="https://siterefresh.com.au/demo-site-1.html" target="_blank" rel="noopener">See the live demo site &rarr;</a>
         <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
@@ -608,8 +635,10 @@
 </section>
 
 <!-- HOW -->
-<section class="sec soft2 angled rev" id="how">
-  <div class="wrap">
+<section class="sec soft2 angled rev" id="how" style="position:relative;overflow:hidden">
+  <svg class="sdeco s2" style="bottom:-60px;left:-40px;--sr:6deg" width="340" height="340" viewBox="0 0 340 340" fill="none" aria-hidden="true"><defs><linearGradient id="sg2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0E100C" stop-opacity=".16"/><stop offset="1" stop-color="#0E100C" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg2)" stroke-width="2.5" stroke-linecap="round"><path d="M40 300a150 150 0 0 1 260-102" /><path d="M70 300a120 120 0 0 1 208-82"/><path d="M100 300a90 90 0 0 1 156-61"/></g></svg>
+  <div class="lime-art" id="limeArt" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:1">
     <div class="sec-head reveal"><span class="chip">How it works</span><h2>Four steps. You stay on the tools.</h2></div>
     <div class="steps">
       <div class="stp reveal"><div class="no">1</div><h3>Free redesign</h3><p>We rebuild your homepage and send a live preview — no cost, no obligation.</p></div>
@@ -680,7 +709,8 @@
 </section>
 
 <!-- PRICING -->
-<section class="sec soft angled" id="pricing">
+<section class="sec soft angled" id="pricing" style="position:relative;overflow:hidden">
+  <svg class="sdeco" style="top:-50px;right:-60px;--sr:10deg" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><defs><linearGradient id="sg3" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A8F04A" stop-opacity=".55"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg3)" stroke-width="2.5"><rect x="210" y="30" width="70" height="70" rx="18"/><rect x="292" y="60" width="56" height="56" rx="15"/><rect x="240" y="120" width="56" height="56" rx="15"/><rect x="310" y="150" width="70" height="70" rx="18"/><rect x="270" y="230" width="56" height="56" rx="15"/></g></svg>
   <div class="wrap">
     <div class="sec-head reveal"><span class="chip">Worth every cent</span><h2>An investment that pays for itself.</h2><p>When your site looks the part, customers see you as the professional choice before they even call — and that wins better jobs, more often.</p><p>If your average job is worth a few thousand, a site that wins you even a handful of extra jobs has paid for itself — and keeps working for you every day after that.</p></div>
     <div class="tiers">
@@ -690,7 +720,7 @@
     </div>
     <div class="care reveal"><div><b>Every site includes a care plan from $99/month.</b><p>Hosting, security, backups, support and updates — all handled.</p></div><div class="amt">$99<small>PER MONTH</small></div></div>
     <div class="plusdiv reveal" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><path d="M60 16v88M16 60h88" style="stroke:var(--ink)" stroke-width="34" stroke-linecap="round"/><path d="M60 16v88M16 60h88" style="stroke:var(--acc)" stroke-width="21" stroke-linecap="round"/></svg></div>
-    <div class="reveal center" style="max-width:940px;margin:30px auto 0">
+    <div class="reveal center" style="max-width:940px;margin:0 auto">
       <span class="chip">Bolt-ons</span>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.4rem);margin-top:.8rem">Make your website &amp; business more <span class="hlx">efficient</span>.</h2>
       <p style="color:var(--muted);margin-top:.8rem">Optional custom functionality we can build right into your site.</p>
@@ -770,7 +800,8 @@
 </section>
 
 <!-- CTA -->
-<section class="sec soft2" id="contact">
+<section class="sec soft2" id="contact" style="position:relative;overflow:hidden">
+  <svg class="sdeco s2" style="bottom:-80px;right:-70px;--sr:-6deg" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><defs><linearGradient id="sg4" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#A8F04A" stop-opacity=".5"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg4)" stroke-width="2.5" stroke-linecap="round"><path d="M300 340a170 170 0 0 0-14-238M260 340a130 130 0 0 0-11-182M220 340a90 90 0 0 0-8-126"/></g></svg>
   <div class="wrap cta">
     <div class="box reveal">
       <h2>Ready for a fresh look?</h2>
@@ -864,13 +895,39 @@
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=600){m.style.cssText='';b.setAttribute('aria-expanded',false);}});});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+(function(){
+  var holder=document.getElementById('limeArt');if(!holder)return;
+  var SRC='https://cdn.openart.ai/openart-ai/production/2026-07/create-image/NKHFulwzugcwzxHIJ76i/image_1783414348494_0bfcd008_1783414348555_8857d5b7.png';
+  var img=new Image();img.crossOrigin='anonymous';
+  img.onload=function(){
+    try{
+      var c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;
+      var x=c.getContext('2d');x.drawImage(img,0,0);
+      var d=x.getImageData(0,0,c.width,c.height),p=d.data;
+      for(var i=0;i<p.length;i+=4){
+        var r=p[i],g=p[i+1],bch=p[i+2];
+        var mn=Math.min(r,g,bch),mx=Math.max(r,g,bch);
+        if(mn>212&&(mx-mn)<26){ /* near-white, low saturation */
+          var t=(mn-212)/43; if(t>1)t=1;
+          p[i+3]=Math.round(255*(1-t));
+        }
+      }
+      x.putImageData(d,0,0);holder.appendChild(c);
+    }catch(e){ /* canvas tainted: fall back to blend trick */
+      var f=new Image();f.src=SRC;f.className='blend';holder.appendChild(f);
+    }
+  };
+  img.onerror=function(){var f=new Image();f.src=SRC;f.className='blend';holder.appendChild(f);};
+  img.src=SRC;
+})();
+
   document.querySelectorAll('.stage').forEach(function(stage){
     var handle=stage.querySelector('.handle'),start=parseFloat(stage.dataset.pos||50);
     function set(pct){pct=Math.max(0,Math.min(100,pct));stage.style.setProperty('--pos',pct+'%');handle.setAttribute('aria-valuenow',Math.round(pct));}
     set(start);var dragging=false;
     function fromEvent(e){var r=stage.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;set(x/r.width*100);}
     var interacted=false,played=false;
-    stage.addEventListener('pointerdown',function(e){dragging=true;interacted=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
+    stage.addEventListener('pointerdown',function(e){if(e.target.closest('.seebtn')||e.target.closest('a'))return;dragging=true;interacted=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
     stage.addEventListener('pointermove',function(e){if(dragging)fromEvent(e);});
     stage.addEventListener('pointerup',function(){dragging=false;});
     stage.addEventListener('pointercancel',function(){dragging=false;});
