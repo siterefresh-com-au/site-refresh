@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#171b1d">
+  <meta name="description" content="A fictional Northshore Electrical website concept covering repairs, replacements, lighting, switchboards, EV chargers and complete fit-outs across Sydney's North Shore.">
+  <link rel="canonical" href="https://siterefresh.com.au/electrician-demo">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Northshore Electrical | Website concept by Site Refresh">
+  <meta property="og:description" content="A premium fictional electrician website spanning faults and replacements through to lighting, switchboards, EV chargers and complete fit-outs.">
+  <meta property="og:url" content="https://siterefresh.com.au/electrician-demo">
+  <meta property="og:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v1.webp">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Electrician testing a modern residential switchboard">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Northshore Electrical | Website concept by Site Refresh">
+  <meta name="twitter:description" content="A premium fictional electrician website spanning faults and replacements through to lighting, switchboards, EV chargers and complete fit-outs.">
+  <meta name="twitter:url" content="https://siterefresh.com.au/electrician-demo">
+  <meta name="twitter:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v1.webp">
+  <title>Northshore Electrical | Website concept by Site Refresh</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='2' fill='%23171b1d'/%3E%3Cpath d='M13 9v14c0 7 4 11 11 11h11' fill='none' stroke='%23f3c945' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M23 9v10c0 3 2 5 5 5h7' fill='none' stroke='%23f5f1e8' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --ink: #171b1d;
+      --ink-2: #22292d;
+      --slate: #314048;
+      --steel: #6d7a7f;
+      --mist: #dce1de;
+      --chalk: #f5f1e8;
+      --paper: #fcfaf4;
+      --white: #fffef9;
+      --yellow: #f3c945;
+      --yellow-bright: #ffd84f;
+      --line: rgba(23, 27, 29, .16);
+      --line-light: rgba(255, 255, 255, .18);
+      --shadow: 0 22px 60px rgba(25, 33, 36, .12);
+      --sans: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --max: 1240px;
+      --header-h: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 112px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--chalk);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; width: 100%; height: auto; }
+    figure { margin: 0; }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    ::selection { color: var(--ink); background: var(--yellow); }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 1000;
+      padding: 10px 15px;
+      color: var(--ink);
+      background: var(--yellow-bright);
+      transform: translateY(-150%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    :focus-visible { outline: 3px solid var(--yellow-bright); outline-offset: 4px; }
+
+    .demo-bar {
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 6px 20px;
+      color: #e8ecea;
+      background: #101416;
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .demo-bar::before {
+      width: 7px;
+      height: 7px;
+      content: "";
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 0 4px rgba(243, 201, 69, .12);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-h);
+      color: var(--ink);
+      background: rgba(252, 250, 244, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      width: min(var(--max), calc(100% - 48px));
+      height: 100%;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 34px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: max-content; }
+    .brand-mark { width: 43px; height: 43px; flex: 0 0 43px; }
+    .brand-type { display: grid; gap: 1px; line-height: 1; }
+    .brand-name { font-size: .94rem; font-weight: 800; letter-spacing: -.025em; }
+    .brand-sub { color: var(--steel); font-size: .57rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    .site-nav { justify-self: center; }
+    .nav-list { margin: 0; padding: 0; display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-list a { position: relative; font-size: .76rem; font-weight: 700; }
+    .nav-list a::after {
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -8px;
+      height: 2px;
+      content: "";
+      background: var(--yellow);
+      transition: right .25s ease;
+    }
+    .nav-list a:hover::after, .nav-list a:focus-visible::after { right: 0; }
+    .header-actions { display: flex; align-items: center; gap: 13px; }
+    .call-preview {
+      border: 0;
+      padding: 0;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-size: .68rem;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: right;
+    }
+    .call-preview span { display: block; color: var(--steel); font-size: .55rem; letter-spacing: .11em; text-transform: uppercase; }
+    .header-cta, .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 13px 20px;
+      border: 1px solid var(--ink);
+      color: var(--chalk);
+      background: var(--ink);
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
+    }
+    .header-cta:hover, .button:hover { color: var(--ink); background: var(--yellow-bright); transform: translateY(-2px); }
+    .button-light { color: var(--ink); background: var(--yellow-bright); border-color: var(--yellow-bright); }
+    .button-light:hover { color: var(--chalk); background: var(--ink); border-color: var(--ink); }
+    .button-ghost { color: var(--ink); background: transparent; }
+    .button-ghost:hover { color: var(--chalk); background: var(--ink); }
+    .button svg, .header-cta svg { width: 18px; height: 18px; transition: transform .25s ease; }
+    .button:hover svg, .header-cta:hover svg { transform: translateX(4px); }
+    .menu-toggle { display: none; width: 46px; height: 46px; padding: 0; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+    .menu-toggle span { width: 19px; height: 2px; display: block; margin: 5px auto; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+
+    .section-shell { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 17px;
+      color: #8a6c13;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 27px; height: 2px; content: ""; background: var(--yellow); }
+    .eyebrow-light { color: var(--yellow-bright); }
+    .display { margin-bottom: 22px; font-family: var(--serif); font-size: clamp(3rem, 5vw, 5rem); font-weight: 500; letter-spacing: -.052em; line-height: .92; }
+    .section-intro { max-width: 580px; color: var(--slate); font-size: 1rem; }
+    .concept-label {
+      position: absolute;
+      right: 13px;
+      bottom: 13px;
+      z-index: 3;
+      padding: 7px 9px;
+      color: #f4f5ef;
+      background: rgba(16, 20, 22, .82);
+      border: 1px solid rgba(255, 255, 255, .24);
+      font-size: .52rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(7px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: min(820px, calc(100svh - 112px));
+      background-color: var(--paper);
+      background-image: linear-gradient(rgba(49, 64, 72, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(49, 64, 72, .055) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 44%;
+      height: 8px;
+      content: "";
+      background: var(--yellow);
+    }
+    .hero-inner {
+      width: min(1510px, 100%);
+      min-height: min(820px, calc(100svh - 112px));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: minmax(470px, .9fr) minmax(590px, 1.16fr);
+      align-items: stretch;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 4;
+      align-self: center;
+      padding: 48px clamp(32px, 5vw, 72px) 54px clamp(38px, 5vw, 78px);
+    }
+    .hero-kicker { margin-bottom: 23px; color: var(--slate); font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .hero-kicker b { color: #8b6a00; }
+    .hero h1 { max-width: 660px; margin-bottom: 24px; font-family: var(--serif); font-size: clamp(4.6rem, 6.4vw, 6.8rem); font-weight: 500; letter-spacing: -.07em; line-height: .82; }
+    .hero h1 em { display: block; margin-left: .38em; color: #a77900; font-weight: 500; }
+    .hero-lead { max-width: 570px; margin-bottom: 30px; color: var(--slate); font-size: clamp(.98rem, 1.25vw, 1.1rem); line-height: 1.72; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 31px; }
+    .hero-points { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; }
+    .hero-points li { display: flex; align-items: center; gap: 8px; color: var(--slate); font-size: .67rem; font-weight: 700; }
+    .hero-points li::before { width: 8px; height: 8px; content: ""; border: 2px solid var(--ink); border-radius: 50%; box-shadow: inset 0 0 0 2px var(--paper); background: var(--yellow); }
+    .hero-media { position: relative; min-height: 100%; padding: 28px 28px 28px 0; }
+    .hero-photo { position: relative; height: 100%; min-height: 560px; overflow: hidden; background: var(--ink-2); clip-path: polygon(6% 0, 100% 0, 100% 94%, 94% 94%, 94% 100%, 0 100%, 0 8%, 6% 8%); }
+    .hero-photo img { height: 100%; object-fit: cover; object-position: 56% center; }
+    .hero-photo::after { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(19, 25, 27, .08), transparent 35%); }
+    .hero-note {
+      position: absolute;
+      left: -47px;
+      top: 13%;
+      z-index: 5;
+      width: 198px;
+      padding: 18px 18px 19px 21px;
+      background: rgba(252, 250, 244, .96);
+      border-left: 3px solid var(--yellow);
+      box-shadow: var(--shadow);
+    }
+    .hero-note span { display: block; margin-bottom: 4px; color: #8a6c13; font-size: .55rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .hero-note strong { font-family: var(--serif); font-size: 1.38rem; font-weight: 600; line-height: 1.05; }
+    .hero-circuit { position: absolute; top: -115px; right: 0; z-index: 2; width: 46%; height: 180px; color: var(--yellow); opacity: .9; pointer-events: none; }
+    .hero-photo .concept-label { right: 7%; }
+
+    .signal-section { position: relative; overflow: hidden; padding: 112px 0 120px; background: var(--ink); color: var(--chalk); }
+    .signal-section::before {
+      position: absolute; inset: 0; content: ""; opacity: .17;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.25) 1px, transparent 0);
+      background-size: 31px 31px;
+      mask-image: linear-gradient(90deg, #000, transparent 55%);
+    }
+    .signal-grid { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(50px, 7vw, 100px); align-items: start; }
+    .signal-heading { position: sticky; top: 126px; }
+    .signal-heading .display { max-width: 500px; }
+    .signal-heading p { max-width: 450px; color: #b8c1bd; }
+    .pathway-stack { border-top: 1px solid var(--line-light); }
+    .pathway {
+      width: 100%;
+      min-height: 112px;
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 2px;
+      border: 0;
+      border-bottom: 1px solid var(--line-light);
+      color: var(--chalk);
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: padding .25s ease, background .25s ease;
+    }
+    .pathway:hover { padding-inline: 14px; background: rgba(255,255,255,.045); }
+    .pathway-num { color: var(--yellow); font-family: var(--serif); font-size: 1.1rem; font-style: italic; }
+    .pathway-copy strong { display: block; margin-bottom: 5px; font-family: var(--serif); font-size: clamp(1.55rem, 2.2vw, 2.05rem); font-weight: 500; line-height: 1; }
+    .pathway-copy small { color: #aeb8b4; font-size: .72rem; }
+    .pathway-arrow { width: 39px; height: 39px; display: grid; place-items: center; color: var(--ink); background: var(--yellow); border-radius: 50%; }
+    .pathway-arrow svg { width: 17px; }
+    .signal-visual { position: relative; margin-top: 38px; aspect-ratio: 1.5; overflow: hidden; }
+    .signal-visual img { height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .signal-visual:hover img { transform: scale(1.025); }
+    .signal-visual .image-note { position: absolute; left: 18px; bottom: 18px; max-width: 240px; padding: 15px 16px; color: var(--ink); background: var(--yellow-bright); font-family: var(--serif); font-size: 1.2rem; font-weight: 600; line-height: 1.05; }
+
+    .services { position: relative; padding: 120px 0; overflow: hidden; background: var(--paper); }
+    .services::after { position: absolute; right: -180px; top: 18%; width: 500px; height: 500px; content: ""; border: 1px solid rgba(49,64,72,.12); border-radius: 50%; box-shadow: 0 0 0 58px rgba(49,64,72,.025), 0 0 0 116px rgba(49,64,72,.025); }
+    .services-grid { position: relative; z-index: 2; display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(60px, 9vw, 130px); }
+    .services-intro { align-self: start; }
+    .services-intro .display { font-size: clamp(3.1rem, 5vw, 5.4rem); }
+    .services-intro .button { margin-top: 14px; }
+    .service-list { border-top: 1px solid var(--line); }
+    .service-row { min-height: 98px; display: grid; grid-template-columns: 42px minmax(155px, .85fr) 1.2fr auto; align-items: center; gap: 18px; border-bottom: 1px solid var(--line); }
+    .service-row > span:first-child { color: #8a6c13; font-family: var(--serif); font-size: 1rem; font-style: italic; }
+    .service-row h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.45rem, 2vw, 1.9rem); font-weight: 600; line-height: .96; }
+    .service-row p { margin: 0; color: var(--steel); font-size: .69rem; line-height: 1.55; }
+    .service-row button { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
+    .service-row button:hover { background: var(--yellow); border-color: var(--yellow); }
+
+    .lighting { position: relative; display: grid; grid-template-columns: 1.18fr .82fr; min-height: 690px; color: var(--chalk); background: var(--ink-2); overflow: hidden; }
+    .lighting-media { position: relative; min-height: 690px; overflow: hidden; }
+    .lighting-media img { height: 100%; object-fit: cover; }
+    .lighting-media::after { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, transparent 55%, rgba(34,41,45,.78) 100%); }
+    .lighting-copy { position: relative; z-index: 2; align-self: center; max-width: 540px; padding: 80px clamp(38px, 6vw, 95px) 80px clamp(38px, 5vw, 75px); }
+    .lighting-copy::before { position: absolute; left: 0; top: 25%; width: 1px; height: 50%; content: ""; background: linear-gradient(transparent, var(--yellow), transparent); }
+    .lighting-copy .display { max-width: 520px; }
+    .lighting-copy > p { color: #c0c9c5; }
+    .lighting-facts { margin: 34px 0 30px; padding: 0; list-style: none; border-top: 1px solid var(--line-light); }
+    .lighting-facts li { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line-light); font-size: .73rem; }
+    .lighting-facts strong { color: var(--white); }
+    .lighting-facts span { color: #aab5b0; text-align: right; }
+
+    .process { position: relative; padding: 120px 0 132px; color: var(--chalk); background: #111719; overflow: hidden; }
+    .process::after { position: absolute; right: -9%; bottom: -190px; width: 600px; height: 600px; content: ""; border: 1px solid rgba(243,201,69,.11); border-radius: 50%; }
+    .process-top { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: end; }
+    .process-top .display { max-width: 690px; }
+    .process-top p { max-width: 450px; color: #b9c1be; }
+    .process-flow { position: relative; z-index: 2; margin-top: 75px; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .process-line { position: absolute; top: 24px; left: 12.5%; width: 75%; height: 2px; overflow: hidden; background: rgba(255,255,255,.12); }
+    .process-line::after { position: absolute; inset: 0; content: ""; background: var(--yellow); transform: translateX(-102%); }
+    .process.is-visible .process-line::after { animation: draw-line 1.2s .2s ease forwards; }
+    @keyframes draw-line { to { transform: translateX(0); } }
+    .process-step { position: relative; padding: 0 clamp(16px, 2.4vw, 35px); text-align: center; }
+    .process-dot { position: relative; z-index: 2; width: 49px; height: 49px; margin: 0 auto 28px; display: grid; place-items: center; color: var(--ink); background: var(--yellow); border: 9px solid #111719; border-radius: 50%; font-size: .62rem; font-weight: 800; }
+    .process-step h3 { margin-bottom: 9px; font-family: var(--serif); font-size: 1.75rem; font-weight: 600; }
+    .process-step p { margin: 0 auto; max-width: 220px; color: #aeb8b4; font-size: .71rem; }
+
+    .future { position: relative; padding: 122px 0 130px; overflow: hidden; background: #dfe5e2; }
+    .future::before { position: absolute; left: -6%; top: 54px; width: 55%; height: 1px; content: ""; background: rgba(49,64,72,.17); box-shadow: 0 18px 0 rgba(49,64,72,.07), 0 36px 0 rgba(49,64,72,.04); transform: rotate(-4deg); }
+    .future-head { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr .8fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+    .future-head .display { max-width: 700px; }
+    .future-head p { max-width: 470px; color: var(--slate); }
+    .future-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.42fr .72fr; gap: 27px; align-items: end; }
+    .future-card { position: relative; }
+    .future-image { position: relative; overflow: hidden; background: var(--ink); }
+    .future-card:first-child .future-image { aspect-ratio: 1.48; }
+    .future-card:last-child .future-image { aspect-ratio: .82; }
+    .future-image img { height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .future-card:hover img { transform: scale(1.025); }
+    .future-card-copy { position: relative; margin: -36px 22px 0; padding: 26px 27px 24px; background: var(--paper); border-top: 4px solid var(--yellow); box-shadow: var(--shadow); }
+    .future-card-copy span { color: #8a6c13; font-size: .58rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .future-card-copy h3 { margin: 6px 0 8px; font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 600; line-height: .98; }
+    .future-card-copy p { margin: 0; color: var(--steel); font-size: .73rem; }
+
+    .handover { padding: 122px 0; background: var(--paper); }
+    .handover-grid { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(55px, 8vw, 112px); align-items: center; }
+    .handover-media { position: relative; }
+    .handover-media::before { position: absolute; left: -20px; top: 22px; width: 70%; height: 96%; content: ""; background: var(--yellow); }
+    .handover-media img { position: relative; z-index: 2; aspect-ratio: 1.24; object-fit: cover; }
+    .handover-copy .display { max-width: 640px; }
+    .commitment-list { margin-top: 38px; border-top: 1px solid var(--line); }
+    .commitment { display: grid; grid-template-columns: 42px 1fr; gap: 18px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+    .commitment-icon { width: 32px; height: 32px; display: grid; place-items: center; color: var(--ink); background: var(--yellow); border-radius: 50%; font-size: .7rem; font-weight: 800; }
+    .commitment strong { display: block; margin-bottom: 2px; font-family: var(--serif); font-size: 1.35rem; line-height: 1.1; }
+    .commitment span { color: var(--steel); font-size: .71rem; }
+
+    .areas { position: relative; padding: 120px 0; overflow: hidden; color: var(--chalk); background: var(--ink-2); }
+    .areas-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(55px, 8vw, 105px); align-items: center; }
+    .areas-copy p { color: #bac3bf; }
+    .area-chips { margin: 28px 0 30px; display: flex; flex-wrap: wrap; gap: 7px; }
+    .area-chips span { padding: 7px 10px; border: 1px solid var(--line-light); color: #d9dfdc; font-size: .61rem; }
+    .map-card { position: relative; padding: 20px; background: #f0eee7; box-shadow: 0 26px 70px rgba(0,0,0,.22); }
+    .map-card::before { position: absolute; left: -12px; top: -12px; width: 68px; height: 68px; content: ""; border-left: 3px solid var(--yellow); border-top: 3px solid var(--yellow); }
+    .map-card svg { display: block; width: 100%; height: auto; }
+    .map-caption { margin: 9px 3px 0; color: #59666b; font-size: .57rem; font-weight: 800; letter-spacing: .15em; text-align: right; text-transform: uppercase; }
+    .map-road { fill: none; stroke: rgba(49,64,72,.1); stroke-width: 2; }
+    .map-water { fill: none; stroke: rgba(75,123,142,.15); stroke-width: 42; stroke-linecap: round; }
+    .map-spine { fill: none; stroke: #283b43; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    .map-branch { fill: none; stroke: #718087; stroke-width: 4; stroke-linecap: round; }
+    .map-node circle { fill: var(--yellow); stroke: #283b43; stroke-width: 4; }
+    .map-node text { fill: #243238; font: 700 18px var(--sans); paint-order: stroke; stroke: #f0eee7; stroke-width: 8px; stroke-linejoin: round; }
+
+    .faq { padding: 122px 0; background: var(--chalk); }
+    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(55px, 9vw, 130px); }
+    .faq-intro { position: sticky; top: 126px; align-self: start; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { position: relative; padding: 25px 55px 25px 0; cursor: pointer; font-family: var(--serif); font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 600; line-height: 1.1; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before, summary::after { position: absolute; right: 9px; top: 50%; width: 18px; height: 2px; content: ""; background: var(--ink); transition: transform .2s ease; }
+    summary::after { transform: rotate(90deg); }
+    details[open] summary::after { transform: rotate(0); }
+    details p { max-width: 700px; margin: -6px 50px 25px 0; color: var(--steel); font-size: .79rem; }
+
+    .contact { position: relative; padding: 120px 0; overflow: hidden; color: var(--chalk); background: #101416; }
+    .contact::before { position: absolute; inset: 0; content: ""; background: linear-gradient(120deg, transparent 52%, rgba(243,201,69,.05) 52%); }
+    .contact-grid { position: relative; z-index: 2; display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(55px, 9vw, 130px); }
+    .contact-copy .display { max-width: 560px; }
+    .contact-copy > p { max-width: 470px; color: #b6c0bc; }
+    .contact-aside { margin-top: 36px; padding: 22px; border: 1px solid var(--line-light); }
+    .contact-aside strong { display: block; margin-bottom: 5px; color: var(--yellow); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-aside p { margin: 0; color: #b6c0bc; font-size: .7rem; }
+    .quote-form { padding: clamp(28px, 4vw, 47px); color: var(--ink); background: var(--paper); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { margin-bottom: 17px; }
+    .field label, .fieldset-label { display: block; margin-bottom: 7px; font-size: .61rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid rgba(23,27,29,.22); color: var(--ink); background: #fffdf7; border-radius: 0; }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--yellow); outline-offset: 0; border-color: var(--ink); }
+    fieldset { margin: 0 0 21px; padding: 0; border: 0; }
+    .radio-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .radio-option input { position: absolute; opacity: 0; pointer-events: none; }
+    .radio-option span { display: block; padding: 9px 12px; border: 1px solid rgba(23,27,29,.19); cursor: pointer; font-size: .65rem; font-weight: 700; }
+    .radio-option input:checked + span { background: var(--yellow); border-color: var(--ink); }
+    .radio-option input:focus-visible + span { outline: 3px solid var(--yellow); outline-offset: 3px; }
+    .form-note { margin: 14px 0 0; color: var(--steel); font-size: .62rem; }
+    .form-status { min-height: 24px; margin: 12px 0 0; color: #526116; font-size: .71rem; font-weight: 700; }
+
+    .site-footer { color: #c7cfcb; background: #0b0e0f; }
+    .footer-main { padding: 62px 0 48px; display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 50px; }
+    .footer-brand .brand-name { color: var(--white); }
+    .footer-brand p { max-width: 380px; margin: 20px 0 0; color: #7f8b87; font-size: .69rem; }
+    .footer-col strong { display: block; margin-bottom: 13px; color: var(--yellow); font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-col a, .footer-col button { display: block; margin: 7px 0; padding: 0; border: 0; color: #aab4af; background: transparent; cursor: pointer; font-size: .69rem; text-align: left; }
+    .footer-col a:hover, .footer-col button:hover { color: var(--white); }
+    .footer-bottom { padding: 18px 0; display: flex; justify-content: space-between; gap: 22px; border-top: 1px solid rgba(255,255,255,.08); color: #69736f; font-size: .57rem; }
+    .footer-bottom a { color: #aab4af; text-decoration: underline; text-underline-offset: 3px; }
+
+    .mobile-actions { display: none; }
+    .demo-toast { position: fixed; right: 20px; bottom: 20px; z-index: 300; max-width: 360px; padding: 14px 17px; color: var(--ink); background: var(--yellow-bright); box-shadow: var(--shadow); font-size: .7rem; font-weight: 700; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(160%); transition: opacity .2s ease, transform .25s ease, visibility .25s ease; }
+    .demo-toast.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1120px) {
+      .header-inner { grid-template-columns: auto 1fr auto; }
+      .site-nav { position: fixed; inset: var(--header-h) auto auto 0; width: 100vw; max-width: none; justify-self: stretch; display: none; padding: 25px 24px 30px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 22px 30px rgba(20,25,27,.12); }
+      .site-nav.is-open { display: block; }
+      .nav-list { align-items: stretch; flex-direction: column; gap: 0; }
+      .nav-list a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 1.35rem; }
+      .nav-list a::after { display: none; }
+      .menu-toggle { display: block; justify-self: end; }
+      .header-actions { justify-self: end; }
+      .header-actions .call-preview { display: none; }
+      .hero-inner { grid-template-columns: .82fr 1.18fr; }
+      .hero-copy { padding-left: 32px; }
+      .hero h1 { font-size: clamp(4rem, 7.6vw, 5.5rem); }
+      .hero-note { left: -24px; }
+      .service-row { grid-template-columns: 36px minmax(145px,.8fr) 1.2fr auto; }
+    }
+
+    @media (max-width: 860px) {
+      :root { --header-h: 69px; }
+      html { scroll-padding-top: 76px; }
+      .header-inner, .section-shell { width: min(100% - 32px, var(--max)); }
+      .header-actions .header-cta { display: none; }
+      .hero { min-height: auto; }
+      .hero-inner { min-height: auto; grid-template-columns: 1fr; }
+      .hero-copy { padding: 72px 25px 45px; }
+      .hero h1 { max-width: 610px; font-size: clamp(4.3rem, 13vw, 6.4rem); }
+      .hero-media { min-height: 610px; padding: 0 17px 24px; }
+      .hero-photo { min-height: 610px; }
+      .hero-note { left: 14px; top: 28px; }
+      .hero-circuit { width: 72%; }
+      .signal-grid, .services-grid, .process-top, .future-head, .handover-grid, .areas-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+      .signal-heading, .faq-intro { position: static; }
+      .signal-grid, .services-grid, .faq-grid { gap: 48px; }
+      .services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: end; }
+      .services-intro .button { justify-self: start; }
+      .lighting { grid-template-columns: 1fr; }
+      .lighting-media { min-height: 520px; }
+      .lighting-copy { max-width: 720px; }
+      .lighting-media::after { background: linear-gradient(0deg, rgba(34,41,45,.92), transparent 48%); }
+      .process-top { gap: 15px; }
+      .future-head { gap: 12px; }
+      .future-grid { grid-template-columns: 1.15fr .85fr; }
+      .areas-grid { gap: 50px; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 620px) {
+      body { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }
+      .demo-bar { min-height: 42px; padding-inline: 12px; font-size: .54rem; }
+      .brand-mark { width: 38px; height: 38px; flex-basis: 38px; }
+      .brand-name { font-size: .8rem; }
+      .brand-sub { font-size: .48rem; }
+      .display { font-size: clamp(2.8rem, 14vw, 4rem); }
+      .hero-copy { padding: 36px 25px 23px; }
+      .hero-kicker { margin-bottom: 14px; font-size: .59rem; letter-spacing: .1em; }
+      .hero h1 { margin-bottom: 14px; font-size: clamp(3.55rem, 18vw, 4.4rem); }
+      .hero h1 em { margin-left: .1em; }
+      .hero-lead { margin-bottom: 18px; font-size: .91rem; line-height: 1.55; }
+      .hero-actions { align-items: stretch; flex-direction: column; gap: 8px; margin-bottom: 0; }
+      .hero-actions .button { width: 100%; }
+      .hero-points { display: none; }
+      .hero-media, .hero-photo { min-height: 470px; }
+      .hero-photo img { object-position: 62% center; }
+      .hero-note { display: none; }
+      .signal-section, .services, .process, .future, .handover, .areas, .faq, .contact { padding-block: 84px; }
+      .pathway { grid-template-columns: 28px 1fr auto; gap: 12px; }
+      .pathway-copy small { display: none; }
+      .signal-visual { aspect-ratio: 1.08; }
+      .services-intro { display: block; }
+      .service-row { min-height: 94px; grid-template-columns: 29px 1fr auto; gap: 10px; }
+      .service-row p { display: none; }
+      .lighting-media { min-height: 430px; }
+      .lighting-copy { padding: 62px 25px 70px; }
+      .process-flow { grid-template-columns: 1fr; gap: 0; margin-top: 50px; }
+      .process-line { left: 24px; top: 24px; width: 2px; height: calc(100% - 52px); }
+      .process-line::after { transform: translateY(-102%); }
+      @keyframes draw-line { to { transform: translateY(0); } }
+      .process-step { min-height: 132px; display: grid; grid-template-columns: 49px 1fr; grid-template-rows: auto auto; gap: 0 22px; padding: 0; text-align: left; }
+      .process-dot { grid-row: 1 / 3; margin: 0; }
+      .process-step h3 { margin: 7px 0 4px; }
+      .process-step p { margin: 0; }
+      .future-grid { grid-template-columns: 1fr; gap: 44px; }
+      .future-card:first-child .future-image { aspect-ratio: 1.15; }
+      .future-card:last-child { width: 85%; margin-left: auto; }
+      .future-card:last-child .future-image { aspect-ratio: .85; }
+      .future-card-copy { margin: -26px 13px 0; padding: 22px; }
+      .handover-grid { gap: 58px; }
+      .handover-media::before { left: -9px; top: 12px; }
+      .map-card { margin-inline: -8px; padding: 9px; }
+      .map-node text { font-size: 22px; stroke-width: 10px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .quote-form { padding: 27px 20px; }
+      .footer-main { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+      .mobile-actions { position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; height: calc(66px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr; padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid rgba(255,255,255,.16); box-shadow: 0 -10px 30px rgba(13,17,19,.18); }
+      .mobile-actions button, .mobile-actions a { display: grid; place-items: center; border: 0; color: var(--chalk); background: var(--ink); font-size: .66rem; font-weight: 800; }
+      .mobile-actions a { color: var(--ink); background: var(--yellow); }
+      .demo-toast { right: 10px; bottom: calc(77px + env(safe-area-inset-bottom)); left: 10px; max-width: none; }
+    }
+
+    @media (max-width: 360px) {
+      .header-inner, .section-shell { width: min(100% - 24px, var(--max)); }
+      .brand-sub { display: none; }
+      .hero-copy { padding-inline: 17px; }
+      .hero h1 { font-size: 3.55rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      .process-line::after { transform: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="demo-bar">Portfolio concept · fictional business · enquiry actions are demonstrations only</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Northshore Electrical, back to top">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <rect width="48" height="48" rx="2" fill="#171b1d"/>
+        <path d="M13 9v14c0 7 4 11 11 11h11" fill="none" stroke="#f3c945" stroke-width="4" stroke-linecap="round"/>
+        <path d="M23 9v10c0 3 2 5 5 5h7" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="35" cy="24" r="3.5" fill="#f3c945"/>
+        <circle cx="35" cy="34" r="3.5" fill="#f5f1e8"/>
+      </svg>
+      <span class="brand-type">
+        <span class="brand-name">Northshore Electrical</span>
+        <span class="brand-sub">Repairs · Installs · Testing</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="#problems">What we solve</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How we work</a></li>
+        <li><a href="#areas">Areas</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="call-preview" type="button" data-demo-call>
+        <span>Talk it through</span>
+        (02) 5550 0148
+      </button>
+      <a class="header-cta" href="#quote">Book an electrician
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+      </a>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <svg class="hero-circuit" viewBox="0 0 700 190" fill="none" aria-hidden="true">
+      <path d="M700 50H570c-44 0-55 22-55 55v20c0 31-17 46-48 46H280c-32 0-48-17-48-48V77c0-31-17-47-48-47H0" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="570" cy="50" r="8" fill="#fcfaf4" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M403 158v26m12-26v26" stroke="currentColor" stroke-width="3"/>
+      <circle cx="232" cy="77" r="7" fill="#fcfaf4" stroke="currentColor" stroke-width="2.5"/>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="hero-kicker"><b>Repairs · replacements · new builds</b> · Sydney’s North Shore</div>
+        <h1 id="hero-title">From faults <em>to full fit-outs.</em></h1>
+        <p class="hero-lead">Repairs, replacements and complete electrical work for homes, renovations and new builds—from lights, sockets and smoke alarms to switchboards, EV chargers and fault finding.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#quote">Book an electrician
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </a>
+          <button class="button button-ghost" type="button" data-prefill="Fault finding or repair" data-message="Something electrical needs repairing or replacing and I would like it checked.">I need a repair</button>
+        </div>
+        <ul class="hero-points" aria-label="Service commitments">
+          <li>Repairs &amp; replacements</li>
+          <li>New builds &amp; renovations</li>
+          <li>Tested before handover</li>
+        </ul>
+      </div>
+
+      <div class="hero-media">
+        <figure class="hero-photo">
+          <img src="img/northshore-electrical/hero-switchboard-v1.webp" width="1536" height="1024" alt="Electrician testing a modern residential switchboard in a North Shore home" fetchpriority="high" decoding="async">
+          <figcaption class="concept-label">Concept image · fictional demo</figcaption>
+        </figure>
+        <div class="hero-note" aria-hidden="true">
+          <span>Across the circuit</span>
+          <strong>Repair. Replace. Install.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="signal-section" id="problems" aria-labelledby="signal-title">
+    <div class="section-shell signal-grid">
+      <div class="signal-heading reveal">
+        <div class="eyebrow eyebrow-light">Start with the signal</div>
+        <h2 class="display" id="signal-title">What has changed?</h2>
+        <p>You do not need to know the technical term. Choose the situation that feels closest and we will start the right conversation.</p>
+        <figure class="signal-visual">
+          <img src="img/northshore-electrical/switchboard-detail-v1.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Neatly arranged modern switchboard prepared for electrical testing">
+          <figcaption class="image-note">The board often tells the bigger story.</figcaption>
+          <span class="concept-label">Concept image</span>
+        </figure>
+      </div>
+
+      <div class="pathway-stack reveal">
+        <button class="pathway" type="button" data-prefill="Fault finding or repair" data-message="The power is tripping or something has stopped working.">
+          <span class="pathway-num">01</span>
+          <span class="pathway-copy"><strong>The power is tripping</strong><small>Intermittent circuits, lost power or a fault that keeps returning.</small></span>
+          <span class="pathway-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </button>
+        <button class="pathway" type="button" data-prefill="Switchboard and safety" data-message="Our switchboard looks dated and I would like to understand what should be upgraded.">
+          <span class="pathway-num">02</span>
+          <span class="pathway-copy"><strong>The switchboard looks dated</strong><small>Older protection, no clear labelling or questions about safety switches.</small></span>
+          <span class="pathway-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </button>
+        <button class="pathway" type="button" data-prefill="Lighting and power" data-message="The lights or power points need installing, replacing or improving.">
+          <span class="pathway-num">03</span>
+          <span class="pathway-copy"><strong>The lights or power points need work</strong><small>New fittings, added outlets, replacements or switching that works better.</small></span>
+          <span class="pathway-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </button>
+        <button class="pathway" type="button" data-prefill="New build or renovation electrical work" data-message="We need complete electrical work for a new build or renovation.">
+          <span class="pathway-num">04</span>
+          <span class="pathway-copy"><strong>It is a new build or renovation</strong><small>Complete wiring, new circuits, appliances and future-ready provisions.</small></span>
+          <span class="pathway-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="section-shell services-grid">
+      <div class="services-intro reveal">
+        <div>
+          <div class="eyebrow">Electrical, considered</div>
+          <h2 class="display" id="services-title">From first fault to final fitting.</h2>
+          <p class="section-intro">Repairs, replacements and complete installations handled with the same care: understand the system, agree the finish and make it safe.</p>
+        </div>
+        <a class="button" href="#quote">Describe the job
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+
+      <div class="service-list reveal">
+        <article class="service-row">
+          <span>01</span><h3>Fault finding<br>&amp; repairs</h3><p>Trace the cause, explain the options and repair what is actually failing.</p>
+          <button type="button" aria-label="Enquire about fault finding and repairs" data-prefill="Fault finding or repair" data-message="I need help tracing an electrical fault or repair.">↗</button>
+        </article>
+        <article class="service-row">
+          <span>02</span><h3>Switchboards<br>&amp; safety</h3><p>Safety switches, circuit organisation and complete upgrades for a safer setup.</p>
+          <button type="button" aria-label="Enquire about switchboards and safety" data-prefill="Switchboard and safety" data-message="I would like our switchboard and safety protection assessed.">↗</button>
+        </article>
+        <article class="service-row">
+          <span>03</span><h3>Lighting<br>&amp; power</h3><p>Layered light, useful switching and power where the room needs it.</p>
+          <button type="button" aria-label="Enquire about lighting and power" data-prefill="Lighting and power" data-message="I would like to improve the lighting or power layout.">↗</button>
+        </article>
+        <article class="service-row">
+          <span>04</span><h3>Smoke alarms<br>&amp; compliance</h3><p>Testing, replacement and practical advice for current home protection.</p>
+          <button type="button" aria-label="Enquire about smoke alarms and compliance" data-prefill="Smoke alarms and compliance" data-message="I need smoke alarms or electrical compliance work checked.">↗</button>
+        </article>
+        <article class="service-row">
+          <span>05</span><h3>New builds<br>&amp; renovations</h3><p>Wire lighting, power, appliances and data cleanly from first fix to handover.</p>
+          <button type="button" aria-label="Enquire about new build or renovation electrical work" data-prefill="New build or renovation electrical work" data-message="We need electrical work for a new build or renovation.">↗</button>
+        </article>
+        <article class="service-row">
+          <span>06</span><h3>EV charging<br>&amp; new loads</h3><p>Assess capacity, position the equipment and complete a neat installation.</p>
+          <button type="button" aria-label="Enquire about EV charging" data-prefill="EV charger and new loads" data-message="I would like to discuss EV charging or another new electrical load.">↗</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lighting" aria-labelledby="lighting-title">
+    <figure class="lighting-media">
+      <img src="img/northshore-electrical/lighting-interior-v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Warm layered lighting throughout a contemporary open-plan kitchen and living area">
+      <figcaption class="concept-label">Concept image · fictional demo</figcaption>
+    </figure>
+    <div class="lighting-copy reveal">
+      <div class="eyebrow eyebrow-light">Lighting with intent</div>
+      <h2 class="display" id="lighting-title">Good lighting disappears into the room.</h2>
+      <p>It should support how the space works at breakfast, after dark and everywhere between—without making the ceiling the main event.</p>
+      <ul class="lighting-facts">
+        <li><strong>Task</strong><span>Useful light where the work happens</span></li>
+        <li><strong>Ambient</strong><span>Comfortable, even illumination</span></li>
+        <li><strong>Accent</strong><span>Depth, detail and a sense of place</span></li>
+      </ul>
+      <button class="button button-light" type="button" data-prefill="Lighting and power" data-message="I would like to improve the lighting in my home.">Improve my lighting</button>
+    </div>
+  </section>
+
+  <section class="process" id="process" aria-labelledby="process-title">
+    <div class="section-shell">
+      <div class="process-top reveal">
+        <div>
+          <div class="eyebrow eyebrow-light">A clear circuit</div>
+          <h2 class="display" id="process-title">No mystery between first visit and final test.</h2>
+        </div>
+        <p>The process stays visible. You know what we found, what is included and what has been checked before the job is handed back.</p>
+      </div>
+      <div class="process-flow" aria-label="Four-stage electrical work process">
+        <span class="process-line" aria-hidden="true"></span>
+        <article class="process-step">
+          <span class="process-dot">01</span>
+          <h3>Diagnose</h3>
+          <p>Inspect the situation, test the circuit and find the cause.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-dot">02</span>
+          <h3>Scope</h3>
+          <p>Set out the work, choices and practical finish before starting.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-dot">03</span>
+          <h3>Install</h3>
+          <p>Complete the work neatly and coordinate around the room.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-dot">04</span>
+          <h3>Verify</h3>
+          <p>Test the result, label where needed and explain the handover.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="future" id="projects" aria-labelledby="future-title">
+    <div class="section-shell">
+      <div class="future-head reveal">
+        <div>
+          <div class="eyebrow">Built for what is next</div>
+          <h2 class="display" id="future-title">Ready for everyday power.</h2>
+        </div>
+        <p>From a new room to an EV charger, the work should be neat today and have the capacity to serve what comes next.</p>
+      </div>
+
+      <div class="future-grid">
+        <article class="future-card reveal">
+          <figure class="future-image">
+            <img src="img/northshore-electrical/renovation-planning-v1.webp" width="1448" height="1086" loading="lazy" decoding="async" alt="Electrician and builder reviewing electrical plans during a home renovation">
+            <figcaption class="concept-label">Concept image</figcaption>
+          </figure>
+          <div class="future-card-copy">
+            <span>New builds &amp; renovations</span>
+            <h3>Wiring from the ground up</h3>
+            <p>Install lighting, power, appliances and data cleanly while the build is open.</p>
+          </div>
+        </article>
+
+        <article class="future-card reveal">
+          <figure class="future-image">
+            <img src="img/northshore-electrical/ev-charger-v1.webp" width="1122" height="1402" loading="lazy" decoding="async" alt="Neatly installed electric vehicle charger beside a modern home garage">
+            <figcaption class="concept-label">Concept image</figcaption>
+          </figure>
+          <div class="future-card-copy">
+            <span>Capacity · position · access</span>
+            <h3>EV ready</h3>
+            <p>Check the existing supply and install the charger neatly, safely and in the right position.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="handover" aria-labelledby="handover-title">
+    <div class="section-shell handover-grid">
+      <figure class="handover-media reveal">
+        <img src="img/northshore-electrical/switchboard-detail-v1.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Modern electrical switchboard with orderly circuit protection and testing equipment">
+        <figcaption class="concept-label">Concept image</figcaption>
+      </figure>
+      <div class="handover-copy reveal">
+        <div class="eyebrow">The handover matters</div>
+        <h2 class="display" id="handover-title">Finished means understood, tested and tidy.</h2>
+        <p class="section-intro">The last part of the job should leave you with confidence—not a collection of unanswered questions.</p>
+        <div class="commitment-list">
+          <div class="commitment">
+            <span class="commitment-icon">✓</span>
+            <div><strong>The result is tested</strong><span>Relevant circuits and devices are checked before the work is handed back.</span></div>
+          </div>
+          <div class="commitment">
+            <span class="commitment-icon">✓</span>
+            <div><strong>The choices are explained</strong><span>You know what changed, how to use it and what may be worth planning next.</span></div>
+          </div>
+          <div class="commitment">
+            <span class="commitment-icon">✓</span>
+            <div><strong>The space is respected</strong><span>Protection, careful placement and a clean finish are part of the work.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="areas" id="areas" aria-labelledby="areas-title">
+    <div class="section-shell areas-grid">
+      <div class="areas-copy reveal">
+        <div class="eyebrow eyebrow-light">Local by design</div>
+        <h2 class="display" id="areas-title">Across Sydney’s North Shore.</h2>
+        <p>Illustratively based around the main North Shore corridor, with nearby suburbs grouped into practical service runs.</p>
+        <div class="area-chips" aria-label="Example service suburbs">
+          <span>Hornsby</span><span>Turramurra</span><span>Pymble</span><span>Gordon</span><span>St Ives</span><span>Chatswood</span><span>Lane Cove</span><span>North Sydney</span><span>Mosman</span>
+        </div>
+        <button class="button button-light" type="button" data-prefill="Other electrical work" data-message="I would like to check whether my North Shore suburb is in the service area.">Check my suburb</button>
+      </div>
+
+      <figure class="map-card reveal">
+        <svg viewBox="0 0 900 620" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Illustrative North Shore service corridor</title>
+          <desc id="map-desc">A not-to-scale schematic showing a north to south route from Hornsby through Turramurra, Pymble, Gordon and Chatswood to North Sydney, with branches to St Ives, Lane Cove and Mosman.</desc>
+          <rect width="900" height="620" fill="#f0eee7"/>
+          <path class="map-water" d="M830-20C790 85 800 175 837 260c31 70 28 157-12 233-25 49-29 97-8 147"/>
+          <path class="map-road" d="M115 35C220 145 154 267 250 367s49 180 123 265M688 20C601 131 635 252 570 351c-45 69-31 163 13 246M50 272C212 300 383 278 569 310s239 13 331-17M35 479c194-51 347-19 492 19s249 14 373-34"/>
+          <path class="map-road" d="M65 120h735M105 552h674M202 20c36 175 16 354 83 600"/>
+          <path class="map-spine" d="M250 72 C271 98 304 125 327 161 C333 176 337 191 342 207 C347 225 354 241 361 254 C376 286 395 315 414 350 C442 402 469 465 492 520"/>
+          <path class="map-branch" d="M342 207C409 193 462 181 525 170M414 350C361 366 316 387 270 409M492 520C548 504 604 489 665 476"/>
+          <g class="map-node" transform="translate(250 72)"><circle r="10"/><text x="-22" y="-19" text-anchor="end">Hornsby</text></g>
+          <g class="map-node" transform="translate(327 161)"><circle r="9"/><text x="-18" y="-13" text-anchor="end">Turramurra</text></g>
+          <g class="map-node" transform="translate(342 207)"><circle r="8"/><text x="-18" y="22" text-anchor="end">Pymble</text></g>
+          <g class="map-node" transform="translate(361 254)"><circle r="8"/><text x="-18" y="25" text-anchor="end">Gordon</text></g>
+          <g class="map-node" transform="translate(414 350)"><circle r="10"/><text x="17" y="-16">Chatswood</text></g>
+          <g class="map-node" transform="translate(492 520)"><circle r="11"/><text x="18" y="31">North Sydney</text></g>
+          <g class="map-node" transform="translate(525 170)"><circle r="8"/><text x="17" y="-13">St Ives</text></g>
+          <g class="map-node" transform="translate(270 409)"><circle r="8"/><text x="-18" y="5" text-anchor="end">Lane Cove</text></g>
+          <g class="map-node" transform="translate(665 476)"><circle r="8"/><text x="18" y="5">Mosman</text></g>
+          <circle cx="746" cy="92" r="36" fill="none" stroke="#f3c945" stroke-width="3"/>
+          <path d="M746 48v88M702 92h88M715 61l62 62M777 61l-62 62" stroke="#f3c945" stroke-width="2" opacity=".8"/>
+        </svg>
+        <figcaption class="map-caption">Illustrative service route · not to scale</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="section-shell faq-grid">
+      <div class="faq-intro reveal">
+        <div class="eyebrow">Before we begin</div>
+        <h2 class="display" id="faq-title">Useful questions, plainly answered.</h2>
+        <p class="section-intro">A clear start makes the visit more useful. Photos and a simple description are often enough.</p>
+      </div>
+      <div class="faq-list reveal">
+        <details>
+          <summary>What should I send with an enquiry?</summary>
+          <p>Tell us what has changed, where it is happening and whether the problem is constant or intermittent. For planned work, a room photo or marked-up plan can help establish the first conversation.</p>
+        </details>
+        <details>
+          <summary>Can you help before renovation work starts?</summary>
+          <p>Yes. Early electrical planning is particularly useful for appliance loads, switch locations, lighting layers, data points and anything that may be difficult to add once walls and cabinetry are complete.</p>
+        </details>
+        <details>
+          <summary>Do you quote before carrying out the work?</summary>
+          <p>The scope and next step should be agreed before work begins. Faults sometimes need diagnostic testing first; in that case, the diagnostic stage and what follows can be explained separately.</p>
+        </details>
+        <details>
+          <summary>What happens if you find something unexpected?</summary>
+          <p>The work pauses at the decision point. The issue, options and likely effect on the agreed scope are explained before any additional work proceeds.</p>
+        </details>
+        <details>
+          <summary>Is this a real electrical business?</summary>
+          <p>No. Northshore Electrical is a fictional portfolio concept created by Site Refresh to demonstrate how a modern electrical service website could look and work. The form and phone actions do not contact a business.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="quote" aria-labelledby="quote-title">
+    <div class="section-shell contact-grid">
+      <div class="contact-copy reveal">
+        <div class="eyebrow eyebrow-light">Describe the situation</div>
+        <h2 class="display" id="quote-title">Start with what you can see.</h2>
+        <p>You do not need to diagnose it. Share the fault, fitting, room or project and the right questions can follow.</p>
+        <div class="contact-aside">
+          <strong>Fictional website demonstration</strong>
+          <p>This form shows the intended enquiry experience. It does not submit, store or send any information.</p>
+        </div>
+      </div>
+
+      <form class="quote-form reveal" id="demo-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="suburb">Suburb</label>
+            <input id="suburb" name="suburb" type="text" autocomplete="address-level2" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="service">What best describes the work?</label>
+          <select id="service" name="service" required>
+            <option value="">Choose one</option>
+            <option>Fault finding or repair</option>
+            <option>Switchboard and safety</option>
+            <option>Lighting and power</option>
+            <option>Smoke alarms and compliance</option>
+            <option value="New build or renovation electrical work">New build or renovation</option>
+            <option>EV charger and new loads</option>
+            <option>Other electrical work</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">What is happening?</label>
+          <textarea id="message" name="message" placeholder="A short description is enough to begin." required></textarea>
+        </div>
+        <fieldset>
+          <legend class="fieldset-label">When would you like help?</legend>
+          <div class="radio-row">
+            <label class="radio-option"><input type="radio" name="timing" value="Soon" required><span>As soon as practical</span></label>
+            <label class="radio-option"><input type="radio" name="timing" value="This month"><span>This month</span></label>
+            <label class="radio-option"><input type="radio" name="timing" value="Flexible"><span>Flexible timing</span></label>
+          </div>
+        </fieldset>
+        <button class="button button-light" type="submit">Preview enquiry
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <p class="form-note">Demo only. No details are transmitted or retained.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="section-shell footer-main">
+    <div class="footer-brand">
+      <a class="brand" href="#top" aria-label="Northshore Electrical, back to top">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="2" fill="#20282b"/>
+          <path d="M13 9v14c0 7 4 11 11 11h11" fill="none" stroke="#f3c945" stroke-width="4" stroke-linecap="round"/>
+          <path d="M23 9v10c0 3 2 5 5 5h7" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="35" cy="24" r="3.5" fill="#f3c945"/>
+          <circle cx="35" cy="34" r="3.5" fill="#f5f1e8"/>
+        </svg>
+        <span class="brand-type"><span class="brand-name">Northshore Electrical</span><span class="brand-sub">Repairs · Installs · Testing</span></span>
+      </a>
+      <p>A fictional electrical business and website concept created for the Site Refresh before-and-after portfolio.</p>
+    </div>
+    <div class="footer-col">
+      <strong>Explore</strong>
+      <a href="#problems">What we solve</a>
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#areas">Areas</a>
+    </div>
+    <div class="footer-col">
+      <strong>Demo actions</strong>
+      <a href="#quote">Preview enquiry</a>
+      <button type="button" data-demo-call>Preview phone action</button>
+      <a href="https://siterefresh.com.au/work">Back to Site Refresh work</a>
+    </div>
+  </div>
+  <div class="section-shell footer-bottom">
+    <span>Northshore Electrical is not a trading business. No electrical services are offered from this page.</span>
+    <span>Website concept by <a href="https://siterefresh.com.au">Site Refresh</a></span>
+  </div>
+</footer>
+
+<div class="mobile-actions" aria-label="Quick actions">
+  <button type="button" data-demo-call>Call preview</button>
+  <a href="#quote">Book an electrician</a>
+</div>
+<div class="demo-toast" id="demo-toast" role="status" aria-live="polite"></div>
+<script>
+  (() => {
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.site-nav');
+    const form = document.getElementById('demo-form');
+    const serviceField = document.getElementById('service');
+    const messageField = document.getElementById('message');
+    const formStatus = document.getElementById('form-status');
+    const toast = document.getElementById('demo-toast');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let toastTimer;
+
+    function setMenu(open) {
+      if (!menuButton || !navigation) return;
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      navigation.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+    }
+
+    menuButton?.addEventListener('click', () => {
+      setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navigation?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMenu(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1120) setMenu(false);
+    });
+
+    function showToast(message) {
+      clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 4200);
+    }
+
+    document.querySelectorAll('[data-demo-call]').forEach((button) => {
+      button.addEventListener('click', () => {
+        showToast('Demo only — this phone action does not place a call.');
+      });
+    });
+
+    document.querySelectorAll('[data-prefill]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const service = button.dataset.prefill || '';
+        const message = button.dataset.message || '';
+        serviceField.value = service;
+        messageField.value = message;
+        formStatus.textContent = `${service} has been selected. Add your details to preview the enquiry.`;
+        document.getElementById('quote').scrollIntoView({
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+        setTimeout(() => messageField.focus({ preventScroll: true }), reduceMotion ? 0 : 550);
+      });
+    });
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        formStatus.textContent = 'Complete the highlighted fields to preview the enquiry.';
+        return;
+      }
+      formStatus.textContent = 'Preview complete — in a live website this enquiry would now be sent. No information has left this page.';
+      showToast('Enquiry preview complete. No details were sent or stored.');
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const process = document.querySelector('.process');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+      process?.classList.add('is-visible');
+    } else {
+      const observer = new IntersectionObserver((entries, activeObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          activeObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+      revealItems.forEach((item) => observer.observe(item));
+      if (process) observer.observe(process);
+    }
+  })();
+</script>
+</body>
+</html>
