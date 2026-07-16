@@ -277,13 +277,25 @@
     .hero h1 span { display: block; }
     .hero__well {
       margin-top: -.03em;
-      margin-left: .55em;
+      margin-left: 0;
       color: var(--oxide);
       font-family: var(--serif);
       font-style: italic;
       font-weight: 400;
       letter-spacing: -.055em;
       line-height: .86;
+      white-space: nowrap;
+    }
+    .hero__well::before {
+      content: "";
+      display: inline-block;
+      width: clamp(62px, 1.15em, 104px);
+      height: 2px;
+      margin-right: .16em;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: .88;
+      vertical-align: .08em;
     }
     .hero__intro { max-width: 575px; margin-top: 31px; color: var(--ink-soft); font-size: clamp(17px, 1.35vw, 20px); line-height: 1.62; }
     .hero__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; }
