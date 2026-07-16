@@ -256,7 +256,7 @@
   .angled.rev{clip-path:polygon(0 1.8vw,100% 0,100% calc(100% - 1.8vw),0 100%)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 .chips svg{color:var(--acc-dk)}
-  .hphone{margin-inline:.2rem;padding:.5rem .85rem;border:1px solid rgba(71,138,27,.18);border-radius:999px;background:var(--acc-soft);font-weight:700;color:var(--ink);white-space:nowrap;transition:background .16s ease,border-color .16s ease,color .16s ease}.hphone:hover{background:#E2F8C5;border-color:rgba(71,138,27,.34);color:var(--acc-dk)}
+  .hphone{display:inline-flex;align-items:center;gap:.45rem;margin-inline:.35rem;font-weight:700;color:var(--ink);white-space:nowrap;transition:color .16s ease}.hphone svg{width:18px;height:18px;flex:none;stroke:var(--acc-dk)}.hphone:hover{color:var(--acc-dk)}
   .btn-line{background:transparent;border:1.6px solid rgba(255,255,255,.35);color:var(--cream)}.btn-line:hover{border-color:var(--cream);transform:translateY(-2px)}
   .bname{display:flex;flex-direction:column;line-height:1.05}
   .bname small{font-size:.6rem;font-weight:700;letter-spacing:.05em;color:var(--acc-dk);margin-top:3px}
@@ -539,7 +539,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="hphone" href="tel:+611800953006">1800 953 006</a>
+    <a class="hphone" href="tel:+611800953006"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>1800 953 006</span></a>
     <a class="btn btn-acc" href="#contact" style="margin-left:.3rem"><span class="full">Get a free redesign</span><span class="short">Free redesign</span></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
