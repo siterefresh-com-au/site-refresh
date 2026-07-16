@@ -622,11 +622,11 @@
     .areas__route circle { fill: var(--chalk); stroke: var(--copper); stroke-width: 3; }
     .areas__valve { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; }
     .areas__drop { fill: none; stroke: var(--copper); stroke-width: 2; opacity: .78; }
-    .areas__label { position: absolute; z-index: 3; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 8px 10px; font-size: 11px; font-weight: 720; box-shadow: 0 9px 22px rgba(23, 40, 44, .11); }
-    .areas__label--one { top: 10%; left: 12%; }
-    .areas__label--two { top: 31%; right: 8%; }
-    .areas__label--three { top: 53%; left: 19%; }
-    .areas__label--four { right: 16%; bottom: 16%; }
+    .areas__label { position: absolute; z-index: 3; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 8px 10px; font-size: 11px; font-weight: 720; white-space: nowrap; box-shadow: 0 9px 22px rgba(23, 40, 44, .11); }
+    .areas__label--one { top: 6%; left: 59%; }
+    .areas__label--two { top: 35%; right: 20%; }
+    .areas__label--three { top: 42%; left: 18%; }
+    .areas__label--four { right: 28%; bottom: 16%; }
     .areas__key { position: absolute; z-index: 3; right: 18px; bottom: 16px; color: var(--muted); font-size: 9px; font-weight: 740; letter-spacing: .11em; text-transform: uppercase; }
     .area-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 34px; }
     .area-groups div { border-top: 1px solid var(--rule); padding-top: 15px; }
@@ -921,6 +921,10 @@
       .visit__steps li, .visit__steps li:nth-child(odd) { min-height: 0; border-right: 0; padding: 28px 0; }
       .visit__steps li:last-child { border-bottom: 1px solid var(--rule-dark); }
       .areas__route { min-height: 420px; }
+      .areas__label--one { top: 5%; left: 48%; }
+      .areas__label--two { top: 33%; right: 3%; }
+      .areas__label--three { top: 48%; left: 3%; }
+      .areas__label--four { right: 16%; bottom: 17%; }
       .area-groups { grid-template-columns: 1fr; }
       .faq { margin-top: 78px; }
       .faq details p { padding-right: 0; }
@@ -954,8 +958,6 @@
       .planned-card--portrait .planned-card__image { height: 500px; }
       .areas__route { min-height: 380px; }
       .areas__label { font-size: 9px; }
-      .areas__label--one { left: 7%; }
-      .areas__label--two { right: 5%; }
       .brief-form { padding: 24px 18px; }
     }
 
@@ -1249,10 +1251,10 @@
                 </g>
               </svg>
               <svg class="areas__network" viewBox="0 0 540 440" preserveAspectRatio="none" aria-hidden="true">
-                <path class="areas__pipe" d="M86 52H250V148H442V206H132V244H260V336H414V398H476"/>
-                <circle cx="86" cy="52" r="7"/><circle cx="442" cy="148" r="7"/><circle cx="132" cy="244" r="7"/><circle cx="414" cy="336" r="7"/><circle cx="476" cy="398" r="7"/>
-                <g class="areas__valve" transform="translate(260 336)"><circle r="18"/><path d="M-18 0h36M0-18v36M-13-13l26 26m0-26-26 26"/></g>
-                <path class="areas__drop" d="M492 383c0-8 9-16 9-25 0 9 9 17 9 25a9 9 0 1 1-18 0Z"/>
+                <path class="areas__pipe" d="M370 30H410V175H365V195H150V225H220V355H345V390H430"/>
+                <circle cx="370" cy="30" r="7"/><circle cx="365" cy="175" r="7"/><circle cx="150" cy="195" r="7"/><circle cx="345" cy="355" r="7"/><circle cx="430" cy="390" r="7"/>
+                <g class="areas__valve" transform="translate(220 355)"><circle r="18"/><path d="M-18 0h36M0-18v36M-13-13l26 26m0-26-26 26"/></g>
+                <path class="areas__drop" d="M446 375c0-8 9-16 9-25 0 9 9 17 9 25a9 9 0 1 1-18 0Z"/>
               </svg>
               <span class="areas__label areas__label--one">Noosa &amp; Coolum</span>
               <span class="areas__label areas__label--two">Maroochydore</span>
