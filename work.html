@@ -56,9 +56,9 @@
   .ba .demo-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:14px;color:var(--acc-dk);font-weight:800;border-bottom:1px solid currentColor;padding-bottom:2px;transition:gap .18s ease,color .18s ease}
   .ba .demo-link:hover,.ba .demo-link:focus-visible{gap:.8rem;color:#245f0b}
 
-  .stage{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);touch-action:none;user-select:none;background:#fff}
+  .stage{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);touch-action:pan-y;user-select:none;background:#fff}
   .layer{position:absolute;inset:0;overflow:hidden}
-  .layer.before{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+  .layer.after{z-index:1}.layer.before{z-index:2;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
   .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.06);z-index:5;cursor:ew-resize}
   .handle .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--shs);display:grid;place-items:center;color:var(--ink)}
   .handle:focus-visible{outline:none} .handle:focus-visible .grip{outline:3px solid var(--acc);outline-offset:2px}
@@ -120,11 +120,12 @@
   .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--acc);color:#0E100C;text-align:center;font-weight:800;padding:.95rem;box-shadow:0 -8px 22px -12px rgba(0,0,0,.3)}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease} .reveal.in{opacity:1;transform:none}
 
+  @media(max-width:660px){.stage{aspect-ratio:4/5}}
+  @media(max-width:420px){.stage{aspect-ratio:2/3}}
   @media(max-width:600px){
     .nav nav{display:none} .burger{display:block}
     .m-hero{grid-template-columns:1fr} .m-himg{display:none} .m-cards{grid-template-columns:1fr 1fr}
     .mcta{display:block} body{padding-bottom:56px} footer .top{grid-template-columns:1fr} .cta .box{padding:48px 22px}
-    .stage{aspect-ratio:4/5}
   }
   @keyframes srFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   @keyframes srPop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
@@ -145,9 +146,9 @@
   .angled{clip-path:polygon(0 0,100% 1.8vw,100% 100%,0 calc(100% - 1.8vw))}
   .angled.rev{clip-path:polygon(0 1.8vw,100% 0,100% calc(100% - 1.8vw),0 100%)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-  .stage{container-type:size}
+  .stage{container-type:inline-size}
   .stage .layer{pointer-events:none}
-  .dlab{position:absolute;top:12px;z-index:3;font-family:var(--f);font-weight:800;font-size:.7rem;letter-spacing:.06em;padding:6px 13px;border-radius:999px}
+  .dlab{position:absolute;top:auto;bottom:12px;z-index:8;font-family:var(--f);font-weight:800;font-size:.7rem;letter-spacing:.06em;padding:6px 13px;border-radius:999px}
   .dlab.b{left:12px;background:rgba(10,12,9,.78);color:#fff}
   .dlab.a{right:12px;background:var(--acc);color:#0E100C;border:2px solid #0E100C}
   .ow{position:absolute;inset:0;font-family:'Times New Roman',serif;background:#EDE7D6;color:#26241d;font-size:1.5cqw;line-height:1.35}
@@ -164,21 +165,22 @@
   .ow .ph{border:2px inset #fff;background:#fff;color:#8a8674;padding:2.4em .3em;font-size:.85em;margin-bottom:.8em}
   .ow .obtn{display:inline-block;background:linear-gradient(#f5f5f5,#c9c9c9);border:2px outset #eee;padding:.3em 1em;font-family:Arial,sans-serif;font-size:.92em}
   .ow .ft{position:absolute;left:0;right:0;bottom:0;background:#CFC7B2;border-top:1px solid #A79F8A;font-size:.82em;text-align:right;padding:.4em .9em;color:#565243}
-  .ow.pl{font-family:Verdana,Arial,sans-serif;background-color:#CFE7F3;background-image:linear-gradient(rgba(255,255,255,.42) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.42) 1px,transparent 1px);background-size:18px 18px;font-size:1.32cqw}
-  .ow.pl .legacy-shell{position:relative;width:82%;height:86%;margin:4.3% auto 0;overflow:hidden;background:#fff;border:1px solid #52789F;box-shadow:0 0 0 .45em rgba(255,255,255,.7),0 .8em 2em rgba(24,55,82,.28)}
-  .ow.pl .tb{background:linear-gradient(#397FB6,#0A3D72);padding:.75em 1.1em;text-align:left;font-family:Arial,sans-serif;font-size:1.65em;letter-spacing:.02em;text-shadow:1px 1px #06294c}
-  .ow.pl .tb small{display:block;margin-top:.15em;color:#D8F2FF;font-size:.48em;font-weight:400;letter-spacing:.03em}
-  .ow.pl .nv{background:linear-gradient(#F8FAFB,#B9C4CE);border-top:1px solid #fff;border-bottom:2px outset #D8E0E6;padding:.55em .8em;text-align:left;font-family:Arial,sans-serif;font-weight:700}
-  .ow.pl .nv u{color:#0038A8;margin:0 .55em}
-  .ow.pl .bn{background:linear-gradient(#FFF78C,#FFD23C);border-color:#C59B00;color:#C00000;font-family:Arial,sans-serif;font-size:1.03em;text-shadow:0 1px #fff}
-  .ow.pl .bd{gap:5%;padding:1.35em 1.55em;font-family:Arial,sans-serif}
-  .ow.pl .oh{border-bottom:1px dotted #7B9AB4;color:#064F96;font-size:1.55em;text-decoration:none;padding-bottom:.2em}
-  .ow.pl p{color:#333;line-height:1.48}
-  .ow.pl .legacy-list{margin:.8em 0 0 1.5em;color:#0038A8;text-decoration:underline;line-height:1.75}
-  .ow.pl .side{width:27%}
-  .ow.pl .ph{background:linear-gradient(145deg,#D7E8EF,#8EACBC);border-color:#fff;color:#335769;font-family:'Courier New',monospace;padding:2.5em .25em}
-  .ow.pl .obtn{background:linear-gradient(#fff,#B8C7D2);border-color:#fff;color:#00306B;font-weight:700}
-  .ow.pl .ft{background:#D9E2E8;border-top:1px solid #99AAB7;color:#4B5963;font-family:Verdana,Arial,sans-serif;text-align:center}
+  .legacy10{position:absolute;inset:0;padding:2.1cqw 0;background:linear-gradient(#C7D8E4 0,#EDF2F5 44%,#D7DFE4 100%);color:#26333B;font:1.08cqw/1.45 Arial,Helvetica,sans-serif}
+  .legacy10-shell{width:88%;height:100%;margin:auto;display:grid;grid-template-rows:9.2cqw 4.2cqw 3.1cqw minmax(0,1fr) 3.2cqw;border:1px solid #9EABB4;border-radius:.35cqw;background:#fff;box-shadow:0 .65cqw 2.2cqw rgba(37,57,69,.32);overflow:hidden}
+  .legacy10-mast{display:flex;align-items:center;justify-content:space-between;padding:0 2.3cqw;background:linear-gradient(#fff,#DCE8EF);border-bottom:1px solid #AAB9C2}
+  .legacy10-brand{display:flex;align-items:center;gap:1cqw}.legacy10-drop{display:grid;place-items:center;width:4.5cqw;height:4.5cqw;border-radius:50% 50% 50% 12%;background:linear-gradient(#4E8DB5,#1D587E);color:#fff;font:bold 2.2cqw Georgia,'Times New Roman',serif;transform:rotate(-6deg);text-shadow:0 1px #18425D}
+  .legacy10-brand span:last-child{display:grid}.legacy10-brand strong{color:#1D5274;font:700 2.55cqw/1 Georgia,'Times New Roman',serif;text-shadow:0 1px #fff}.legacy10-brand small{margin-top:.35cqw;color:#687984;font-size:.82cqw}
+  .legacy10-phone{display:grid;justify-items:end;color:#234B64}.legacy10-phone small{font-size:.72cqw;font-weight:bold;letter-spacing:.09em}.legacy10-phone b{font-size:1.75cqw}
+  .legacy10-nav{display:flex;align-items:stretch;padding-left:2cqw;background:linear-gradient(#3F7597,#1D5274 55%,#174663);border-top:1px solid #6F9AB5;border-bottom:1px solid #0F3348;box-shadow:inset 0 1px rgba(255,255,255,.28)}
+  .legacy10-nav span{display:flex;align-items:center;padding:0 1.7cqw;border-right:1px solid rgba(255,255,255,.18);color:#fff;font-size:.92cqw;font-weight:bold;text-shadow:0 -1px rgba(0,0,0,.45)}.legacy10-nav .active{background:linear-gradient(#82A9C0,#527F9B)}
+  .legacy10-strap{display:flex;align-items:center;padding-left:2.4cqw;background:#EDF3F6;border-bottom:1px solid #C4D0D6;color:#58707F;font-size:.88cqw;font-style:italic}
+  .legacy10-body{display:grid;grid-template-columns:minmax(0,1fr) 24cqw;gap:2.3cqw;padding:2.3cqw 2.5cqw;overflow:hidden}
+  .legacy10-main h4{margin:0 0 1.2cqw;padding-bottom:.65cqw;border-bottom:1px solid #C6D2D9;color:#225B80;font:normal 2.15cqw Georgia,'Times New Roman',serif}
+  .legacy10-intro{display:grid;grid-template-columns:15cqw 1fr;gap:1.4cqw}.legacy10-intro img{width:15cqw;height:10.5cqw;border:.45cqw solid #fff;outline:1px solid #AEBBC3;object-fit:cover;object-position:52% 48%;filter:saturate(.72) contrast(.92)}
+  .legacy10-body p{margin:0 0 .9cqw}.legacy10-main>a{color:#1B67A0;text-decoration:underline}
+  .legacy10-side{align-self:start;border:1px solid #B7C6CF;background:linear-gradient(#F8FBFC,#E5EDF1);box-shadow:inset 0 1px #fff}.legacy10-side h5{margin:0;padding:.8cqw 1cqw;background:linear-gradient(#6F98B0,#3E708E);color:#fff;font-size:1.15cqw;text-shadow:0 -1px rgba(0,0,0,.35)}
+  .legacy10-side a{display:block;padding:.62cqw 1cqw;border-bottom:1px solid #CED9DF;color:#1C5F8C;text-decoration:underline}.legacy10-button{display:block;margin:1cqw;background:linear-gradient(#F8C65C,#D88B18);border:1px solid #A96609;border-radius:.3cqw;box-shadow:inset 0 1px #FFE7A3,0 1px 2px rgba(0,0,0,.2);color:#5B3500;padding:.75cqw;text-align:center;font-weight:bold;text-shadow:0 1px #FFE6A0}
+  .legacy10-foot{display:flex;align-items:center;justify-content:center;background:#E7ECEF;border-top:1px solid #C0CBD1;color:#71808A;font-size:.72cqw}
   .ow.el{font-family:Arial,Helvetica,sans-serif;background:#EBEBEB}
   .ow.el .tb{background:#3A3A3A;color:#FF4A3D;text-shadow:none;font-size:1.4em;letter-spacing:.04em}
   .ow.el .nv{background:#D6D6D6;text-align:center}
@@ -213,42 +215,37 @@
   .aw .c b{display:flex;gap:.5em;align-items:center}
   .aw .c b::before{content:"✓";color:var(--a2);font-weight:900}
   .aw .c i{display:block;height:.45em;background:#EEF1F3;border-radius:.3em;margin-top:.75em}
-  .aw .wa{position:absolute;right:1.1em;bottom:1.1em;width:2.7em;height:2.7em;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 .5em 1.1em rgba(0,0,0,.2)}
+  .aw .wa{position:absolute;right:7em;bottom:.75em;width:2.7em;height:2.7em;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 .5em 1.1em rgba(0,0,0,.2)}
   .aw .wa svg{width:56%;height:56%}
-  .aw.pl{--a1:#173F46;--a2:#BD7241;--asoft:#F3F0E8;background-color:#F3F0E8;background-image:linear-gradient(rgba(23,40,44,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(23,40,44,.045) 1px,transparent 1px);background-size:2.4em 2.4em;color:#17282C}
-  .aw.pl .tp{background:rgba(255,253,248,.9);border-color:rgba(23,40,44,.14)}
-  .aw.pl .lg{position:relative;border-radius:.2em;background:var(--a1);overflow:hidden}
-  .aw.pl .lg::before{content:"";position:absolute;left:.46em;top:.34em;width:.72em;height:.82em;border-left:.22em solid #DF9B68;border-bottom:.22em solid #DF9B68;border-radius:0 0 0 .28em}
-  .aw.pl .nvl{color:#45585C}
-  .aw.pl .hero2{grid-template-columns:.85fr 1.15fr;gap:1.8em;padding:1.7em 1.8em 1.25em}
-  .aw.pl .kk{color:#9C4D2E;opacity:1}
-  .aw.pl h3{font-family:Georgia,'Times New Roman',serif;font-size:2.65em;font-weight:500;line-height:.94;letter-spacing:-.04em}
-  .aw.pl h3 span{display:block;margin-top:.18em;color:#9C4D2E;font-family:var(--f);font-size:.48em;font-weight:800;letter-spacing:.14em}
-  .aw.pl .sb{color:#44565A}
-  .aw.pl .b1{border-radius:.2em;background:#BD7241;color:#fff}
-  .aw.pl .b2{border-color:#87989A;border-radius:.2em}
-  .aw.pl .proofline{margin-top:1em;color:#5C6B6E;font-size:.8em;font-weight:700;letter-spacing:.03em}
-  .aw.pl .img{aspect-ratio:4/3;border:.65em solid #FFFDF8;border-radius:0;background-image:linear-gradient(rgba(15,49,56,.05),rgba(15,49,56,.05)),url('/img/headland-plumbing/hero-plumber.webp');background-position:center 46%;background-size:cover;box-shadow:0 1.4em 2.8em rgba(23,40,44,.2);clip-path:polygon(0 0,93% 0,93% 7%,100% 7%,100% 100%,8% 100%,8% 94%,0 94%)}
-  .aw.pl .img::before,.aw.pl .img::after{content:none}
-  .aw.pl .tag2{left:auto;right:.7em;bottom:.7em;border-radius:0;background:rgba(15,49,56,.88);color:#fff;font-size:.65em;letter-spacing:.08em;text-transform:uppercase}
-  .aw.pl .cards{gap:0;padding:0 1.8em 1.55em}
-  .aw.pl .c{border-width:1px 1px 1px 0;border-color:rgba(23,40,44,.18);border-radius:0;background:rgba(255,253,248,.42)}
-  .aw.pl .c:first-child{border-left:1px solid rgba(23,40,44,.18)}
-  .aw.pl .c b::before{content:"";width:.5em;height:.5em;border:2px solid #BD7241;border-radius:50%}
-  .aw.pl .c i{background:rgba(23,40,44,.1)}
-  .aw.pl .wa{background:#167D5A}
+  .ba--headline .stage{--hp-ink:#17282C;--hp-deep:#173F46;--hp-paper:#F3F0E8;--hp-copper:#BD7241;--hp-oxide:#9C4D2E;--hp-serif:"Iowan Old Style","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+  .hp-after{position:absolute;inset:0;display:grid;grid-template-rows:8.4cqw minmax(0,1fr) 5.4cqw;background:var(--hp-paper);color:var(--hp-ink);font-family:Aptos,"Segoe UI",Arial,sans-serif;overflow:hidden}
+  .hp-after::before{content:"";position:absolute;inset:8.4cqw 0 5.4cqw;background-image:linear-gradient(rgba(23,40,44,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(23,40,44,.055) 1px,transparent 1px);background-size:4.25cqw 4.25cqw;pointer-events:none}
+  .hp-head{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:2.1cqw;padding:0 4.1cqw;border-bottom:1px solid rgba(23,40,44,.14);background:rgba(243,240,232,.97)}
+  .hp-brand{display:flex;align-items:center;gap:.9cqw;min-width:20cqw}.hp-mark{width:4.2cqw;height:4.2cqw;flex:none}
+  .hp-brand>span{display:grid;gap:.22cqw;line-height:1.1}.hp-brand strong{font:600 1.85cqw/1 var(--hp-serif);letter-spacing:-.025em}.hp-brand small{color:#5C6B6E;font-size:.62cqw;font-weight:800;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+  .hp-nav{display:flex;justify-content:center;gap:2.15cqw;color:#34474B;font-size:1.05cqw;font-weight:650}.hp-call{display:grid;justify-items:end;font-size:1.08cqw;line-height:1.15;white-space:nowrap}.hp-call small{color:var(--hp-oxide);font-size:.7cqw;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .hp-quote,.hp-button{display:flex;align-items:center;gap:1.25cqw}.hp-quote{background:var(--hp-deep);color:#fff;padding:1.15cqw 1.45cqw;font-size:1.02cqw;font-weight:760}.hp-quote i,.hp-button i{position:relative;width:2.7cqw;height:1px;background:currentColor}.hp-quote i::after,.hp-button i::after{content:"";position:absolute;right:0;top:50%;width:.6cqw;height:.6cqw;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+  .hp-hero{position:relative;z-index:1;min-height:0;display:grid;grid-template-columns:.98fr 1.02fr}.hp-copy{align-self:center;padding:2.5cqw 3.2cqw 2.2cqw 4.25cqw}.hp-kicker{margin:0;color:var(--hp-oxide);font-size:.76cqw;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.hp-kicker b{margin-left:1.6cqw;color:#5C6B6E}
+  .hp-title{margin:.8cqw 0 1.1cqw;font:500 7.4cqw/.78 var(--hp-serif);letter-spacing:-.058em}.hp-title span,.hp-title em{display:block}.hp-title em{margin-left:.55em;color:var(--hp-oxide);font-style:italic;font-weight:400}.hp-intro{max-width:37cqw;margin:0;color:#506165;font-size:1.2cqw;line-height:1.45}
+  .hp-button{width:max-content;margin-top:1.25cqw;background:var(--hp-copper);color:#fff;padding:1cqw 1.25cqw;font-size:1.02cqw;font-weight:760}.hp-photo{position:relative;min-height:0;margin:2.1cqw 3.2cqw 2.1cqw 0;background:#CBDAD6;box-shadow:0 1.5cqw 3.4cqw rgba(23,40,44,.22);overflow:visible}.hp-photo::before{content:"";position:absolute;inset:-1cqw -1cqw 1.15cqw 1.15cqw;background:#FFFDF8;z-index:-1}.hp-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 48%}
+  .hp-photo figcaption{position:absolute;top:2cqw;left:-3.2cqw;display:grid;gap:.45cqw;min-width:17.5cqw;padding:1.35cqw 1.55cqw;background:rgba(255,253,248,.96);border-left:.26cqw solid var(--hp-copper);box-shadow:0 .7cqw 1.6cqw rgba(23,40,44,.12)}.hp-photo figcaption small{color:var(--hp-oxide);font-size:.72cqw;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.hp-photo figcaption b{font:600 1.72cqw/1.08 var(--hp-serif)}
+  .hp-disclosure{position:absolute;right:.65cqw;bottom:.65cqw;background:rgba(15,49,56,.9);color:#fff;padding:.42cqw .62cqw;font-size:.55cqw;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hp-proof{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch;padding:0 7.5cqw;border-top:1px solid rgba(23,40,44,.15);background:rgba(243,240,232,.96)}.hp-proof span{display:flex;align-items:center;gap:.7cqw;padding:0 2.2cqw;border-right:1px solid rgba(23,40,44,.15);font-size:.83cqw;font-weight:700}.hp-proof span:first-child{border-left:1px solid rgba(23,40,44,.15)}.hp-proof b{color:var(--hp-oxide);font:italic 1.08cqw/1 var(--hp-serif)}
   .aw.el{--a1:#17181A;--a2:#FFD43B}
   .aw.ti{--a1:#22150D;--a2:#C15F3C;background:#FBF6EF}
   .aw.ti .c{border-color:#EADDCD}.aw.ti .c i{background:#F1E7DA}.aw.ti .tp{border-color:#EFE4D6}.aw.ti .b2{border-color:#E7DACB}
   @container (max-width:640px){
     .ow{font-size:2.7cqw}.ow.ti{font-size:2.55cqw}
-    .ow.pl .legacy-shell{width:92%;height:88%;margin-top:5%}
     .aw{font-size:2.5cqw}
     .aw .nvl{display:none}
     .aw .hero2{grid-template-columns:1fr;gap:1.3em;padding:1.5em 1.3em 1.2em}
     .aw .img{aspect-ratio:16/8}
     .aw .cards{grid-template-columns:1fr 1fr;padding:0 1.3em 1.4em}
     .aw .cards .c:nth-child(3){display:none}
+    .hp-after{grid-template-rows:14cqw minmax(0,1fr) 9cqw}
+    .hp-after::before{inset:14cqw 0 9cqw;background-size:7cqw 7cqw}
+    .hp-head{grid-template-columns:1fr auto;gap:2cqw;padding:0 4cqw}.hp-nav,.hp-call{display:none}.hp-brand{min-width:0}.hp-mark{width:7cqw;height:7cqw}.hp-brand strong{font-size:3.4cqw}.hp-brand small{font-size:1.05cqw}.hp-quote{padding:2cqw;font-size:1.9cqw}
+    .hp-hero{grid-template-columns:58% 42%}.hp-copy{padding:4cqw}.hp-kicker{font-size:1.28cqw}.hp-kicker b{display:block;margin:.6cqw 0 0}.hp-title{margin:1.8cqw 0 2.2cqw;font-size:10.5cqw;line-height:.82}.hp-intro{font-size:2.1cqw;line-height:1.42}.hp-button,.hp-photo figcaption{display:none}.hp-photo{margin:4cqw 3cqw 4cqw 0}.hp-photo::before{inset:-1.4cqw -1.4cqw 1.6cqw 1.6cqw}.hp-disclosure{font-size:.85cqw;padding:.6cqw .8cqw}.hp-proof{grid-template-columns:1fr 1fr;padding:0 12cqw}.hp-proof span{font-size:1.7cqw;padding:0 3cqw}.hp-proof span:nth-child(2){display:none}.hp-proof b{font-size:2cqw}
+    .legacy10{padding:4cqw 0;font-size:2cqw}.legacy10-shell{width:92%;grid-template-rows:16cqw 8cqw 5.5cqw minmax(0,1fr) 6cqw}.legacy10-mast{padding:0 3.2cqw}.legacy10-drop{width:7cqw;height:7cqw;font-size:3.5cqw}.legacy10-brand strong{font-size:4.2cqw}.legacy10-brand small{font-size:1.4cqw}.legacy10-phone small{font-size:1.2cqw}.legacy10-phone b{font-size:3cqw}.legacy10-nav{padding-left:2cqw}.legacy10-nav span{font-size:1.65cqw;padding:0 2cqw}.legacy10-nav span:nth-child(4),.legacy10-nav span:nth-child(5){display:none}.legacy10-strap{padding-left:3.2cqw;font-size:1.45cqw}.legacy10-body{grid-template-columns:1fr;padding:4cqw;gap:0}.legacy10-side{display:none}.legacy10-main h4{margin-bottom:2cqw;padding-bottom:1.3cqw;font-size:4cqw}.legacy10-intro{grid-template-columns:24cqw 1fr;gap:2.5cqw}.legacy10-intro img{width:24cqw;height:19cqw;border-width:.8cqw}.legacy10-body p{margin-bottom:1.8cqw}.legacy10-foot{font-size:1.25cqw}
   }
   /* ported CTA + modal */
   .hero .acts{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}
@@ -348,36 +345,61 @@
 
   <!-- template repeated x3 -->
   <p class="mockn" style="text-align:center;color:#6B7370;font-size:.9rem;max-width:70ch;margin:0 auto 26px">Every business shown here is a mock company. We keep our real clients&rsquo; work private — these demos exist purely to show the kind of transformation we build.</p>
-  <div class="ba reveal">
+  <div class="ba ba--headline reveal">
     <div class="head"><h3>Headline Plumbing</h3><span class="tt">Plumbing</span></div>
-    <div class="stage" data-pos="52">
+    <div class="stage" data-pos="66">
       <div class="layer after">
-        <div class="aw pl">
-          <div class="tp"><span class="lg"></span><span class="bn2">Headline Plumbing</span><span class="nvl"><span>Problems</span><span>Services</span><span>How it works</span><span>Areas</span></span><span class="ph2">Describe the job</span></div>
-          <div class="hero2">
-            <div><div class="kk">Repairs · Maintenance · Hot Water</div><h3>Plumbing problems.<span>SORTED</span></h3><p class="sb">Start with what is happening. We find the cause, explain the fix and agree the work before tools come out.</p><div class="cta"><span class="b1">Describe the job</span><span class="b2">Call (07) 5550 7788</span></div><div class="proofline">Diagnose first · explain clearly · test the result</div></div>
-            <div class="img"><span class="tag2">Concept image</span></div>
+        <div class="hp-after">
+          <div class="hp-head">
+            <div class="hp-brand">
+              <svg class="hp-mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="3" fill="#173F46"/><path d="M14 11v15c0 7 4 11 11 11h9" fill="none" stroke="#F3F0E8" stroke-width="4" stroke-linecap="round"/><path d="M21 11v13c0 4 2 6 6 6h7" fill="none" stroke="#DF9B68" stroke-width="4" stroke-linecap="round"/></svg>
+              <span><strong>Headline Plumbing</strong><small>Repairs · Maintenance · Hot Water</small></span>
+            </div>
+            <div class="hp-nav"><span>Problems</span><span>Services</span><span>How it works</span><span>Areas</span></div>
+            <span class="hp-call"><small>Urgent problem?</small><b>(07) 5550 7788</b></span>
+            <span class="hp-quote">Describe the job <i></i></span>
           </div>
-          <div class="cards"><div class="c"><b>Start with the symptom</b><i></i></div><div class="c"><b>Agree the work first</b><i></i></div><div class="c"><b>Test before leaving</b><i></i></div></div>
-          <span class="wa"><svg viewBox="0 0 24 24"><path fill="#fff" d="M9 8.1l1.8-.9 1.2 2.1-1 1c.5 1.1 1.6 2.2 2.7 2.7l1-1 2.1 1.2-.9 1.8c-.3.6-1 1-1.7.8-3-.9-5.5-3.4-6.4-6.4-.2-.7.2-1.4.8-1.7Z"/></svg></span><span class="dlab a">After</span>
+          <div class="hp-hero">
+            <div class="hp-copy">
+              <p class="hp-kicker">Emergency, repairs &amp; maintenance <b>Sunshine Coast</b></p>
+              <h3 class="hp-title"><span>Plumbing</span><span>Done</span><em>Well</em></h3>
+              <p class="hp-intro">Start with what is happening. We find the cause, explain the fix and agree the work before tools come out.</p>
+              <span class="hp-button">Tell us what’s happening <i></i></span>
+            </div>
+            <figure class="hp-photo">
+              <img src="/img/headland-plumbing/hero-plumber.webp" alt="">
+              <figcaption><small>Diagnose first</small><b>Find the real cause.</b></figcaption>
+              <span class="hp-disclosure">Concept image · fictional demo</span>
+            </figure>
+          </div>
+          <div class="hp-proof"><span><b>01</b> Start with the symptom</span><span><b>02</b> Agree the work first</span><span><b>03</b> Test before leaving</span></div>
+          <span class="dlab a">After</span>
         </div>
       </div>
       <div class="layer before">
-        <div class="ow pl">
-          <div class="legacy-shell">
-            <div class="tb">HEADLINE PLUMBING<small>Your Local Sunshine Coast Plumber</small></div>
-            <div class="nv"><u>HOME</u>|<u>SERVICES</u>|<u>ABOUT US</u>|<u>CONTACT US</u></div>
-            <div class="bn">CALL NOW 07 5550 7788 — NO JOB TOO SMALL</div>
-            <div class="bd">
-              <div class="main"><div class="oh">Welcome to Headline Plumbing</div><p>Friendly and reliable plumbing services for homes and businesses across the Sunshine Coast.</p><ul class="legacy-list"><li>Blocked Drains</li><li>Leaking Taps</li><li>Hot Water Systems</li></ul></div>
-              <div class="side"><div class="ph">[ plumber.jpg ]</div><span class="obtn">EMAIL US</span></div>
+        <div class="legacy10">
+          <div class="legacy10-shell">
+            <div class="legacy10-mast">
+              <div class="legacy10-brand"><span class="legacy10-drop">H</span><span><strong>Headline Plumbing</strong><small>Your local Sunshine Coast plumber</small></span></div>
+              <div class="legacy10-phone"><small>Call us today</small><b>07 5550 7788</b></div>
             </div>
-            <div class="ft">© 2010 Headline Plumbing | Best viewed at 1024 × 768 | Visitors: 004821</div>
+            <div class="legacy10-nav"><span class="active">Home</span><span>Services</span><span>Hot Water</span><span>About Us</span><span>Contact Us</span></div>
+            <div class="legacy10-strap">Prompt, reliable plumbing services across the Sunshine Coast</div>
+            <div class="legacy10-body">
+              <div class="legacy10-main">
+                <h4>Welcome to Headline Plumbing</h4>
+                <div class="legacy10-intro"><img src="/img/headland-plumbing/hero-plumber.webp" alt=""><p>We provide friendly, dependable plumbing repairs and maintenance for local homes and businesses.</p></div>
+                <p>From leaking taps and blocked drains to hot water systems, no job is too big or too small.</p>
+                <a>Read more about us »</a>
+              </div>
+              <div class="legacy10-side"><h5>Our Services</h5><a>Emergency Plumbing</a><a>Blocked Drains</a><a>Hot Water Systems</a><a>Bathroom Plumbing</a><span class="legacy10-button">Request a FREE Quote</span></div>
+            </div>
+            <div class="legacy10-foot">© 2011 Headline Plumbing · Site designed for desktop screens</div>
           </div>
           <span class="dlab b">Before</span>
         </div>
       </div>
-      <div class="handle" tabindex="0" role="slider" aria-label="Reveal the Headline Plumbing before and after websites" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <div class="handle" tabindex="0" role="slider" aria-label="Reveal the Headline Plumbing before and after websites" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66" aria-valuetext="66% of the original website shown"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
     </div>
     <p class="cap"><b>What changed:</b> from a fixed-width 2010 brochure site to a fast, mobile-first experience that starts with the customer’s problem, explains the next step and makes it easy to call or describe the job.</p>
     <a class="demo-link" href="/plumbing-demo" target="_blank" rel="noopener">View the full Headline Plumbing demo <span aria-hidden="true">→</span></a>
@@ -385,20 +407,20 @@
 
   <div class="ba reveal">
     <div class="head"><h3>Northshore Electrical</h3><span class="tt">Electrical</span></div>
-    <div class="stage" data-pos="48">
+    <div class="stage" data-pos="66">
       <div class="layer after"><div class="aw el"><div class="tp"><span class="lg"></span><span class="bn2">Northshore Electrical</span><span class="nvl"><span>Services</span><span>Gallery</span><span>Reviews</span><span>Contact</span></span><span class="ph2">Get a quote</span></div><div class="hero2"><div><div class="kk">Northshore Electrical · North Shore</div><h3>Licensed sparkies. On time, every time.</h3><p class="sb">Switchboards, lighting and safety inspections for homes and businesses.</p><div class="cta"><span class="b1">Get a quote</span><span class="b2">Call 0400 xxx xxx</span></div><div class="rate"><b>★★★★★</b> 5.0 · 87 Google reviews</div></div><div class="img"><span class="tag2">Recent work</span></div></div><div class="cards"><div class="c"><b>Switchboard upgrades</b><i></i></div><div class="c"><b>LED lighting</b><i></i></div><div class="c"><b>Safety checks</b><i></i></div></div><span class="wa"><svg viewBox="0 0 24 24"><path fill="#fff" d="M9 8.1l1.8-.9 1.2 2.1-1 1c.5 1.1 1.6 2.2 2.7 2.7l1-1 2.1 1.2-.9 1.8c-.3.6-1 1-1.7.8-3-.9-5.5-3.4-6.4-6.4-.2-.7.2-1.4.8-1.7Z"/></svg></span><span class="dlab a">After</span></div></div>
         <div class="layer before"><div class="ow el"><div class="tb">NORTHSHORE ELECTRICAL PTY LTD</div><div class="nv"><u>Home</u>|<u>Services</u>|<u>About Us</u>|<u>Contact</u></div><div class="bn">!! NOW SERVICING ALL NORTHERN SUBURBS !!</div><div class="bd"><div class="main"><div class="oh">About Our Business</div><p>Established electrician servicing the region for many years.</p><div class="bar"></div><div class="bar" style="width:84%"></div><div class="bar" style="width:69%"></div><p>Phone during business hours only.</p></div><div class="side"><div class="ph">[ logo.gif ]</div><span class="obtn">Enquire</span></div></div><div class="ft">© 2009 Northshore Electrical · Optimised for 800x600 · Hits: 018452</div><span class="dlab b">Before</span></div></div>
-        <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="48"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66" aria-valuetext="66% of the original website shown"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
     </div>
     <p class="cap"><b>What changed:</b> a clear layout with services up front, real trust signals, and an enquiry form that actually works on a phone.</p>
   </div>
 
   <div class="ba reveal">
     <div class="head"><h3>Bayside Tiling</h3><span class="tt">Tiling</span></div>
-    <div class="stage" data-pos="50">
+    <div class="stage" data-pos="66">
       <div class="layer after"><div class="aw ti"><div class="tp"><span class="lg"></span><span class="bn2">Bayside Tiling</span><span class="nvl"><span>Services</span><span>Gallery</span><span>Reviews</span><span>Contact</span></span><span class="ph2">Get a quote</span></div><div class="hero2"><div><div class="kk">Bayside Tiling · Bayside & Suburbs</div><h3>Wall &amp; floor tiling with a flawless finish.</h3><p class="sb">Bathrooms, kitchens and outdoor areas, laid with care and precision.</p><div class="cta"><span class="b1">Get a quote</span><span class="b2">Call 0412 xxx xxx</span></div><div class="rate"><b>★★★★★</b> 4.8 · 64 Google reviews</div></div><div class="img"><span class="tag2">Recent work</span></div></div><div class="cards"><div class="c"><b>Bathrooms</b><i></i></div><div class="c"><b>Kitchens</b><i></i></div><div class="c"><b>Outdoor &amp; pool</b><i></i></div></div><span class="wa"><svg viewBox="0 0 24 24"><path fill="#fff" d="M9 8.1l1.8-.9 1.2 2.1-1 1c.5 1.1 1.6 2.2 2.7 2.7l1-1 2.1 1.2-.9 1.8c-.3.6-1 1-1.7.8-3-.9-5.5-3.4-6.4-6.4-.2-.7.2-1.4.8-1.7Z"/></svg></span><span class="dlab a">After</span></div></div>
         <div class="layer before"><div class="ow ti"><div class="tb">Bayside Tiling ~ Quality Tiles Since 1998</div><div class="nv"><u>Home</u>|<u>Services</u>|<u>About Us</u>|<u>Contact</u></div><div class="bn">*** SPECIAL: FREE QUOTES THIS MONTH ***</div><div class="bd"><div class="main"><div class="oh">Wall and Floor Tiling</div><p>All areas. No job too big or small. Fully insured.</p><div class="bar"></div><div class="bar" style="width:84%"></div><div class="bar" style="width:69%"></div><p>Ring Kev for a free measure.</p></div><div class="side"><div class="ph">[ tiles1.jpg ]</div><span class="obtn">Guestbook</span></div></div><div class="ft">© 2007 Bayside Tiling · Site by Kev's nephew · Visitors: 002871</div><span class="dlab b">Before</span></div></div>
-        <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66" aria-valuetext="66% of the original website shown"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
     </div>
     <p class="cap"><b>What changed:</b> a proper gallery to show the work off, clean pricing, and a design that finally looks as good as the tiling does.</p>
   </div>
@@ -500,39 +522,63 @@
   // before/after sliders
   document.querySelectorAll('.stage').forEach(function(stage){
     var handle=stage.querySelector('.handle'),
-        before=stage.querySelector('.before'),
-        start=parseFloat(stage.dataset.pos||50);
+        start=parseFloat(stage.dataset.pos||66),
+        dragging=false,
+        interacted=false,
+        played=false,
+        autoTimer=0,
+        autoFrame=0,
+        autoObserver=null;
     function set(pct){
       pct=Math.max(0,Math.min(100,pct));
       stage.style.setProperty('--pos',pct+'%');
       handle.setAttribute('aria-valuenow',Math.round(pct));
+      handle.setAttribute('aria-valuetext',Math.round(pct)+'% of the original website shown');
+    }
+    function cancelAuto(){
+      interacted=true;
+      if(autoTimer){clearTimeout(autoTimer);autoTimer=0;}
+      if(autoFrame){cancelAnimationFrame(autoFrame);autoFrame=0;}
+      if(autoObserver){autoObserver.disconnect();autoObserver=null;}
     }
     set(start);
-    var dragging=false;
     function fromEvent(e){
-      var r=stage.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+      var r=stage.getBoundingClientRect(),x=e.clientX-r.left;
       set(x/r.width*100);
     }
-    var interacted=false,played=false;
-    stage.addEventListener('pointerdown',function(e){dragging=true;interacted=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
+    stage.addEventListener('pointerdown',function(e){cancelAuto();dragging=true;stage.setPointerCapture(e.pointerId);fromEvent(e);});
     stage.addEventListener('pointermove',function(e){if(dragging)fromEvent(e);});
     stage.addEventListener('pointerup',function(){dragging=false;});
     stage.addEventListener('pointercancel',function(){dragging=false;});
     if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      var io=new IntersectionObserver(function(es){es.forEach(function(x){
-        if(x.isIntersecting&&!played){played=true;io.disconnect();
-          setTimeout(function(){if(interacted)return;var t0=performance.now(),D=2200;
-            (function f(now){if(interacted){set(start);return;}var u=Math.min(1,(now-t0)/D);
-              set(start+17*Math.sin(u*Math.PI*2)*(1-u));
-              if(u<1)requestAnimationFrame(f);else set(start);})(t0);
-          },450);}
+      autoObserver=new IntersectionObserver(function(es){es.forEach(function(x){
+        if(x.isIntersecting&&!played){
+          played=true;
+          autoObserver.disconnect();
+          autoObserver=null;
+          autoTimer=setTimeout(function(){
+            autoTimer=0;
+            if(interacted)return;
+            var t0=performance.now(),D=5000;
+            function revealAfter(now){
+              if(interacted)return;
+              var u=Math.min(1,(now-t0)/D),e=u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;
+              set(start*(1-e));
+              if(u<1){autoFrame=requestAnimationFrame(revealAfter);}else{autoFrame=0;set(0);}
+            }
+            autoFrame=requestAnimationFrame(revealAfter);
+          },600);
+        }
       });},{threshold:.55});
-      io.observe(stage);
+      autoObserver.observe(stage);
     }
+    handle.addEventListener('focus',cancelAuto);
     handle.addEventListener('keydown',function(e){
       var cur=parseFloat(handle.getAttribute('aria-valuenow'));
-      if(e.key==='ArrowLeft'){set(cur-4);e.preventDefault();}
-      if(e.key==='ArrowRight'){set(cur+4);e.preventDefault();}
+      if(e.key==='ArrowLeft'||e.key==='ArrowDown'){cancelAuto();set(cur-4);e.preventDefault();}
+      if(e.key==='ArrowRight'||e.key==='ArrowUp'){cancelAuto();set(cur+4);e.preventDefault();}
+      if(e.key==='Home'){cancelAuto();set(0);e.preventDefault();}
+      if(e.key==='End'){cancelAuto();set(100);e.preventDefault();}
     });
   });
 (function(){
