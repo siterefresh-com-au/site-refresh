@@ -48,7 +48,7 @@
   .hero .lead{font-size:1.2rem;color:var(--ink2);margin-top:1.4rem;max-width:36ch}
   .hero .acts{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2rem}
   .hero .chips{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:2.1rem;font-weight:600;font-size:.9rem;color:var(--muted)}
-  .hero .chips span{display:inline-flex;align-items:center;gap:.45rem}
+  .hero .chips span{display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap}
   .hero .chips svg{flex:none}
 
   .visual{position:relative;padding:20px}
@@ -106,7 +106,7 @@
   .hook .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
   .hook .big{background:linear-gradient(150deg,var(--acc) 0%,#C3F97A 100%);border-radius:var(--r);padding:28px 32px;color:#0E100C;position:relative;overflow:hidden;box-shadow:var(--sh)}
   .hook .big::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 60%)}
-  .hook .big .free{font-size:3rem;font-weight:800;line-height:1;letter-spacing:-.04em}
+  .hook .big .free{font-size:3rem;font-weight:800;line-height:1;letter-spacing:-.04em} .hook .big .free .price-note{font-size:.28em;font-weight:700;letter-spacing:0;white-space:nowrap;vertical-align:middle}
   .hook .big .sub{font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:.5rem}
   .hook .big ul{list-style:none;margin-top:1.15rem;display:grid;gap:.55rem}
   .hook .big li{display:flex;gap:.55rem;align-items:flex-start;font-weight:600;font-size:.93rem}
@@ -137,12 +137,12 @@
   .tier.feat{border-color:var(--acc);box-shadow:var(--sh)}
   .tier .tag{position:absolute;top:-14px;left:32px;background:var(--acc);color:#0E100C;font-weight:800;font-size:.72rem;padding:6px 14px;border-radius:999px}
   .tier .nm{font-weight:700;font-size:1rem;color:var(--muted);letter-spacing:.02em;text-transform:uppercase}
-  .tier .pr{font-size:2.7rem;font-weight:800;letter-spacing:-.04em;margin:.4rem 0 0} .tier .pr small{font-size:.85rem;color:var(--muted);font-weight:600}
+  .tier .pr{font-size:2.7rem;font-weight:800;letter-spacing:-.04em;margin:.4rem 0 0} .tier .pr small{font-size:.85rem;color:var(--muted);font-weight:600} .tier .pr .price-note{font-size:.62rem;letter-spacing:0;color:var(--muted);white-space:nowrap;vertical-align:middle;margin-left:.15rem}
   .tier p{font-size:.95rem;color:var(--muted);margin:.9rem 0 1.4rem;flex:1}
   .tier .btn{width:100%;justify-content:center;margin-top:auto}
   .care{margin-top:22px;background:var(--dark);color:#fff;border-radius:var(--r);padding:28px 34px;display:flex;gap:1.4rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .care b{font-size:1.15rem} .care p{color:#CDD1CA;font-size:.95rem;margin-top:.3rem;max-width:60ch}
-  .care .amt{font-size:2rem;font-weight:800;color:#A8F04A;white-space:nowrap} .care .amt small{display:block;font-size:.66rem;color:#9BA098;letter-spacing:.1em;font-weight:600}
+  .care b{font-size:1.15rem} .care b .price-note{font-size:.62em;color:var(--acc);font-weight:700;white-space:nowrap} .care p{color:#CDD1CA;font-size:.95rem;margin-top:.3rem;max-width:60ch}
+  .care .amt{font-size:2rem;font-weight:800;color:#A8F04A;white-space:nowrap} .care .amt small{display:block;font-size:.66rem;color:#9BA098;letter-spacing:.1em;font-weight:600} .care .amt .price-note{display:inline;font-size:.45em;color:var(--acc);letter-spacing:0;vertical-align:middle;margin-left:.15rem}
 
   .faq{max-width:820px;margin:44px auto 0}
   .qa{background:#fff;border:1px solid var(--line);border-radius:var(--rs);margin-bottom:12px;overflow:hidden}
@@ -560,7 +560,6 @@
         <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom-built</span>
         <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Mobile, tablet &amp; desktop</span>
         <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>You own it</span>
-        <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Zero-downtime switch</span>
       </div>
     </div>
     <div class="vwrap">
@@ -595,7 +594,7 @@
     </div>
     <div class="fcol">
     <div class="big reveal">
-      <div class="free">$0</div>
+      <div class="free">$0 <small class="price-note">ex. GST</small></div>
       <div class="sub">Your free homepage concept</div>
       <ul>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#0E100C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Built from your real brand &amp; photos</li>
@@ -729,11 +728,11 @@
   </div>
   <div class="sec-head reveal"><span class="chip">Worth every cent</span><h2>An investment that pays for itself.</h2><p>When your site looks the part, customers see you as the professional choice before they even call — and that wins better jobs, more often.</p><p>If your average job is worth a few thousand, a site that wins you even a handful of extra jobs has paid for itself — and keeps working for you every day after that.</p></div>
     <div class="tiers">
-      <div class="tier reveal"><div class="nm">Essential</div><div class="pr">$5,900</div><p>Up to ~3 pages, mobile, tablet &amp; desktop optimised, enquiry &amp; quote form, migration and launch.</p><a class="btn btn-ghost" href="#contact">Start here</a></div>
-      <div class="tier feat reveal"><span class="tag">Most popular</span><div class="nm">Professional</div><div class="pr">$9,800</div><p>Most businesses. Full multi-page build, copywriting, service-area pages, SEO setup and gallery — plus on-site WhatsApp chat.</p><a class="btn btn-acc" href="#contact">Get my free redesign</a></div>
-      <div class="tier reveal"><div class="nm">Premium</div><div class="pr">$14,900<small> from</small></div><p>Bespoke custom website + automation. Think AI email drafting, automatic Google review requests and a digital human receptionist — never miss a call.</p><a class="btn btn-ghost" href="#contact">Let's talk</a></div>
+      <div class="tier reveal"><div class="nm">Essential</div><div class="pr">$5,900 <small class="price-note">ex. GST</small></div><p>Up to ~3 pages, mobile, tablet &amp; desktop optimised, enquiry &amp; quote form, migration and launch.</p><a class="btn btn-ghost" href="#contact">Start here</a></div>
+      <div class="tier feat reveal"><span class="tag">Most popular</span><div class="nm">Professional</div><div class="pr">$9,800 <small class="price-note">ex. GST</small></div><p>Most businesses. Full multi-page build, copywriting, service-area pages, SEO setup and gallery — plus on-site WhatsApp chat.</p><a class="btn btn-acc" href="#contact">Get my free redesign</a></div>
+      <div class="tier reveal"><div class="nm">Premium</div><div class="pr">$14,900<small> from</small> <small class="price-note">ex. GST</small></div><p>Bespoke custom website + automation. Think AI email drafting, automatic Google review requests and a digital human receptionist — never miss a call.</p><a class="btn btn-ghost" href="#contact">Let's talk</a></div>
     </div>
-    <div class="care reveal"><div><b>Every site includes a care plan from $99/month.</b><p>Hosting, security, backups, support and updates — all handled.</p></div><div class="amt">$99<small>PER MONTH</small></div></div>
+    <div class="care reveal"><div><b>Every site includes a care plan from $99/month <small class="price-note">ex. GST</small>.</b><p>Hosting, security, backups, support and updates — all handled.</p></div><div class="amt">$99 <small class="price-note">ex. GST</small><small>PER MONTH</small></div></div>
     <div class="plusdiv reveal" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><path d="M60 16v88M16 60h88" style="stroke:var(--ink)" stroke-width="34" stroke-linecap="round"/><path d="M60 16v88M16 60h88" style="stroke:var(--acc)" stroke-width="21" stroke-linecap="round"/></svg></div>
     <div class="reveal center" style="max-width:940px;margin:0 auto">
       <span class="chip">Bolt-ons</span>
@@ -873,7 +872,7 @@
         </div>
         <div class="fl"><label for="f-web">Current website</label><input id="f-web" name="Current website" type="text" placeholder="yourtrade.com.au — or &quot;no website yet&quot;"></div>
         <div class="frow">
-          <div class="fl"><label for="f-pkg">Leaning toward</label><select id="f-pkg" name="Package"><option selected>Not sure yet</option><option>Just the free redesign</option><option>Essential — $5,900</option><option>Professional — $9,800</option><option>Premium — from $14,900</option></select></div>
+          <div class="fl"><label for="f-pkg">Leaning toward</label><select id="f-pkg" name="Package"><option selected>Not sure yet</option><option>Just the free redesign</option><option>Essential — $5,900 ex. GST</option><option>Professional — $9,800 ex. GST</option><option>Premium — from $14,900 ex. GST</option></select></div>
           <div class="fl"><label for="f-assets">Logo &amp; photos?</label><select id="f-assets" name="Logo and photos"><option>Yes — I have both</option><option>Logo only</option><option>Photos only</option><option>Neither — help me out</option></select></div>
         </div>
         <div class="fl"><label>Add-ons you're curious about <em>(no commitment)</em></label>
