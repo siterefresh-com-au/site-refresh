@@ -196,31 +196,79 @@
       align-items: center;
       gap: clamp(16px, 2.3vw, 38px);
       border-bottom: 1px solid rgba(23, 40, 44, .14);
-      background: color-mix(in srgb, var(--paper) 93%, transparent);
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
       backdrop-filter: blur(18px);
     }
-    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: 182px; }
-    .brand__mark { width: 42px; height: 42px; flex: 0 0 42px; }
-    .brand__copy { display: grid; gap: 3px; line-height: 1.2; }
-    .brand__copy strong { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: -.02em; }
-    .brand__copy small { color: var(--muted); font-size: 8px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
-    .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 30px); font-size: 13px; font-weight: 620; }
-    .desktop-nav a, .header-phone { position: relative; white-space: nowrap; }
-    .desktop-nav a::after, .header-phone::after {
+    .brand { display: inline-flex; align-items: center; gap: 10px; min-width: 238px; }
+    .brand__mark { width: 52px; height: 44px; flex: 0 0 52px; overflow: visible; }
+    .brand__orbit { fill: none; stroke: #90b4af; stroke-width: 1.5; stroke-linecap: round; }
+    .brand__pipe { fill: none; stroke: var(--copper); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+    .brand__joint { fill: var(--chalk); stroke: var(--deep); stroke-width: 2; }
+    .brand__copy { display: grid; gap: 2px; line-height: 1.04; }
+    .brand__copy strong { color: var(--ink); font-family: var(--serif); font-size: 20px; font-weight: 600; letter-spacing: -.035em; white-space: nowrap; }
+    .brand__copy strong em { color: var(--oxide); font-weight: 500; }
+    .brand__copy small { color: var(--muted); font-size: 7px; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
+    .desktop-nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 1.65vw, 26px);
+      padding-bottom: 9px;
+      font-size: 11px;
+      font-weight: 680;
+    }
+    .desktop-nav::before {
       content: "";
       position: absolute;
-      right: 0;
-      bottom: -7px;
-      left: 0;
+      right: 3px;
+      bottom: 3px;
+      left: 3px;
       height: 1px;
-      background: var(--copper);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .22s var(--ease-out);
+      background: rgba(15, 116, 128, .22);
     }
-    .desktop-nav a:hover::after, .desktop-nav a:focus-visible::after, .header-phone:hover::after, .header-phone:focus-visible::after { transform: scaleX(1); }
-    .header-phone { display: grid; justify-items: end; color: var(--ink); font-size: 13px; font-weight: 760; line-height: 1.25; }
-    .header-phone small { color: var(--oxide); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .desktop-nav a { position: relative; display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+    .desktop-nav a::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: -10px;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border: 1px solid var(--sea);
+      border-radius: 50%;
+      background: var(--paper);
+      transform: translateX(-50%);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .desktop-nav a:hover::after,
+    .desktop-nav a:focus-visible::after { border-color: var(--copper); background: var(--copper); transform: translateX(-50%) scale(1.3); }
+    .desktop-nav__index { color: var(--oxide); font-family: var(--serif); font-size: 10px; font-style: italic; }
+    .header-phone { display: grid; justify-items: end; color: var(--ink); font-size: 13px; font-weight: 760; line-height: 1.18; white-space: nowrap; }
+    .header-phone small { color: var(--oxide); font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
+    .header-cta {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      border-left: 3px solid var(--copper);
+      border-radius: 0 3px 3px 0;
+      background: var(--chalk);
+      padding: 9px 14px 9px 13px;
+      box-shadow: 0 10px 26px rgba(23, 40, 44, .08);
+      color: var(--deep);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.15;
+      white-space: nowrap;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .header-cta svg { flex: 0 0 auto; transition: transform .22s var(--ease-out); }
+    .header-cta:hover,
+    .header-cta:focus-visible { background: var(--deep); color: var(--chalk); transform: translateY(-2px); }
+    .header-cta:hover svg,
+    .header-cta:focus-visible svg { transform: translateX(3px); }
     .menu-button { display: none; width: 46px; height: 46px; background: transparent; cursor: pointer; position: relative; }
     .menu-button span { position: absolute; left: 10px; width: 26px; height: 2px; background: var(--ink); transition: transform .2s, top .2s; }
     .menu-button span:first-child { top: 17px; }
@@ -355,21 +403,73 @@
     .hero__route-detail { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; animation: route-dot .24s ease .92s forwards; }
     .hero__route-detail circle { fill: var(--paper); }
     .hero__measure { position: absolute; z-index: 4; top: 46px; right: var(--layout-pad); color: var(--oxide); font-size: 9px; font-weight: 760; letter-spacing: .16em; }
-    .hero__proof {
+    .hero__suburbs {
       position: absolute;
-      right: var(--layout-pad);
+      z-index: 5;
+      right: 0;
       bottom: 0;
-      left: var(--layout-pad);
-      min-height: 82px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(23, 40, 44, .22);
+      left: 0;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-top: 1px solid rgba(223, 155, 104, .5);
+      background: var(--deep-2);
+      color: var(--chalk);
+      box-shadow: 0 -12px 32px rgba(23, 40, 44, .08);
+      animation: hero-rise .5s var(--ease-out) .48s both;
     }
-    .hero__proof p { display: flex; align-items: center; gap: 13px; border-right: 1px solid rgba(23, 40, 44, .18); padding: 16px 24px; font-size: 13px; font-weight: 640; }
-    .hero__proof p:first-child { padding-left: 0; }
-    .hero__proof p:last-child { border-right: 0; }
-    .hero__proof span { color: var(--oxide); font-family: var(--serif); font-size: 18px; font-style: italic; }
-    .hero__eyebrow, .hero h1 span, .hero__intro, .hero__actions, .hero__assist, .hero__proof p { animation: hero-rise .5s var(--ease-out) both; }
+    .hero__suburbs::before,
+    .hero__suburbs::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      width: clamp(28px, 5vw, 88px);
+      pointer-events: none;
+    }
+    .hero__suburbs::before { left: 0; background: linear-gradient(90deg, var(--deep-2), transparent); }
+    .hero__suburbs::after { right: 0; background: linear-gradient(270deg, var(--deep-2), transparent); }
+    .hero__suburb-track {
+      display: flex;
+      width: max-content;
+      min-width: max-content;
+      align-items: center;
+      will-change: transform;
+      animation: suburb-loop 40s linear infinite;
+    }
+    .hero__suburb-group {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    .hero__suburb-group li {
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 2.7vw, 46px);
+      padding-left: clamp(24px, 2.7vw, 46px);
+      color: rgba(255, 253, 248, .9);
+      font-size: 10px;
+      font-weight: 760;
+      letter-spacing: .18em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .hero__suburb-group li::after {
+      content: "";
+      flex: 0 0 auto;
+      width: 6px;
+      height: 6px;
+    }
+    .hero__suburb-group li:nth-child(odd)::after { background: #2aa1ae; transform: rotate(45deg); }
+    .hero__suburb-group li:nth-child(even)::after { width: 8px; height: 8px; border: 1px solid var(--copper-light); border-radius: 50%; }
+    .hero__suburbs:hover .hero__suburb-track,
+    .hero__suburbs:focus-within .hero__suburb-track { animation-play-state: paused; }
+    .hero__suburbs:focus-visible { outline: 2px solid var(--copper-light); outline-offset: -5px; box-shadow: inset 0 0 0 1px var(--deep-2), 0 -12px 32px rgba(23, 40, 44, .08); }
+    .hero__eyebrow, .hero h1 span, .hero__intro, .hero__actions, .hero__assist { animation: hero-rise .5s var(--ease-out) both; }
     .hero__eyebrow { animation-delay: .05s; }
     .hero h1 span:nth-child(1) { animation-delay: .1s; }
     .hero h1 span:nth-child(2) { animation-delay: .16s; }
@@ -377,9 +477,6 @@
     .hero__intro { animation-delay: .29s; }
     .hero__actions { animation-delay: .35s; }
     .hero__assist { animation-delay: .41s; }
-    .hero__proof p:nth-child(1) { animation-delay: .48s; }
-    .hero__proof p:nth-child(2) { animation-delay: .54s; }
-    .hero__proof p:nth-child(3) { animation-delay: .6s; }
 
     .triage {
       position: relative;
@@ -806,8 +903,9 @@
     @keyframes image-reveal { to { transform: scaleX(0); } }
     @keyframes route-draw { to { stroke-dashoffset: 0; } }
     @keyframes route-dot { to { opacity: 1; } }
+    @keyframes suburb-loop { to { transform: translate3d(-50%, 0, 0); } }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1240px) {
       .site-header { grid-template-columns: auto 1fr auto; }
       .desktop-nav { display: none; }
       .header-cta { display: none; }
@@ -822,11 +920,17 @@
         align-content: start;
         gap: 35px;
         overflow-y: auto;
-        background: var(--paper);
+        background:
+          radial-gradient(circle at 100% 0, rgba(144, 180, 175, .22), transparent 35%),
+          var(--paper);
         padding: 42px var(--gutter) 60px;
       }
-      .mobile-menu nav { display: grid; }
-      .mobile-menu nav a { min-height: 66px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: clamp(25px, 4vw, 38px); }
+      .mobile-menu nav { position: relative; display: grid; padding-left: 25px; }
+      .mobile-menu nav::before { content: ""; position: absolute; top: 30px; bottom: 30px; left: 5px; width: 1px; background: rgba(15, 116, 128, .34); }
+      .mobile-menu nav a { position: relative; min-height: 66px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: clamp(25px, 4vw, 38px); }
+      .mobile-menu nav a::before { content: ""; position: absolute; top: 50%; left: -24px; width: 9px; height: 9px; border: 2px solid var(--sea); border-radius: 50%; background: var(--paper); transform: translateY(-50%); transition: border-color .2s, background .2s; }
+      .mobile-menu nav a:hover::before,
+      .mobile-menu nav a:focus-visible::before { border-color: var(--copper); background: var(--copper); }
       .mobile-menu nav a span { color: var(--oxide); font-family: var(--sans); font-size: 10px; letter-spacing: .12em; }
       .mobile-menu__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
       .services__layout { grid-template-columns: minmax(240px, .62fr) minmax(500px, 1.38fr); gap: 65px; }
@@ -839,11 +943,11 @@
       .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 74px; gap: 24px; }
       .hero::before { width: 54%; height: 44%; top: auto; bottom: 82px; }
       .hero__content { max-width: 720px; padding-bottom: 8px; }
-      .hero__media { width: min(100%, 720px); justify-self: center; padding: 28px 0 120px; }
+      .hero__media { width: min(100%, 720px); justify-self: center; padding: 28px 0 92px; }
       .hero__frame { height: clamp(470px, 60vw, 580px); min-height: 0; }
       .hero__frame img { height: 100%; min-height: 0; object-position: 50% 44%; }
       .hero__route, .hero__measure { display: none; }
-      .hero__proof { grid-template-columns: repeat(3, 1fr); }
+      .hero__suburbs { min-height: 68px; }
       .triage__layout { grid-template-columns: 1fr; gap: 38px; }
       .services__layout, .diagnosis__heading, .diagnosis__layout, .areas__layout, .job-brief__layout { grid-template-columns: 1fr; }
       .services__intro { position: static; }
@@ -897,13 +1001,12 @@
       .hero__actions { align-items: stretch; flex-direction: column; gap: 16px; margin-top: 30px; }
       .hero__actions .button { width: 100%; }
       .hero__actions .text-link { align-self: flex-start; }
-      .hero__media { width: 100%; padding-bottom: 118px; }
+      .hero__media { width: 100%; padding-bottom: 84px; }
       .hero__frame { min-height: 470px; }
       .hero__frame img { min-height: 470px; }
       .hero__annotation { top: 48px; left: -8px; }
-      .hero__proof { grid-template-columns: 1fr; min-height: auto; }
-      .hero__proof p { min-height: 54px; border-right: 0; border-bottom: 1px solid rgba(23, 40, 44, .15); padding: 11px 0; }
-      .hero__proof p:last-child { border-bottom: 0; }
+      .hero__suburbs { min-height: 64px; }
+      .hero__suburb-group li { gap: 24px; padding-left: 24px; font-size: 9px; letter-spacing: .16em; }
       .triage { padding-bottom: calc(var(--section) + 26px); }
       .triage__heading h2, .services__intro h2, .diagnosis__heading h2, .planned__heading h2, .visit__heading h2, .areas__copy h2, .job-brief__intro h2 { font-size: clamp(41px, 11.6vw, 57px); }
       .triage__layout { margin-top: 49px; }
@@ -957,6 +1060,8 @@
 
     @media (max-width: 390px) {
       .brand__copy small { display: none; }
+      .brand__mark { width: 32px; height: 34px; flex-basis: 32px; }
+      .brand__copy strong { font-size: 14px; }
       .header-phone { font-size: 10px; }
       .hero { padding-top: 54px; }
       .hero h1 { font-size: 46px; }
@@ -989,8 +1094,7 @@
       .hero__media { align-self: stretch; display: flex; align-items: center; padding: 10px 0 72px; }
       .hero__frame { width: 100%; height: clamp(480px, calc(100svh - 280px), 690px); min-height: 0; }
       .hero__frame img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 46%; }
-      .hero__proof { min-height: 70px; }
-      .hero__proof p { padding-block: 12px; }
+      .hero__suburbs { min-height: 70px; }
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -1003,6 +1107,9 @@
       .hero__frame::after { transform: scaleX(0); }
       .hero__route-main { stroke-dashoffset: 0; }
       .hero__route-terminal, .hero__route-detail { opacity: 1; }
+      .hero__suburbs { overflow-x: auto; }
+      .hero__suburb-track { animation: none !important; transform: none; will-change: auto; }
+      .hero__suburb-copy { display: none; }
       html[data-motion="ready"] [data-reveal]:not(.entered) { opacity: 1; transform: none; }
       .visit__line { transform: scaleX(1); }
       .areas__pipe { stroke-dashoffset: 0; }
@@ -1024,33 +1131,35 @@
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Headline Plumbing home">
-        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-          <rect width="48" height="48" rx="3" fill="#173f46"/>
-          <path d="M14 11v14c0 7 5 12 12 12h10V27H27c-2 0-3-1-3-3V11" fill="none" stroke="#df9b68" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="14" cy="11" r="3" fill="#fffdf8"/>
-          <circle cx="36" cy="37" r="3" fill="#fffdf8"/>
+        <svg class="brand__mark" viewBox="0 0 58 48" aria-hidden="true">
+          <path class="brand__orbit" d="M47 14A21 21 0 1 0 47 35"/>
+          <path class="brand__pipe" d="M14 10v14c0 8 6 13 14 13h15V27H29c-3 0-5-2-5-5V10"/>
+          <circle class="brand__joint" cx="14" cy="10" r="3"/>
+          <circle class="brand__joint" cx="43" cy="37" r="3"/>
         </svg>
-        <span class="brand__copy"><strong>Headline Plumbing</strong><small>Repairs · Maintenance · Hot Water</small></span>
+        <span class="brand__copy"><strong>Headline <em>Plumbing</em></strong><small>Sunshine Coast &middot; repairs &amp; maintenance</small></span>
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#problems">Problems</a>
-        <a href="#services">Services</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#areas">Areas</a>
+        <a href="#problems"><span class="desktop-nav__index">01</span>What&rsquo;s happening</a>
+        <a href="#services"><span class="desktop-nav__index">02</span>Plumbing work</a>
+        <a href="#how-it-works"><span class="desktop-nav__index">03</span>Our approach</a>
+        <a href="#areas"><span class="desktop-nav__index">04</span>Where we go</a>
       </nav>
-      <a class="header-phone" href="tel:0755507788"><small>Urgent problem?</small>(07) 5550 7788</a>
-      <a class="button button--small header-cta" href="#job-brief">Describe the job<span class="button__line" aria-hidden="true"></span></a>
+      <a class="header-phone" href="tel:0755507788"><small>Urgent or no hot water?</small>(07) 5550 7788</a>
+      <a class="header-cta" href="#job-brief">Start with the problem
+        <svg width="34" height="18" viewBox="0 0 34 18" fill="none" aria-hidden="true"><path d="M1 4h20c5 0 7 2 7 7v3h5M30 11l3 3-3 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
       <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
       <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
         <nav aria-label="Mobile navigation">
-          <a href="#problems">Problems <span>01</span></a>
-          <a href="#services">Services <span>02</span></a>
-          <a href="#how-it-works">How it works <span>03</span></a>
-          <a href="#areas">Areas <span>04</span></a>
+          <a href="#problems">What&rsquo;s happening <span>01</span></a>
+          <a href="#services">Plumbing work <span>02</span></a>
+          <a href="#how-it-works">Our approach <span>03</span></a>
+          <a href="#areas">Where we go <span>04</span></a>
         </nav>
         <div class="mobile-menu__actions">
           <a class="button button--copper" href="tel:0755507788">Call (07) 5550 7788</a>
-          <a class="text-link" href="#job-brief">Describe the job <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#job-brief">Start with the problem <span aria-hidden="true">↘</span></a>
         </div>
       </div>
     </header>
@@ -1089,10 +1198,31 @@
           </figure>
           <div class="hero__annotation"><small>Diagnose first</small><strong>Find the real cause.</strong></div>
         </div>
-        <div class="hero__proof" aria-label="Service approach">
-          <p><span>01</span> Start with the symptom</p>
-          <p><span>02</span> Agree the work first</p>
-          <p><span>03</span> Test before leaving</p>
+        <div class="hero__suburbs" role="region" aria-label="Sunshine Coast service areas" tabindex="0">
+          <div class="hero__suburb-track">
+            <ul class="hero__suburb-group" aria-label="Service suburbs">
+              <li>Alexandra Headland</li>
+              <li>Mooloolaba</li>
+              <li>Buderim</li>
+              <li>Warana</li>
+              <li>Caloundra</li>
+              <li>Golden Beach</li>
+              <li>Maleny</li>
+              <li>Montville</li>
+              <li>Noosa Heads</li>
+            </ul>
+            <ul class="hero__suburb-group hero__suburb-copy" aria-hidden="true">
+              <li>Alexandra Headland</li>
+              <li>Mooloolaba</li>
+              <li>Buderim</li>
+              <li>Warana</li>
+              <li>Caloundra</li>
+              <li>Golden Beach</li>
+              <li>Maleny</li>
+              <li>Montville</li>
+              <li>Noosa Heads</li>
+            </ul>
+          </div>
         </div>
       </section>
 
