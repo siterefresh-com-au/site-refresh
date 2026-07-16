@@ -113,9 +113,9 @@
       top: 0;
       z-index: 100;
       height: var(--header-h);
-      color: var(--ink);
-      background: rgba(252, 250, 244, .94);
-      border-bottom: 1px solid var(--line);
+      color: var(--chalk);
+      background: rgba(23, 27, 29, .97);
+      border-bottom: 3px solid var(--yellow);
       backdrop-filter: blur(14px);
     }
     .header-inner {
@@ -127,30 +127,33 @@
       align-items: center;
       gap: 34px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: max-content; }
-    .brand-mark { width: 43px; height: 43px; flex: 0 0 43px; }
-    .brand-type { display: grid; gap: 1px; line-height: 1; }
-    .brand-name { font-size: .94rem; font-weight: 800; letter-spacing: -.025em; }
-    .brand-sub { color: var(--steel); font-size: .57rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: max-content; color: var(--chalk); }
+    .brand-mark { width: 47px; height: 43px; flex: 0 0 47px; }
+    .brand-type { display: grid; gap: 4px; line-height: 1; }
+    .brand-name { font-size: .84rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .brand-sub { color: var(--yellow); font-family: var(--serif); font-size: .77rem; font-weight: 600; letter-spacing: .04em; }
     .site-nav { justify-self: center; }
-    .nav-list { margin: 0; padding: 0; display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-list a { position: relative; font-size: .76rem; font-weight: 700; }
+    .nav-list { margin: 0; padding: 0; display: flex; align-items: center; gap: 0; border-left: 1px solid rgba(255,255,255,.13); list-style: none; }
+    .nav-list li { border-right: 1px solid rgba(255,255,255,.13); }
+    .nav-list a { position: relative; display: flex; align-items: baseline; gap: 7px; padding: 10px 15px; color: #e7e8e3; font-size: .65rem; font-weight: 800; letter-spacing: .03em; transition: color .2s ease, background .2s ease; }
+    .nav-index { color: var(--yellow); font-size: .47rem; letter-spacing: .08em; }
     .nav-list a::after {
       position: absolute;
-      left: 0;
-      right: 100%;
-      bottom: -8px;
+      left: 15px;
+      right: calc(100% - 15px);
+      bottom: 5px;
       height: 2px;
       content: "";
       background: var(--yellow);
       transition: right .25s ease;
     }
-    .nav-list a:hover::after, .nav-list a:focus-visible::after { right: 0; }
+    .nav-list a:hover, .nav-list a:focus-visible { color: var(--white); background: rgba(255,255,255,.045); }
+    .nav-list a:hover::after, .nav-list a:focus-visible::after { right: 15px; }
     .header-actions { display: flex; align-items: center; gap: 13px; }
     .call-preview {
       border: 0;
       padding: 0;
-      color: var(--ink);
+      color: var(--chalk);
       background: transparent;
       cursor: pointer;
       font-size: .68rem;
@@ -158,7 +161,7 @@
       line-height: 1.25;
       text-align: right;
     }
-    .call-preview span { display: block; color: var(--steel); font-size: .55rem; letter-spacing: .11em; text-transform: uppercase; }
+    .call-preview span { display: block; color: #939f9a; font-size: .55rem; letter-spacing: .11em; text-transform: uppercase; }
     .header-cta, .button {
       min-height: 48px;
       display: inline-flex;
@@ -176,13 +179,15 @@
       transition: color .25s ease, background .25s ease, transform .25s ease;
     }
     .header-cta:hover, .button:hover { color: var(--ink); background: var(--yellow-bright); transform: translateY(-2px); }
+    .site-header .header-cta { color: var(--ink); background: var(--yellow-bright); border-color: var(--yellow-bright); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
+    .site-header .header-cta:hover { color: var(--ink); background: var(--chalk); border-color: var(--chalk); }
     .button-light { color: var(--ink); background: var(--yellow-bright); border-color: var(--yellow-bright); }
     .button-light:hover { color: var(--chalk); background: var(--ink); border-color: var(--ink); }
     .button-ghost { color: var(--ink); background: transparent; }
     .button-ghost:hover { color: var(--chalk); background: var(--ink); }
     .button svg, .header-cta svg { width: 18px; height: 18px; transition: transform .25s ease; }
     .button:hover svg, .header-cta:hover svg { transform: translateX(4px); }
-    .menu-toggle { display: none; width: 46px; height: 46px; padding: 0; border: 1px solid var(--line); background: transparent; cursor: pointer; }
+    .menu-toggle { display: none; width: 46px; height: 46px; padding: 0; border: 1px solid rgba(255,255,255,.22); color: var(--chalk); background: transparent; cursor: pointer; }
     .menu-toggle span { width: 19px; height: 2px; display: block; margin: 5px auto; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
     .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
     .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -228,15 +233,6 @@
       background-image: linear-gradient(rgba(49, 64, 72, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(49, 64, 72, .055) 1px, transparent 1px);
       background-size: 48px 48px;
     }
-    .hero::after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 44%;
-      height: 8px;
-      content: "";
-      background: var(--yellow);
-    }
     .hero-inner {
       width: min(1510px, 100%);
       min-height: min(820px, calc(100svh - 112px));
@@ -257,9 +253,51 @@
     .hero h1 em { display: block; margin-left: .38em; color: #a77900; font-weight: 500; }
     .hero-lead { max-width: 570px; margin-bottom: 30px; color: var(--slate); font-size: clamp(.98rem, 1.25vw, 1.1rem); line-height: 1.72; }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 31px; }
-    .hero-points { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; }
-    .hero-points li { display: flex; align-items: center; gap: 8px; color: var(--slate); font-size: .67rem; font-weight: 700; }
-    .hero-points li::before { width: 8px; height: 8px; content: ""; border: 2px solid var(--ink); border-radius: 50%; box-shadow: inset 0 0 0 2px var(--paper); background: var(--yellow); }
+    .hero-trust { width: min(100%, 470px); display: flex; align-items: center; gap: 19px; }
+    .google-rating-card {
+      min-height: 72px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 11px 16px 10px 14px;
+      border: 1px solid rgba(23, 27, 29, .14);
+      border-radius: 17px 4px 17px 4px;
+      background: rgba(255, 254, 249, .96);
+      box-shadow: 0 13px 30px rgba(25, 33, 36, .1);
+    }
+    .google-mark { width: 32px; height: 32px; flex: 0 0 32px; }
+    .rating-copy { display: grid; gap: 1px; line-height: 1.1; }
+    .rating-line { display: flex; align-items: baseline; gap: 7px; white-space: nowrap; }
+    .rating-score { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: -.03em; }
+    .rating-stars { color: #e9a900; font-size: .88rem; letter-spacing: .07em; }
+    .rating-count { color: var(--steel); font-size: .69rem; font-weight: 800; }
+    .rating-label { color: var(--slate); font-size: .56rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .rating-label small { color: #8a6c13; font-size: .52rem; }
+    .hero-credential { position: relative; display: grid; gap: 2px; padding-left: 20px; }
+    .hero-credential::before {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      content: "";
+      background: var(--yellow);
+    }
+    .hero-credential::after {
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      content: "";
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      transform: translateY(-50%);
+    }
+    .hero-credential strong { font-family: var(--serif); font-size: 1.02rem; font-weight: 600; line-height: 1.05; }
+    .hero-credential span { color: var(--steel); font-size: .59rem; font-weight: 700; line-height: 1.35; }
     .hero-media { position: relative; min-height: 100%; padding: 28px 28px 28px 0; }
     .hero-photo { position: relative; height: 100%; min-height: 560px; overflow: hidden; background: var(--ink-2); clip-path: polygon(6% 0, 100% 0, 100% 94%, 94% 94%, 94% 100%, 0 100%, 0 8%, 6% 8%); }
     .hero-photo img { height: 100%; object-fit: cover; object-position: 56% center; }
@@ -461,10 +499,12 @@
 
     @media (max-width: 1120px) {
       .header-inner { grid-template-columns: auto 1fr auto; }
-      .site-nav { position: fixed; inset: var(--header-h) auto auto 0; width: 100vw; max-width: none; justify-self: stretch; display: none; padding: 25px 24px 30px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 22px 30px rgba(20,25,27,.12); }
+      .site-nav { position: fixed; inset: var(--header-h) auto auto 0; width: 100vw; max-width: none; justify-self: stretch; display: none; padding: 18px 24px 24px; background: var(--ink-2); border-bottom: 3px solid var(--yellow); box-shadow: 0 22px 30px rgba(20,25,27,.2); }
       .site-nav.is-open { display: block; }
-      .nav-list { align-items: stretch; flex-direction: column; gap: 0; }
-      .nav-list a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 1.35rem; }
+      .nav-list { align-items: stretch; flex-direction: column; gap: 0; border-left: 0; }
+      .nav-list li { border-right: 0; }
+      .nav-list a { display: flex; gap: 13px; padding: 15px 2px; border-bottom: 1px solid rgba(255,255,255,.13); color: var(--chalk); font-family: var(--sans); font-size: .84rem; letter-spacing: .08em; text-transform: uppercase; }
+      .nav-index { min-width: 20px; font-size: .52rem; }
       .nav-list a::after { display: none; }
       .menu-toggle { display: block; justify-self: end; }
       .header-actions { justify-self: end; }
@@ -520,7 +560,14 @@
       .hero-lead { margin-bottom: 18px; font-size: .91rem; line-height: 1.55; }
       .hero-actions { align-items: stretch; flex-direction: column; gap: 8px; margin-bottom: 0; }
       .hero-actions .button { width: 100%; }
-      .hero-points { display: none; }
+      .hero-trust { margin-top: 18px; gap: 14px; }
+      .google-rating-card { min-height: 65px; padding: 9px 13px 8px 11px; }
+      .google-mark { width: 29px; height: 29px; flex-basis: 29px; }
+      .rating-score { font-size: 1.3rem; }
+      .rating-stars { font-size: .78rem; }
+      .hero-credential { padding-left: 16px; }
+      .hero-credential strong { font-size: .94rem; }
+      .hero-credential span { font-size: .54rem; }
       .hero-media, .hero-photo { min-height: 470px; }
       .hero-photo img { object-position: 62% center; }
       .hero-note { display: none; }
@@ -566,6 +613,9 @@
       .brand-sub { display: none; }
       .hero-copy { padding-inline: 17px; }
       .hero h1 { font-size: 3.55rem; }
+      .hero-trust { align-items: stretch; flex-direction: column; }
+      .google-rating-card { width: max-content; max-width: 100%; }
+      .hero-credential { min-height: 38px; margin-left: 6px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -583,25 +633,24 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="Northshore Electrical, back to top">
-      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-        <rect width="48" height="48" rx="2" fill="#171b1d"/>
-        <path d="M13 9v14c0 7 4 11 11 11h11" fill="none" stroke="#f3c945" stroke-width="4" stroke-linecap="round"/>
-        <path d="M23 9v10c0 3 2 5 5 5h7" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="35" cy="24" r="3.5" fill="#f3c945"/>
-        <circle cx="35" cy="34" r="3.5" fill="#f5f1e8"/>
+      <svg class="brand-mark" viewBox="0 0 54 48" aria-hidden="true">
+        <path d="M14 3h26l11 21-11 21H14L3 24 14 3Z" fill="#22292d" stroke="#f3c945" stroke-width="1.5"/>
+        <path d="M15 34V14h4l16 20h4V14" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+        <circle cx="15" cy="34" r="3" fill="#f3c945"/>
+        <circle cx="39" cy="14" r="3" fill="#f3c945"/>
       </svg>
       <span class="brand-type">
-        <span class="brand-name">Northshore Electrical</span>
-        <span class="brand-sub">Repairs · Installs · Testing</span>
+        <span class="brand-name">Northshore</span>
+        <span class="brand-sub">Electrical</span>
       </span>
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <ul class="nav-list">
-        <li><a href="#problems">What we solve</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">How we work</a></li>
-        <li><a href="#areas">Areas</a></li>
+        <li><a href="#problems"><span class="nav-index" aria-hidden="true">01</span>Repairs</a></li>
+        <li><a href="#services"><span class="nav-index" aria-hidden="true">02</span>Projects</a></li>
+        <li><a href="#process"><span class="nav-index" aria-hidden="true">03</span>Safety</a></li>
+        <li><a href="#areas"><span class="nav-index" aria-hidden="true">04</span>Coverage</a></li>
       </ul>
     </nav>
 
@@ -610,7 +659,7 @@
         <span>Talk it through</span>
         (02) 5550 0148
       </button>
-      <a class="header-cta" href="#quote">Book an electrician
+      <a class="header-cta" href="#quote">Request a call
         <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
       </a>
     </div>
@@ -640,11 +689,24 @@
           </a>
           <button class="button button-ghost" type="button" data-prefill="Fault finding or repair" data-message="Something electrical needs repairing or replacing and I would like it checked.">I need a repair</button>
         </div>
-        <ul class="hero-points" aria-label="Service commitments">
-          <li>Repairs &amp; replacements</li>
-          <li>New builds &amp; renovations</li>
-          <li>Tested before handover</li>
-        </ul>
+        <div class="hero-trust">
+          <div class="google-rating-card" role="img" aria-label="Concept Google rating: 5.0 out of 5 stars from 71 reviews">
+            <svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M24 7A17 17 0 0 0 9.3 15.5" fill="none" stroke="#ea4335" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M9.3 15.5A17 17 0 0 0 9.2 32.3" fill="none" stroke="#fbbc05" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M9.2 32.3A17 17 0 0 0 34.4 37.5" fill="none" stroke="#34a853" stroke-width="7" stroke-linecap="butt"/>
+              <path d="M34.4 37.5A17 17 0 0 0 40.8 24H24" fill="none" stroke="#4285f4" stroke-width="7" stroke-linecap="butt" stroke-linejoin="miter"/>
+            </svg>
+            <span class="rating-copy" aria-hidden="true">
+              <span class="rating-line"><strong class="rating-score">5.0</strong><span class="rating-stars">★★★★★</span><span class="rating-count">(71)</span></span>
+              <span class="rating-label">Google rating <small>· concept</small></span>
+            </span>
+          </div>
+          <div class="hero-credential">
+            <strong>Licensed &amp; insured</strong>
+            <span>Residential electrical work</span>
+          </div>
+        </div>
       </div>
 
       <div class="hero-media">
@@ -1002,23 +1064,22 @@
   <div class="section-shell footer-main">
     <div class="footer-brand">
       <a class="brand" href="#top" aria-label="Northshore Electrical, back to top">
-        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <rect width="48" height="48" rx="2" fill="#20282b"/>
-          <path d="M13 9v14c0 7 4 11 11 11h11" fill="none" stroke="#f3c945" stroke-width="4" stroke-linecap="round"/>
-          <path d="M23 9v10c0 3 2 5 5 5h7" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="35" cy="24" r="3.5" fill="#f3c945"/>
-          <circle cx="35" cy="34" r="3.5" fill="#f5f1e8"/>
+        <svg class="brand-mark" viewBox="0 0 54 48" aria-hidden="true">
+          <path d="M14 3h26l11 21-11 21H14L3 24 14 3Z" fill="#22292d" stroke="#f3c945" stroke-width="1.5"/>
+          <path d="M15 34V14h4l16 20h4V14" fill="none" stroke="#f5f1e8" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+          <circle cx="15" cy="34" r="3" fill="#f3c945"/>
+          <circle cx="39" cy="14" r="3" fill="#f3c945"/>
         </svg>
-        <span class="brand-type"><span class="brand-name">Northshore Electrical</span><span class="brand-sub">Repairs · Installs · Testing</span></span>
+        <span class="brand-type"><span class="brand-name">Northshore</span><span class="brand-sub">Electrical</span></span>
       </a>
       <p>A fictional electrical business and website concept created for the Site Refresh before-and-after portfolio.</p>
     </div>
     <div class="footer-col">
       <strong>Explore</strong>
-      <a href="#problems">What we solve</a>
-      <a href="#services">Services</a>
-      <a href="#process">How we work</a>
-      <a href="#areas">Areas</a>
+      <a href="#problems">Repairs</a>
+      <a href="#services">Projects</a>
+      <a href="#process">Safety</a>
+      <a href="#areas">Coverage</a>
     </div>
     <div class="footer-col">
       <strong>Demo actions</strong>
