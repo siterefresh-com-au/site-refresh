@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Headline Plumbing — Sunshine Coast Plumbing Demo | SiteRefresh</title>
+  <meta name="description" content="An interactive SiteRefresh redesign demo for a fictional Sunshine Coast plumbing business, built around urgent calls, clear diagnosis and a polished job brief.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#173f46">
+  <link rel="canonical" href="https://siterefresh.com.au/plumbing-demo">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Headline Plumbing — SiteRefresh redesign demo">
+  <meta property="og:description" content="See how a dated plumbing website can become a fast, reassuring and mobile-first enquiry experience.">
+  <meta property="og:url" content="https://siterefresh.com.au/plumbing-demo">
+  <meta property="og:image" content="https://siterefresh.com.au/img/headland-plumbing/hero-plumber.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23173f46'/%3E%3Cpath d='M17 15v18c0 8 6 14 14 14h16V35H32c-2 0-3-1-3-3V15z' fill='none' stroke='%23d18a57' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #17282c;
+      --ink-soft: #2b4045;
+      --deep: #173f46;
+      --deep-2: #0f3138;
+      --paper: #f3f0e8;
+      --chalk: #fffdf8;
+      --mist: #dce7e4;
+      --mist-deep: #cbdad6;
+      --copper: #bd7241;
+      --copper-light: #df9b68;
+      --oxide: #9c4d2e;
+      --sea: #0f7480;
+      --muted: #5c6b6e;
+      --rule: #c7d0cc;
+      --rule-dark: rgba(255, 255, 255, .2);
+      --success: #246b54;
+      --content: 1240px;
+      --layout: 1440px;
+      --gutter: clamp(20px, 4.5vw, 72px);
+      --layout-pad: max(var(--gutter), calc((100vw - var(--layout)) / 2));
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Baskerville, Georgia, serif;
+      --sans: Aptos, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --ease-out: cubic-bezier(.22, 1, .36, 1);
+      --ease-line: cubic-bezier(.65, 0, .35, 1);
+      --shadow: 0 28px 70px rgba(23, 40, 44, .2);
+      --section: clamp(88px, 10vw, 152px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    button, input, select, textarea { color: inherit; font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { border: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
+    ul, ol { margin: 0; padding: 0; }
+    ::selection { background: var(--copper-light); color: var(--ink); }
+    :focus-visible { outline: 3px solid #0b1214; outline-offset: 4px; box-shadow: 0 0 0 6px var(--copper-light); }
+    [hidden] { display: none !important; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 10px;
+      left: 10px;
+      transform: translateY(-150%);
+      background: var(--chalk);
+      color: var(--ink);
+      padding: 10px 14px;
+      font-weight: 750;
+    }
+    .skip-link:focus { transform: none; }
+    .site-shell { min-width: 0; overflow: clip; }
+    .section-inner { width: min(calc(100% - (2 * var(--gutter))), var(--content)); margin-inline: auto; }
+    .eyebrow {
+      color: var(--oxide);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .16em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+    .eyebrow--light { color: var(--copper-light); }
+    .display {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -.048em;
+      line-height: .98;
+    }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border: 1px solid var(--deep);
+      border-radius: 3px;
+      background: var(--deep);
+      color: var(--chalk);
+      cursor: pointer;
+      padding: 13px 20px;
+      font-size: 13px;
+      font-weight: 740;
+      line-height: 1.2;
+      transition: background .18s, border-color .18s, color .18s, transform .18s;
+    }
+    .button:hover, .button:focus-visible { background: var(--copper); border-color: var(--copper); color: var(--ink); transform: translateY(-2px); }
+    .button--copper { background: var(--copper); border-color: var(--copper); color: #fff; }
+    .button--copper:hover, .button--copper:focus-visible { background: var(--oxide); border-color: var(--oxide); color: #fff; }
+    .button--light { background: var(--chalk); border-color: var(--chalk); color: var(--ink); }
+    .button--light:hover, .button--light:focus-visible { background: var(--copper-light); border-color: var(--copper-light); }
+    .button--small { min-height: 44px; padding: 10px 16px; font-size: 12px; }
+    .button__line { width: 28px; height: 1px; background: currentColor; position: relative; transform-origin: left; transition: transform .24s var(--ease-out); }
+    .button__line::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      right: 0;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      transform: rotate(45deg);
+    }
+    .button:hover .button__line, .button:focus-visible .button__line { transform: scaleX(1.2); }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid;
+      padding: 5px 0;
+      font-size: 13px;
+      font-weight: 720;
+      line-height: 1.35;
+    }
+    .text-link span { transition: transform .22s var(--ease-out); }
+    .text-link:hover span, .text-link:focus-visible span { transform: translate(3px, -1px); }
+
+    .concept-bar {
+      position: relative;
+      z-index: 120;
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+      background: #0b1113;
+      color: rgba(255, 255, 255, .75);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+    .concept-bar__inner {
+      width: min(calc(100% - (2 * var(--gutter))), var(--content));
+      min-height: 36px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .concept-bar p { display: flex; align-items: center; gap: 10px; }
+    .concept-bar strong { color: var(--copper-light); }
+    .concept-bar a { color: #fff; border-bottom: 1px solid currentColor; white-space: nowrap; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: 82px;
+      padding-inline: var(--layout-pad);
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: clamp(16px, 2.3vw, 38px);
+      border-bottom: 1px solid rgba(23, 40, 44, .14);
+      background: color-mix(in srgb, var(--paper) 93%, transparent);
+      backdrop-filter: blur(18px);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: 182px; }
+    .brand__mark { width: 42px; height: 42px; flex: 0 0 42px; }
+    .brand__copy { display: grid; gap: 3px; line-height: 1.2; }
+    .brand__copy strong { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: -.02em; }
+    .brand__copy small { color: var(--muted); font-size: 8px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 30px); font-size: 13px; font-weight: 620; }
+    .desktop-nav a, .header-phone { position: relative; white-space: nowrap; }
+    .desktop-nav a::after, .header-phone::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 1px;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .22s var(--ease-out);
+    }
+    .desktop-nav a:hover::after, .desktop-nav a:focus-visible::after, .header-phone:hover::after, .header-phone:focus-visible::after { transform: scaleX(1); }
+    .header-phone { display: grid; justify-items: end; color: var(--ink); font-size: 13px; font-weight: 760; line-height: 1.25; }
+    .header-phone small { color: var(--oxide); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .menu-button { display: none; width: 46px; height: 46px; background: transparent; cursor: pointer; position: relative; }
+    .menu-button span { position: absolute; left: 10px; width: 26px; height: 2px; background: var(--ink); transition: transform .2s, top .2s; }
+    .menu-button span:first-child { top: 17px; }
+    .menu-button span:last-child { top: 27px; }
+    .menu-button[aria-expanded="true"] span:first-child { top: 22px; transform: rotate(45deg); }
+    .menu-button[aria-expanded="true"] span:last-child { top: 22px; transform: rotate(-45deg); }
+    .mobile-menu { display: none; }
+
+    .plumbing-motif {
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+    .plumbing-motif * { vector-effect: non-scaling-stroke; }
+    .plumbing-motif .motif-fine { stroke-width: 1; }
+    .plumbing-motif .motif-accent { stroke: var(--copper); }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 720px;
+      padding: clamp(68px, 7.6vw, 108px) var(--layout-pad) 0;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr);
+      gap: clamp(44px, 6vw, 96px);
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(23, 40, 44, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 40, 44, .045) 1px, transparent 1px),
+        var(--paper);
+      background-size: 34px 34px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      top: 0;
+      right: 0;
+      width: min(40vw, 650px);
+      height: 65%;
+      background: var(--mist);
+    }
+    .hero::after {
+      content: none;
+    }
+    .hero__content { align-self: center; max-width: 650px; padding-bottom: 118px; }
+    .hero__eyebrow { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 26px; }
+    .hero__eyebrow span { color: var(--muted); }
+    .hero h1 { max-width: 720px; font-size: clamp(58px, 6.1vw, 96px); }
+    .hero h1 span { display: block; }
+    .hero__sorted {
+      margin-top: .12em;
+      color: var(--oxide);
+      font-family: var(--sans);
+      font-size: .66em;
+      font-weight: 820;
+      letter-spacing: .13em;
+      line-height: 1;
+    }
+    .hero__intro { max-width: 575px; margin-top: 31px; color: var(--ink-soft); font-size: clamp(17px, 1.35vw, 20px); line-height: 1.62; }
+    .hero__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 36px; }
+    .hero__assist { display: flex; align-items: center; gap: 10px; margin-top: 22px; color: var(--muted); font-size: 12px; }
+    .hero__assist svg { flex: 0 0 auto; color: var(--sea); }
+    .hero__media { align-self: center; min-width: 0; padding: 22px 0 104px; position: relative; }
+    .hero__frame {
+      position: relative;
+      min-height: 505px;
+      border: 9px solid var(--chalk);
+      clip-path: polygon(0 0, 93% 0, 93% 7%, 100% 7%, 100% 100%, 8% 100%, 8% 94%, 0 94%);
+      overflow: hidden;
+      background: var(--mist-deep);
+      box-shadow: var(--shadow);
+    }
+    .hero__frame img { width: 100%; height: 100%; min-height: 505px; object-fit: cover; object-position: 50% 50%; }
+    .hero__frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+      transform-origin: right;
+      animation: image-reveal .74s var(--ease-out) .36s forwards;
+    }
+    .hero__annotation {
+      position: absolute;
+      z-index: 3;
+      top: 50px;
+      left: -28px;
+      min-width: 180px;
+      border-left: 3px solid var(--copper);
+      background: rgba(255, 253, 248, .95);
+      padding: 13px 16px;
+      box-shadow: 0 16px 34px rgba(23, 40, 44, .15);
+    }
+    .hero__annotation small { display: block; color: var(--oxide); font-size: 9px; font-weight: 760; letter-spacing: .14em; text-transform: uppercase; }
+    .hero__annotation strong { display: block; margin-top: 2px; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+    .image-disclosure {
+      position: absolute;
+      z-index: 4;
+      right: 13px;
+      bottom: 13px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      background: rgba(15, 49, 56, .88);
+      color: #fff;
+      padding: 7px 9px;
+      font-size: 9px;
+      font-weight: 740;
+      letter-spacing: .1em;
+      line-height: 1.25;
+      text-transform: uppercase;
+      backdrop-filter: blur(5px);
+    }
+    .hero__route { position: absolute; z-index: 3; inset: 66px var(--layout-pad) auto 42%; height: 170px; pointer-events: none; overflow: visible; }
+    .hero__route-main { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 900; stroke-dashoffset: 900; animation: route-draw 1.05s var(--ease-line) .12s forwards; }
+    .hero__route-terminal { fill: var(--paper); stroke: var(--copper); stroke-width: 2; opacity: 0; animation: route-dot .18s ease 1.05s forwards; }
+    .hero__route-detail { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; animation: route-dot .24s ease .92s forwards; }
+    .hero__route-detail circle { fill: var(--paper); }
+    .hero__measure { position: absolute; z-index: 4; top: 46px; right: var(--layout-pad); color: var(--oxide); font-size: 9px; font-weight: 760; letter-spacing: .16em; }
+    .hero__proof {
+      position: absolute;
+      right: var(--layout-pad);
+      bottom: 0;
+      left: var(--layout-pad);
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(23, 40, 44, .22);
+    }
+    .hero__proof p { display: flex; align-items: center; gap: 13px; border-right: 1px solid rgba(23, 40, 44, .18); padding: 16px 24px; font-size: 13px; font-weight: 640; }
+    .hero__proof p:first-child { padding-left: 0; }
+    .hero__proof p:last-child { border-right: 0; }
+    .hero__proof span { color: var(--oxide); font-family: var(--serif); font-size: 18px; font-style: italic; }
+    .hero__eyebrow, .hero h1 span, .hero__intro, .hero__actions, .hero__assist, .hero__proof p { animation: hero-rise .5s var(--ease-out) both; }
+    .hero__eyebrow { animation-delay: .05s; }
+    .hero h1 span:nth-child(1) { animation-delay: .1s; }
+    .hero h1 span:nth-child(2) { animation-delay: .16s; }
+    .hero h1 span:nth-child(3) { animation-delay: .22s; }
+    .hero__intro { animation-delay: .29s; }
+    .hero__actions { animation-delay: .35s; }
+    .hero__assist { animation-delay: .41s; }
+    .hero__proof p:nth-child(1) { animation-delay: .48s; }
+    .hero__proof p:nth-child(2) { animation-delay: .54s; }
+    .hero__proof p:nth-child(3) { animation-delay: .6s; }
+
+    .triage {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0 calc(var(--section) + 34px);
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--chalk);
+    }
+    .triage::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .8;
+      background:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(145deg, transparent 0 76%, rgba(223, 155, 104, .035) 76% 77%, transparent 77%);
+      background-size: 48px 48px, 48px 48px, auto;
+    }
+    .triage::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      bottom: -1px;
+      left: -2px;
+      height: clamp(26px, 2.7vw, 42px);
+      background: var(--paper);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+    .triage__heading { max-width: 900px; }
+    .triage__heading h2 { max-width: 760px; margin-top: 21px; font-size: clamp(44px, 5vw, 74px); }
+    .triage__heading p:last-child { max-width: 620px; margin-top: 25px; color: rgba(255, 255, 255, .66); font-size: 16px; }
+    .triage__layout { display: grid; grid-template-columns: minmax(250px, .8fr) minmax(0, 1.2fr); gap: clamp(48px, 7vw, 105px); margin-top: 67px; }
+    .triage__options { position: relative; display: grid; align-content: start; border-top: 1px solid var(--rule-dark); }
+    .triage__options::before { content: ""; position: absolute; top: 0; bottom: 0; left: 28px; width: 1px; background: var(--rule-dark); }
+    .triage-option {
+      position: relative;
+      min-height: 88px;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) 28px;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--rule-dark);
+      background: transparent;
+      color: rgba(255, 255, 255, .56);
+      cursor: pointer;
+      padding: 10px 0;
+      text-align: left;
+      transition: color .2s;
+    }
+    .triage-option::before { content: ""; position: absolute; left: 24px; width: 9px; height: 9px; border: 2px solid var(--copper-light); border-radius: 50%; background: var(--ink); transition: background .2s, transform .2s; }
+    .triage-option[aria-pressed="true"] { color: var(--chalk); }
+    .triage-option[aria-pressed="true"]::before { background: var(--copper-light); transform: scale(1.18); }
+    .triage-option__number { color: var(--copper-light); font-family: var(--serif); font-size: 14px; font-style: italic; text-align: left; }
+    .triage-option__label { font-family: var(--serif); font-size: clamp(25px, 2.1vw, 35px); line-height: 1; }
+    .triage-option__mark { justify-self: end; color: var(--copper-light); font-size: 22px; }
+    .triage__detail {
+      position: relative;
+      min-height: 345px;
+      border: 1px solid var(--rule-dark);
+      padding: clamp(31px, 4.2vw, 58px);
+      overflow: hidden;
+      background: linear-gradient(140deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .018));
+    }
+    .triage__detail::before { content: none; }
+    .triage__detail-motif { position: absolute; z-index: 0; top: -34px; right: -29px; width: min(38%, 270px); color: var(--copper-light); opacity: .14; }
+    .triage__detail > * { position: relative; z-index: 1; }
+    .triage__status { color: var(--copper-light); font-size: 10px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .triage__detail h3 { max-width: 560px; margin-top: 18px; font-family: var(--serif); font-size: clamp(35px, 3.5vw, 54px); font-weight: 500; letter-spacing: -.04em; line-height: 1.02; }
+    .triage__detail > p:not(.triage__status) { max-width: 660px; margin-top: 22px; color: rgba(255, 255, 255, .68); }
+    .triage__detail ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 24px; margin: 27px 0 31px; list-style: none; color: rgba(255, 255, 255, .82); font-size: 13px; }
+    .triage__detail li { position: relative; padding-left: 17px; }
+    .triage__detail li::before { content: ""; position: absolute; top: .7em; left: 0; width: 7px; height: 2px; background: var(--copper-light); }
+
+    .services {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .services::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 56%;
+      opacity: .55;
+      background:
+        linear-gradient(rgba(23, 40, 44, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 40, 44, .06) 1px, transparent 1px);
+      background-size: 42px 42px, 42px 42px;
+      mask-image: linear-gradient(90deg, transparent, #000 28%);
+    }
+    .services__layout { display: grid; grid-template-columns: minmax(270px, .68fr) minmax(540px, 1.32fr); gap: clamp(64px, 8vw, 128px); align-items: start; }
+    .services__intro { position: sticky; top: 126px; }
+    .services__intro h2 { margin-top: 21px; font-size: clamp(43px, 4.5vw, 70px); }
+    .services__intro > p:not(.eyebrow) { max-width: 390px; margin-top: 28px; color: var(--muted); }
+    .services__intro .text-link { margin-top: 29px; }
+    .services__riser-motif { width: min(315px, 86%); margin: 46px 0 0 22px; color: var(--sea); opacity: .19; }
+    .service-list { border-top: 1px solid var(--rule); list-style: none; }
+    .service-list li { border-bottom: 1px solid var(--rule); }
+    .service-list a { min-height: 102px; display: grid; grid-template-columns: 42px minmax(160px, .8fr) minmax(210px, 1.2fr) 26px; align-items: center; gap: 18px; padding: 16px 0; transition: color .2s, padding .24s var(--ease-out); }
+    .service-list a:hover, .service-list a:focus-visible { color: var(--oxide); padding-left: 8px; }
+    .service-list__number { color: var(--oxide); font-family: var(--serif); font-size: 14px; font-style: italic; }
+    .service-list h3 { font-family: var(--serif); font-size: clamp(24px, 2.1vw, 33px); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+    .service-list p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .service-list__arrow { justify-self: end; font-size: 22px; transition: transform .22s; }
+    .service-list a:hover .service-list__arrow, .service-list a:focus-visible .service-list__arrow { transform: translate(3px, -1px); }
+
+    .diagnosis {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0 calc(var(--section) + 34px);
+      overflow: hidden;
+      background: var(--chalk);
+    }
+    .diagnosis::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      bottom: -1px;
+      left: -2px;
+      height: clamp(26px, 2.7vw, 42px);
+      background: var(--mist);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+    }
+    .diagnosis__heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .55fr); align-items: end; gap: 60px; }
+    .diagnosis__heading h2 { max-width: 820px; margin-top: 21px; font-size: clamp(43px, 5vw, 75px); }
+    .diagnosis__heading > p:last-child { color: var(--muted); }
+    .diagnosis__layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr); gap: clamp(42px, 6vw, 90px); align-items: center; margin-top: 65px; }
+    .diagnosis__figure { position: relative; min-height: 520px; overflow: hidden; background: var(--mist); box-shadow: var(--shadow); }
+    .diagnosis__figure img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: 54% center; transition: transform .55s var(--ease-out); }
+    .diagnosis__figure:hover img { transform: scale(1.015); }
+    .diagnosis__note { position: absolute; z-index: 3; min-width: 118px; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 10px 12px; font-size: 10px; font-weight: 760; letter-spacing: .1em; line-height: 1.3; text-transform: uppercase; box-shadow: 0 12px 25px rgba(23, 40, 44, .15); }
+    .diagnosis__note--one { top: 18%; left: 6%; }
+    .diagnosis__note--two { top: 44%; right: 5%; }
+    .diagnosis__note--three { bottom: 17%; left: 20%; }
+    .diagnosis__steps { list-style: none; }
+    .diagnosis__steps li { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 18px; border-top: 1px solid var(--rule); padding: 24px 0; }
+    .diagnosis__steps li:last-child { border-bottom: 1px solid var(--rule); }
+    .diagnosis__steps span { color: var(--oxide); font-family: var(--serif); font-size: 18px; font-style: italic; }
+    .diagnosis__steps h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; letter-spacing: -.025em; }
+    .diagnosis__steps p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+    .planned {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0;
+      overflow: hidden;
+      background: var(--mist);
+    }
+    .planned > .section-inner { position: relative; z-index: 1; }
+    .planned__fixture-motif { position: absolute; z-index: 0; top: 42px; right: var(--layout-pad); width: min(28vw, 390px); color: var(--sea); opacity: .13; }
+    .planned__heading { max-width: 870px; }
+    .planned__heading h2 { margin-top: 21px; font-size: clamp(43px, 5vw, 75px); }
+    .planned__heading p:last-child { max-width: 660px; margin-top: 26px; color: var(--muted); }
+    .planned__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); gap: clamp(26px, 4vw, 56px); align-items: end; margin-top: 65px; }
+    .planned-card { min-width: 0; }
+    .planned-card__image { position: relative; overflow: hidden; background: var(--mist-deep); box-shadow: 0 24px 60px rgba(23, 40, 44, .15); }
+    .planned-card--wide .planned-card__image { aspect-ratio: 4 / 3; }
+    .planned-card--portrait .planned-card__image { height: clamp(500px, 48vw, 670px); }
+    .planned-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s var(--ease-out); }
+    .planned-card--portrait img { object-position: 51% center; }
+    .planned-card:hover img { transform: scale(1.015); }
+    .planned-card figcaption { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; border-bottom: 1px solid rgba(23, 40, 44, .24); padding: 18px 0 14px; }
+    .planned-card figcaption strong { display: block; font-family: var(--serif); font-size: clamp(25px, 2.4vw, 36px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+    .planned-card figcaption span { color: var(--oxide); font-size: 10px; font-weight: 760; letter-spacing: .13em; text-align: right; text-transform: uppercase; }
+    .planned-card figcaption p { grid-column: 1 / -1; max-width: 620px; color: var(--muted); font-size: 14px; }
+
+    .visit {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0 calc(var(--section) + 36px);
+      overflow: hidden;
+      background: var(--deep);
+      color: var(--chalk);
+    }
+    .visit::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .7;
+      background:
+        linear-gradient(90deg, transparent 0 49.92%, rgba(255, 255, 255, .04) 50%, transparent 50.08%),
+        repeating-linear-gradient(0deg, transparent 0 40px, rgba(255, 255, 255, .035) 40px 41px);
+    }
+    .visit::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      bottom: -1px;
+      left: -2px;
+      height: clamp(26px, 2.7vw, 42px);
+      background: var(--paper);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+    .visit > .section-inner { position: relative; z-index: 1; }
+    .visit__valve-motif { position: absolute; z-index: 0; top: 34px; right: var(--layout-pad); width: min(28vw, 360px); color: var(--copper-light); opacity: .09; }
+    .visit__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .48fr); align-items: end; gap: 60px; }
+    .visit__heading h2 { max-width: 780px; margin-top: 21px; font-size: clamp(43px, 5vw, 75px); }
+    .visit__heading > p:last-child { color: rgba(255, 255, 255, .67); }
+    .visit__steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 76px; list-style: none; }
+    .visit__steps::before { content: ""; position: absolute; top: 28px; right: 11%; left: 11%; height: 1px; background: var(--rule-dark); }
+    .visit__line { position: absolute; top: 27px; right: 11%; left: 11%; height: 2px; background: linear-gradient(90deg, var(--copper), var(--copper-light)); transform: scaleX(0); transform-origin: left; transition: transform .88s var(--ease-line) .18s; }
+    .visit.entered .visit__line { transform: scaleX(1); }
+    .visit__steps li { position: relative; z-index: 1; border-right: 1px solid var(--rule-dark); padding: 0 clamp(20px, 2.7vw, 38px); }
+    .visit__steps li:first-of-type { padding-left: 0; }
+    .visit__steps li:last-child { border-right: 0; padding-right: 0; }
+    .visit__number { width: 56px; height: 56px; display: grid; place-items: center; border: 2px solid var(--copper-light); border-radius: 50%; background: var(--deep); color: var(--copper-light); font-family: var(--serif); font-size: 18px; font-style: italic; }
+    .visit__steps h3 { margin-top: 25px; font-family: var(--serif); font-size: clamp(24px, 2.2vw, 33px); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; }
+    .visit__steps p { margin-top: 12px; color: rgba(255, 255, 255, .64); font-size: 14px; }
+
+    .areas {
+      position: relative;
+      padding: var(--section) 0;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .areas__layout { display: grid; grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr); gap: clamp(64px, 9vw, 140px); align-items: center; }
+    .areas__copy h2 { margin-top: 21px; font-size: clamp(43px, 4.7vw, 72px); }
+    .areas__copy > p:not(.eyebrow) { max-width: 500px; margin-top: 27px; color: var(--muted); }
+    .areas__route { position: relative; min-height: 510px; border: 1px solid var(--rule); background: var(--chalk); overflow: hidden; box-shadow: 0 20px 50px rgba(23, 40, 44, .1); }
+    .areas__route::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .7;
+      background:
+        linear-gradient(rgba(23, 40, 44, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 40, 44, .055) 1px, transparent 1px);
+      background-size: 36px 36px, 36px 36px;
+    }
+    .areas__route svg { position: absolute; inset: 34px 24px; width: calc(100% - 48px); height: calc(100% - 68px); overflow: visible; }
+    .areas__pipe { fill: none; stroke: var(--sea); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1500; stroke-dashoffset: 1500; transition: stroke-dashoffset 1.1s var(--ease-line) .1s; }
+    .areas__route.entered .areas__pipe, .areas.entered .areas__route .areas__pipe { stroke-dashoffset: 0; }
+    .areas__route circle { fill: var(--chalk); stroke: var(--copper); stroke-width: 3; }
+    .areas__valve { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; }
+    .areas__drop { fill: none; stroke: var(--copper); stroke-width: 2; opacity: .78; }
+    .areas__label { position: absolute; z-index: 2; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 8px 10px; font-size: 11px; font-weight: 720; box-shadow: 0 9px 22px rgba(23, 40, 44, .11); }
+    .areas__label--one { top: 10%; left: 12%; }
+    .areas__label--two { top: 31%; right: 8%; }
+    .areas__label--three { top: 53%; left: 19%; }
+    .areas__label--four { right: 16%; bottom: 16%; }
+    .areas__key { position: absolute; right: 18px; bottom: 16px; color: var(--muted); font-size: 9px; font-weight: 740; letter-spacing: .11em; text-transform: uppercase; }
+    .area-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 34px; }
+    .area-groups div { border-top: 1px solid var(--rule); padding-top: 15px; }
+    .area-groups dt { color: var(--oxide); font-size: 10px; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
+    .area-groups dd { margin-top: 7px; color: var(--ink-soft); font-size: 14px; }
+    .faq { margin-top: clamp(70px, 8vw, 112px); border-top: 1px solid var(--rule); }
+    .faq__heading { display: grid; grid-template-columns: minmax(220px, .5fr) minmax(0, 1.5fr); gap: 50px; padding-top: 38px; }
+    .faq__intro { min-width: 0; }
+    .faq__heading h2 { font-size: clamp(36px, 4vw, 58px); }
+    .faq__trap-motif { width: min(245px, 100%); margin-top: 38px; color: var(--oxide); opacity: .19; }
+    .faq__list { border-top: 1px solid var(--rule); }
+    .faq details { border-bottom: 1px solid var(--rule); }
+    .faq summary { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; font-family: var(--serif); font-size: clamp(21px, 2vw, 28px); font-weight: 600; letter-spacing: -.02em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--oxide); font-family: var(--sans); font-size: 23px; font-weight: 400; transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { max-width: 680px; padding: 0 54px 24px 0; color: var(--muted); }
+
+    .job-brief {
+      position: relative;
+      isolation: isolate;
+      padding: var(--section) 0;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--chalk);
+    }
+    .job-brief::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .75;
+      background:
+        linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 52px 52px, 52px 52px;
+    }
+    .job-brief > .section-inner { position: relative; z-index: 1; }
+    .job-brief__drip-motif { position: absolute; z-index: 0; left: var(--layout-pad); bottom: -68px; width: min(25vw, 330px); color: var(--copper-light); opacity: .105; }
+    .job-brief__layout { display: grid; grid-template-columns: minmax(280px, .74fr) minmax(520px, 1.26fr); gap: clamp(60px, 8vw, 126px); align-items: start; }
+    .job-brief__intro h2 { max-width: 610px; margin-top: 21px; font-size: clamp(45px, 5vw, 76px); }
+    .job-brief__intro > p:not(.eyebrow) { max-width: 480px; margin-top: 28px; color: rgba(255, 255, 255, .66); }
+    .job-brief__phone { display: grid; gap: 3px; margin-top: 38px; font-family: var(--serif); font-size: clamp(28px, 3vw, 43px); letter-spacing: -.035em; line-height: 1.1; }
+    .job-brief__phone span { color: var(--copper-light); font-family: var(--sans); font-size: 10px; font-weight: 760; letter-spacing: .14em; text-transform: uppercase; }
+    .job-brief__demo { margin-top: 25px; border-left: 3px solid var(--copper-light); padding-left: 15px; color: rgba(255, 255, 255, .58); font-size: 12px; }
+    .brief-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 24px; background: var(--chalk); color: var(--ink); padding: clamp(27px, 4vw, 50px); box-shadow: var(--shadow); }
+    .field { min-width: 0; }
+    .field--full { grid-column: 1 / -1; }
+    .field label { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 7px; font-size: 12px; font-weight: 740; }
+    .field label span { color: var(--muted); font-size: 10px; font-weight: 560; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: #fff;
+      padding: 12px 13px;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    .field textarea { min-height: 126px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sea); box-shadow: 0 0 0 3px rgba(15, 116, 128, .16); }
+    .field input[type="file"] { padding: 10px; font-size: 12px; }
+    .field input[type="file"]::file-selector-button { border: 0; border-right: 1px solid var(--rule); background: var(--mist); padding: 8px 12px; margin-right: 12px; color: var(--ink); font: inherit; font-weight: 720; cursor: pointer; }
+    .brief-form__footer { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--rule); padding-top: 24px; }
+    .brief-form__footer p { max-width: 300px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .form-success { grid-column: 1 / -1; display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; align-items: center; gap: 16px; border: 1px solid rgba(36, 107, 84, .35); background: rgba(36, 107, 84, .08); padding: 17px; }
+    .form-success__icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--success); color: #fff; font-weight: 800; }
+    .form-success strong { display: block; font-family: var(--serif); font-size: 20px; }
+    .form-success p { color: var(--muted); font-size: 12px; }
+    .form-success button { background: transparent; color: var(--ink); cursor: pointer; border-bottom: 1px solid; padding: 4px 0; font-size: 12px; font-weight: 740; }
+
+    .site-footer {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.3fr) minmax(180px, .7fr) minmax(180px, .7fr);
+      gap: 48px;
+      padding: 74px var(--layout-pad) 32px;
+      background: #0b1518;
+      color: rgba(255, 255, 255, .62);
+    }
+    .site-footer .brand { color: #fff; }
+    .site-footer .brand__copy small { color: rgba(255, 255, 255, .58); }
+    .site-footer__about > p { max-width: 440px; margin-top: 22px; font-size: 14px; }
+    .site-footer__label { margin-bottom: 13px; color: var(--copper-light); font-size: 10px; font-weight: 760; letter-spacing: .14em; text-transform: uppercase; }
+    .site-footer nav, .site-footer__contact { display: grid; align-content: start; gap: 9px; font-size: 14px; }
+    .site-footer a:hover { color: #fff; }
+    .site-footer__bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255, 255, 255, .11); margin-top: 24px; padding-top: 22px; font-size: 11px; }
+    .site-footer__bottom a { color: #fff; border-bottom: 1px solid; }
+
+    .mobile-actions {
+      position: fixed;
+      z-index: 90;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 8px;
+      border-top: 1px solid rgba(23, 40, 44, .16);
+      background: rgba(255, 253, 248, .96);
+      padding: 9px max(12px, env(safe-area-inset-right)) calc(9px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      box-shadow: 0 -10px 30px rgba(23, 40, 44, .14);
+      backdrop-filter: blur(12px);
+      transform: translateY(110%);
+      transition: transform .25s var(--ease-out);
+    }
+    .mobile-actions[data-visible="true"] { transform: translateY(0); }
+    .mobile-actions a { min-height: 48px; display: grid; place-items: center; border: 1px solid var(--deep); border-radius: 2px; font-size: 12px; font-weight: 760; }
+    .mobile-actions a:first-child { background: var(--copper); border-color: var(--copper); color: #fff; }
+    .mobile-actions a:last-child { background: var(--deep); color: #fff; }
+
+    .whatsapp-launcher {
+      position: fixed;
+      z-index: 92;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #167d5a;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 14px 32px rgba(12, 50, 38, .3);
+      transition: transform .2s, bottom .25s var(--ease-out);
+    }
+    .whatsapp-launcher:hover, .whatsapp-launcher:focus-visible { transform: translateY(-3px); }
+    .whatsapp-launcher svg { width: 27px; height: 27px; }
+    .whatsapp-launcher[data-mobile-offset="true"] { bottom: calc(82px + env(safe-area-inset-bottom)); }
+    .whatsapp-panel {
+      position: fixed;
+      z-index: 94;
+      right: 22px;
+      bottom: 91px;
+      width: min(370px, calc(100vw - 28px));
+      overflow: hidden;
+      border: 1px solid rgba(23, 40, 44, .16);
+      border-radius: 6px;
+      background: var(--chalk);
+      color: var(--ink);
+      box-shadow: 0 24px 70px rgba(23, 40, 44, .27);
+    }
+    .whatsapp-panel[data-mobile-offset="true"] { bottom: calc(151px + env(safe-area-inset-bottom)); }
+    .whatsapp-panel__header { min-height: 70px; display: grid; grid-template-columns: 42px minmax(0, 1fr) 42px; align-items: center; gap: 11px; background: #155d47; color: #fff; padding: 11px 12px; }
+    .whatsapp-panel__avatar { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .15); }
+    .whatsapp-panel__avatar svg { width: 23px; }
+    .whatsapp-panel__header strong, .whatsapp-panel__header small { display: block; }
+    .whatsapp-panel__header strong { font-size: 13px; }
+    .whatsapp-panel__header small { color: rgba(255, 255, 255, .72); font-size: 10px; }
+    .whatsapp-panel__header button { width: 42px; height: 42px; background: transparent; color: #fff; cursor: pointer; font-size: 26px; }
+    .whatsapp-panel__body { display: grid; gap: 13px; padding: 18px; }
+    .whatsapp-panel__body p { font-size: 13px; }
+    .whatsapp-panel__body input { width: 100%; min-height: 47px; border: 1px solid var(--rule); border-radius: 3px; padding: 10px 12px; }
+    .whatsapp-panel__body button { min-height: 47px; border-radius: 3px; background: #167d5a; color: #fff; cursor: pointer; font-weight: 740; }
+    .whatsapp-panel__note { color: var(--muted); font-size: 10px !important; }
+    .whatsapp-panel__status { border-left: 3px solid var(--success); background: rgba(36, 107, 84, .08); padding: 9px 11px; }
+
+    html[data-motion="ready"] [data-reveal] { transition: opacity .52s var(--ease-out), transform .52s var(--ease-out); }
+    html[data-motion="ready"] [data-reveal]:not(.entered) { opacity: 0; transform: translateY(14px); }
+    html[data-motion="ready"] [data-reveal][data-delay="1"] { transition-delay: 55ms; }
+    html[data-motion="ready"] [data-reveal][data-delay="2"] { transition-delay: 110ms; }
+    html[data-motion="ready"] [data-reveal][data-delay="3"] { transition-delay: 165ms; }
+
+    @keyframes hero-rise { from { opacity: 0; transform: translateY(13px); } to { opacity: 1; transform: none; } }
+    @keyframes image-reveal { to { transform: scaleX(0); } }
+    @keyframes route-draw { to { stroke-dashoffset: 0; } }
+    @keyframes route-dot { to { opacity: 1; } }
+
+    @media (max-width: 1180px) {
+      .site-header { grid-template-columns: auto 1fr auto; }
+      .desktop-nav { display: none; }
+      .header-cta { display: none; }
+      .menu-button { display: block; justify-self: end; }
+      .mobile-menu {
+        position: fixed;
+        z-index: 99;
+        inset: 82px 0 0;
+        height: calc(100vh - 82px);
+        height: calc(100dvh - 82px);
+        display: grid;
+        align-content: start;
+        gap: 35px;
+        overflow-y: auto;
+        background: var(--paper);
+        padding: 42px var(--gutter) 60px;
+      }
+      .mobile-menu nav { display: grid; }
+      .mobile-menu nav a { min-height: 66px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: clamp(25px, 4vw, 38px); }
+      .mobile-menu nav a span { color: var(--oxide); font-family: var(--sans); font-size: 10px; letter-spacing: .12em; }
+      .mobile-menu__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+      .services__layout { grid-template-columns: minmax(240px, .62fr) minmax(500px, 1.38fr); gap: 65px; }
+      .hero { grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr); gap: 44px; }
+      .hero h1 { font-size: clamp(56px, 7.2vw, 82px); }
+      .hero__route { left: 44%; }
+    }
+
+    @media (max-width: 980px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 74px; gap: 24px; }
+      .hero::before { width: 54%; height: 44%; top: auto; bottom: 82px; }
+      .hero__content { max-width: 720px; padding-bottom: 8px; }
+      .hero__media { width: min(100%, 720px); justify-self: center; padding: 28px 0 120px; }
+      .hero__frame { height: clamp(470px, 60vw, 580px); min-height: 0; }
+      .hero__frame img { height: 100%; min-height: 0; object-position: 50% 44%; }
+      .hero__route, .hero__measure { display: none; }
+      .hero__proof { grid-template-columns: repeat(3, 1fr); }
+      .triage__layout { grid-template-columns: 1fr; gap: 38px; }
+      .services__layout, .diagnosis__heading, .diagnosis__layout, .areas__layout, .job-brief__layout { grid-template-columns: 1fr; }
+      .services__intro { position: static; }
+      .services__intro > p:not(.eyebrow) { max-width: 620px; }
+      .diagnosis__heading { gap: 26px; }
+      .diagnosis__heading > p:last-child { max-width: 650px; }
+      .diagnosis__figure { min-height: 470px; }
+      .diagnosis__figure img { min-height: 470px; }
+      .diagnosis__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+      .diagnosis__steps li { grid-template-columns: 34px minmax(0, 1fr); border-bottom: 1px solid var(--rule); }
+      .planned__grid { grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); }
+      .visit__heading { grid-template-columns: 1fr; gap: 26px; }
+      .visit__heading > p:last-child { max-width: 620px; }
+      .visit__steps { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .visit__steps::before, .visit__line { display: none; }
+      .visit__steps li { min-height: 280px; border-top: 1px solid var(--rule-dark); padding: 30px; }
+      .visit__steps li:nth-child(odd) { padding-left: 0; }
+      .visit__steps li:nth-child(even) { border-right: 0; }
+      .areas__route { order: -1; }
+      .faq__heading { grid-template-columns: 1fr; gap: 27px; }
+      .services__riser-motif, .planned__fixture-motif, .visit__valve-motif, .faq__trap-motif, .job-brief__drip-motif { display: none; }
+      .site-footer { grid-template-columns: 1.2fr .8fr; }
+      .site-footer__contact { grid-column: 2; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --gutter: 20px; --section: 84px; }
+      html { scroll-padding-top: 82px; }
+      body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+      .concept-bar__inner { min-height: 42px; }
+      .concept-bar p { display: block; letter-spacing: .08em; }
+      .concept-bar p span { display: none; }
+      .concept-bar a { font-size: 9px; }
+      .site-header { min-height: 72px; padding-inline: var(--gutter); grid-template-columns: minmax(0, 1fr) auto auto; gap: 11px; }
+      .brand { min-width: 0; gap: 8px; }
+      .brand__mark { width: 36px; height: 36px; flex-basis: 36px; }
+      .brand__copy strong { font-size: 16px; }
+      .brand__copy small { font-size: 7px; letter-spacing: .11em; }
+      .header-phone { font-size: 11px; }
+      .header-phone small { display: none; }
+      .menu-button { width: 42px; height: 42px; }
+      .mobile-menu {
+        inset: 72px 0 0;
+        height: calc(100vh - 72px);
+        height: calc(100dvh - 72px);
+      }
+      .hero { padding: 64px var(--gutter) 0; }
+      .hero h1 { font-size: clamp(48px, 14vw, 68px); line-height: .92; }
+      .hero__intro { margin-top: 25px; font-size: 17px; }
+      .hero__actions { align-items: stretch; flex-direction: column; gap: 16px; margin-top: 30px; }
+      .hero__actions .button { width: 100%; }
+      .hero__actions .text-link { align-self: flex-start; }
+      .hero__media { width: 100%; padding-bottom: 118px; }
+      .hero__frame { min-height: 470px; }
+      .hero__frame img { min-height: 470px; }
+      .hero__annotation { top: 48px; left: -8px; }
+      .hero__proof { grid-template-columns: 1fr; min-height: auto; }
+      .hero__proof p { min-height: 54px; border-right: 0; border-bottom: 1px solid rgba(23, 40, 44, .15); padding: 11px 0; }
+      .hero__proof p:last-child { border-bottom: 0; }
+      .triage { padding-bottom: calc(var(--section) + 26px); }
+      .triage__heading h2, .services__intro h2, .diagnosis__heading h2, .planned__heading h2, .visit__heading h2, .areas__copy h2, .job-brief__intro h2 { font-size: clamp(41px, 11.6vw, 57px); }
+      .triage__layout { margin-top: 49px; }
+      .triage-option { min-height: 79px; grid-template-columns: 52px minmax(0, 1fr) 24px; }
+      .triage__options::before { left: 25px; }
+      .triage-option::before { left: 21px; }
+      .triage-option__label { font-size: 26px; }
+      .triage__detail { min-height: 0; }
+      .triage__detail-motif { top: -16px; right: -48px; width: 195px; opacity: .09; }
+      .triage__detail ul { grid-template-columns: 1fr; }
+      .service-list a { grid-template-columns: 34px minmax(0, 1fr) 24px; gap: 12px; padding: 21px 0; }
+      .service-list p { grid-column: 2 / 4; padding-right: 28px; }
+      .service-list__arrow { grid-column: 3; grid-row: 1; }
+      .diagnosis__layout, .planned__grid { margin-top: 48px; }
+      .diagnosis__figure { min-height: 390px; }
+      .diagnosis__figure img { min-height: 390px; object-position: 60% center; }
+      .diagnosis__note { min-width: 100px; padding: 8px 9px; font-size: 8px; }
+      .diagnosis__note--two { top: 38%; }
+      .diagnosis__steps { grid-template-columns: 1fr; gap: 0; }
+      .diagnosis__steps li { min-height: 0; }
+      .planned__grid { grid-template-columns: 1fr; gap: 50px; }
+      .planned-card--portrait { width: min(85%, 430px); justify-self: end; }
+      .planned-card--portrait .planned-card__image { height: 540px; }
+      .planned-card figcaption { grid-template-columns: 1fr; }
+      .planned-card figcaption span { text-align: left; }
+      .visit__steps { grid-template-columns: 1fr; margin-top: 53px; }
+      .visit__steps li, .visit__steps li:nth-child(odd) { min-height: 0; border-right: 0; padding: 28px 0; }
+      .visit__steps li:last-child { border-bottom: 1px solid var(--rule-dark); }
+      .areas__route { min-height: 420px; }
+      .area-groups { grid-template-columns: 1fr; }
+      .faq { margin-top: 78px; }
+      .faq details p { padding-right: 0; }
+      .brief-form { grid-template-columns: 1fr; }
+      .field, .field--full { grid-column: 1; }
+      .brief-form__footer { grid-column: 1; align-items: stretch; flex-direction: column; }
+      .brief-form__footer .button { width: 100%; }
+      .form-success { grid-column: 1; grid-template-columns: 42px minmax(0, 1fr); }
+      .form-success button { grid-column: 2; justify-self: start; }
+      .site-footer { grid-template-columns: 1fr; padding: 64px var(--gutter) 30px; }
+      .site-footer__contact { grid-column: auto; }
+      .site-footer__bottom { flex-direction: column; }
+      .mobile-actions { display: grid; }
+      .whatsapp-launcher { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+      .whatsapp-panel { right: 14px; bottom: 82px; }
+      .whatsapp-panel[data-mobile-offset="true"] { bottom: calc(145px + env(safe-area-inset-bottom)); }
+    }
+
+    @media (max-width: 390px) {
+      .brand__copy small { display: none; }
+      .header-phone { font-size: 10px; }
+      .hero { padding-top: 54px; }
+      .hero h1 { font-size: 46px; }
+      .hero__frame { height: 420px; min-height: 0; }
+      .hero__frame img { height: 100%; min-height: 0; }
+      .hero__annotation { min-width: 156px; }
+      .hero__annotation strong { font-size: 17px; }
+      .diagnosis__figure, .diagnosis__figure img { min-height: 340px; }
+      .diagnosis__note--three { left: 8%; }
+      .planned-card--portrait { width: 92%; }
+      .planned-card--portrait .planned-card__image { height: 500px; }
+      .areas__route { min-height: 380px; }
+      .areas__label { font-size: 9px; }
+      .areas__label--one { left: 7%; }
+      .areas__label--two { right: 5%; }
+      .brief-form { padding: 24px 18px; }
+    }
+
+    @media (min-width: 981px) {
+      .hero {
+        height: clamp(650px, calc(100svh - 118px), 920px);
+        min-height: 650px;
+        padding: clamp(28px, 4vh, 44px) var(--layout-pad) 0;
+      }
+      .hero__content { padding-bottom: 72px; }
+      .hero__eyebrow { margin-bottom: 18px; }
+      .hero h1 { font-size: clamp(54px, 4.7vw, 80px); line-height: .91; }
+      .hero__sorted { margin-top: .14em; font-size: .61em; }
+      .hero__intro { margin-top: 20px; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.52; }
+      .hero__actions { margin-top: 24px; }
+      .hero__assist { margin-top: 16px; }
+      .hero__media { align-self: stretch; display: flex; align-items: center; padding: 10px 0 72px; }
+      .hero__frame { width: 100%; height: clamp(480px, calc(100svh - 280px), 690px); min-height: 0; }
+      .hero__frame img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 46%; }
+      .hero__proof { min-height: 70px; }
+      .hero__proof p { padding-block: 12px; }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .triage-option:hover { color: var(--chalk); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .hero__frame::after { transform: scaleX(0); }
+      .hero__route-main { stroke-dashoffset: 0; }
+      .hero__route-terminal, .hero__route-detail { opacity: 1; }
+      html[data-motion="ready"] [data-reveal]:not(.entered) { opacity: 1; transform: none; }
+      .visit__line { transform: scaleX(1); }
+      .areas__pipe { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="site-shell">
+    <div class="concept-bar">
+      <div class="concept-bar__inner">
+        <p><strong>SiteRefresh redesign demo</strong><span aria-hidden="true">•</span> Headline Plumbing is fictional <span aria-hidden="true">•</span> Enquiries are not sent</p>
+        <a href="/work">Back to Before &amp; After</a>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Headline Plumbing home">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+          <rect width="48" height="48" rx="3" fill="#173f46"/>
+          <path d="M14 11v14c0 7 5 12 12 12h10V27H27c-2 0-3-1-3-3V11" fill="none" stroke="#df9b68" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="11" r="3" fill="#fffdf8"/>
+          <circle cx="36" cy="37" r="3" fill="#fffdf8"/>
+        </svg>
+        <span class="brand__copy"><strong>Headline Plumbing</strong><small>Repairs · Maintenance · Hot Water</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#problems">Problems</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#areas">Areas</a>
+      </nav>
+      <a class="header-phone" href="tel:0755507788"><small>Urgent problem?</small>(07) 5550 7788</a>
+      <a class="button button--small header-cta" href="#job-brief">Describe the job<span class="button__line" aria-hidden="true"></span></a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+      <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+        <nav aria-label="Mobile navigation">
+          <a href="#problems">Problems <span>01</span></a>
+          <a href="#services">Services <span>02</span></a>
+          <a href="#how-it-works">How it works <span>03</span></a>
+          <a href="#areas">Areas <span>04</span></a>
+        </nav>
+        <div class="mobile-menu__actions">
+          <a class="button button--copper" href="tel:0755507788">Call (07) 5550 7788</a>
+          <a class="text-link" href="#job-brief">Describe the job <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <svg class="hero__route" viewBox="0 0 760 170" preserveAspectRatio="none" aria-hidden="true">
+          <path class="hero__route-main" d="M4 22H190c34 0 42 16 42 45v32c0 29 13 43 43 43h292c31 0 47-13 47-43V55c0-23 12-33 35-33h106"/>
+          <circle class="hero__route-terminal" cx="4" cy="22" r="5"/>
+          <circle class="hero__route-terminal" cx="755" cy="22" r="5"/>
+          <g class="hero__route-detail">
+            <path d="M184 12v20m12-20v20M608 12v20m12-20v20"/>
+            <circle cx="688" cy="22" r="16"/>
+            <path d="M672 22h32m-16-16v32m-11-27 22 22m0-22-22 22"/>
+            <path d="M728 69c0-9 10-17 10-27 0 10 10 18 10 27a10 10 0 1 1-20 0Z"/>
+          </g>
+        </svg>
+        <span class="hero__measure" aria-hidden="true">01 — PROBLEM / FIX</span>
+        <div class="hero__content">
+          <p class="eyebrow hero__eyebrow">Emergency, repairs &amp; maintenance <span>Sunshine Coast</span></p>
+          <h1 class="display" id="hero-title"><span>Plumbing</span> <span>Problems</span> <span class="hero__sorted">SORTED</span></h1>
+          <p class="hero__intro">From an active leak or blocked drain to hot water and renovation fit-offs, start with what is happening. We find the cause, explain the fix and agree the work before tools come out.</p>
+          <div class="hero__actions">
+            <a class="button button--copper" href="tel:0755507788">Call for urgent help<span class="button__line" aria-hidden="true"></span></a>
+            <a class="text-link" href="#problems">Tell us what’s happening <span aria-hidden="true">↘</span></a>
+          </div>
+          <p class="hero__assist">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5c4.2 0 7.5 3 7.5 6.7 0 3.8-3.3 6.8-7.5 6.8a9 9 0 0 1-2.5-.4L3 17l1.4-3.3a6.3 6.3 0 0 1-1.9-4.5c0-3.7 3.3-6.7 7.5-6.7Z" stroke="currentColor" stroke-width="1.5"/><path d="M6.6 8.5h6.8M6.6 11.3h4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Not sure what service you need? Describe the symptom. That is enough to begin.
+          </p>
+        </div>
+        <div class="hero__media">
+          <figure class="hero__frame">
+            <img src="img/headland-plumbing/hero-plumber.webp" width="1122" height="1402" alt="Illustrative concept image of a plumber inspecting pipework under a kitchen sink." fetchpriority="high" decoding="async">
+            <figcaption class="image-disclosure">Concept image · fictional demo</figcaption>
+          </figure>
+          <div class="hero__annotation"><small>Diagnose first</small><strong>Find the real cause.</strong></div>
+        </div>
+        <div class="hero__proof" aria-label="Service approach">
+          <p><span>01</span> Start with the symptom</p>
+          <p><span>02</span> Agree the work first</p>
+          <p><span>03</span> Test before leaving</p>
+        </div>
+      </section>
+
+      <section class="triage" id="problems" aria-labelledby="problems-title">
+        <div class="section-inner">
+          <div class="triage__heading" data-reveal>
+            <p class="eyebrow eyebrow--light">Start with the situation</p>
+            <h2 class="display" id="problems-title">What needs sorting?</h2>
+            <p>You do not need to diagnose it yourself. Choose the closest fit and we will take it from there.</p>
+          </div>
+          <div class="triage__layout">
+            <div class="triage__options" role="group" aria-label="Choose the kind of plumbing help you need" data-reveal data-delay="1">
+              <button class="triage-option" type="button" aria-pressed="true" data-triage="urgent"><span class="triage-option__number">01</span> <span class="triage-option__label">Need help now</span> <span class="triage-option__mark" aria-hidden="true">—</span></button>
+              <button class="triage-option" type="button" aria-pressed="false" data-triage="repair"><span class="triage-option__number">02</span> <span class="triage-option__label">Fix a problem</span> <span class="triage-option__mark" aria-hidden="true">+</span></button>
+              <button class="triage-option" type="button" aria-pressed="false" data-triage="upgrade"><span class="triage-option__number">03</span> <span class="triage-option__label">Plan an upgrade</span> <span class="triage-option__mark" aria-hidden="true">+</span></button>
+            </div>
+            <div class="triage__detail" id="triage-detail" aria-live="polite" aria-atomic="true" data-reveal data-delay="2">
+              <svg class="plumbing-motif triage__detail-motif" viewBox="0 0 300 270" aria-hidden="true" focusable="false">
+                <path d="M20 82h96c34 0 55 22 55 56v20h82"/>
+                <path d="M253 158v19c0 31-24 55-55 55h-27"/>
+                <circle cx="108" cy="82" r="31"/>
+                <path d="M108 28v108M54 82h108"/>
+                <path class="motif-accent" d="M203 258c0-13 15-25 15-39 0 14 15 26 15 39a15 15 0 1 1-30 0Z"/>
+                <path class="motif-fine" d="M181 263c12 6 61 6 73 0"/>
+              </svg>
+              <p class="triage__status" id="triage-status">Urgent help</p>
+              <h3 id="triage-title">Water is moving where it should not.</h3>
+              <p id="triage-copy">For an active leak, burst pipe, overflowing toilet or sudden loss of hot water, call first. We can ask the right questions while you make the area safe.</p>
+              <ul id="triage-list"><li>Active leaks and burst pipes</li><li>Overflowing or blocked toilets</li><li>No hot water</li><li>Water damage risk</li></ul>
+              <a class="button button--light" id="triage-action" href="tel:0755507788">Call (07) 5550 7788<span class="button__line" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="services" aria-labelledby="services-title">
+        <div class="section-inner services__layout">
+          <div class="services__intro" data-reveal>
+            <p class="eyebrow">The service range</p>
+            <h2 class="display" id="services-title">From first drip to full fit-off.</h2>
+            <p>Urgent problems come first. Planned maintenance and upgrades get the same clear, methodical treatment.</p>
+            <a class="text-link" href="#job-brief">Describe your job <span aria-hidden="true">→</span></a>
+            <svg class="plumbing-motif services__riser-motif" viewBox="0 0 320 250" aria-hidden="true" focusable="false">
+              <path d="M58 242V82h102V24M160 82h104v64M264 210v32"/>
+              <path class="motif-fine" d="M46 114h24m-24 13h24M148 42h24m-24 13h24M252 107h24m-24 13h24"/>
+              <circle class="motif-accent" cx="264" cy="178" r="32"/>
+              <circle class="motif-accent" cx="264" cy="178" r="9"/>
+              <path class="motif-accent" d="M264 146v64m-32-32h64m-55-23 46 46m0-46-46 46"/>
+            </svg>
+          </div>
+          <ol class="service-list" aria-label="Plumbing services">
+            <li data-reveal><a href="#job-brief" data-job="Emergency plumbing"><span class="service-list__number">01</span><h3>Emergency plumbing</h3><p>Active leaks, burst pipes, blocked toilets and urgent water problems.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal data-delay="1"><a href="#job-brief" data-job="Blocked drains"><span class="service-list__number">02</span><h3>Blocked drains</h3><p>Clear the line, inspect the cause and explain what will help stop it returning.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal data-delay="2"><a href="#job-brief" data-job="Leaks and burst pipes"><span class="service-list__number">03</span><h3>Leaks &amp; burst pipes</h3><p>Locate the source, repair the fault and test the affected line.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal data-delay="3"><a href="#job-brief" data-job="Hot water"><span class="service-list__number">04</span><h3>Hot water</h3><p>Fault finding, repairs and replacement options for a dependable setup.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal><a href="#job-brief" data-job="Taps and toilets"><span class="service-list__number">05</span><h3>Taps &amp; toilets</h3><p>Running, leaking, loose or simply due for a better fixture.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal data-delay="1"><a href="#job-brief" data-job="Kitchen, bathroom or laundry"><span class="service-list__number">06</span><h3>Kitchens, bathrooms &amp; laundries</h3><p>Rough-in, fit-off and practical plumbing for renovation work.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+            <li data-reveal data-delay="2"><a href="#job-brief" data-job="Property maintenance"><span class="service-list__number">07</span><h3>Property maintenance</h3><p>Planned repairs and recurring plumbing support for homes and properties.</p><span class="service-list__arrow" aria-hidden="true">↗</span></a></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="diagnosis" aria-labelledby="diagnosis-title">
+        <div class="section-inner">
+          <div class="diagnosis__heading" data-reveal>
+            <div><p class="eyebrow">The fix line</p><h2 class="display" id="diagnosis-title">Follow the line, not just the symptom.</h2></div>
+            <p>A drain is only half fixed when the water starts moving. The better outcome is knowing what caused the blockage and what happens next.</p>
+          </div>
+          <div class="diagnosis__layout">
+            <figure class="diagnosis__figure" data-reveal data-delay="1">
+              <img src="img/headland-plumbing/drain-diagnosis.webp" width="1536" height="1024" alt="Illustrative concept image of a plumber using a drain inspection camera at an outdoor access point." loading="lazy" decoding="async">
+              <span class="diagnosis__note diagnosis__note--one">01 · Inspect</span>
+              <span class="diagnosis__note diagnosis__note--two">02 · Locate</span>
+              <span class="diagnosis__note diagnosis__note--three">03 · Confirm</span>
+              <figcaption class="image-disclosure">Concept image · fictional demo</figcaption>
+            </figure>
+            <ol class="diagnosis__steps" aria-label="Drain diagnosis approach" data-reveal data-delay="2">
+              <li><span>01</span><div><h3>See what is happening</h3><p>Start with the symptoms and inspect the accessible line.</p></div></li>
+              <li><span>02</span><div><h3>Find the cause</h3><p>Use the right diagnostic method instead of guessing.</p></div></li>
+              <li><span>03</span><div><h3>Confirm the result</h3><p>Test the flow and explain any next step before packing up.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="planned" aria-labelledby="planned-title">
+        <svg class="plumbing-motif planned__fixture-motif" viewBox="0 0 420 260" aria-hidden="true" focusable="false">
+          <path d="M76 232h126m-82 0v-76c0-64 49-114 113-114s113 50 113 114v18h56v38H300"/>
+          <path d="M233 42V12m-45 0h90"/>
+          <path class="motif-fine" d="M109 215h22m-22 10h22M332 157h28m-28 12h28"/>
+          <path class="motif-accent" d="M326 252c0-11 13-22 13-34 0 12 13 23 13 34a13 13 0 1 1-26 0Zm45-17c0-8 9-16 9-25 0 9 9 17 9 25a9 9 0 1 1-18 0Z"/>
+        </svg>
+        <div class="section-inner">
+          <div class="planned__heading" data-reveal>
+            <p class="eyebrow">Planned plumbing</p>
+            <h2 class="display" id="planned-title">A repair today. A better setup tomorrow.</h2>
+            <p>Some jobs need a quick answer. Others deserve a considered plan, clean coordination and a finish that belongs in the room.</p>
+          </div>
+          <div class="planned__grid">
+            <figure class="planned-card planned-card--wide" data-reveal data-delay="1">
+              <div class="planned-card__image">
+                <img src="img/headland-plumbing/bathroom-fitoff.webp" width="1448" height="1086" alt="Illustrative concept image of a finished Australian bathroom with new vanity, shower and toilet plumbing fixtures." loading="lazy" decoding="async">
+                <span class="image-disclosure">Concept image · fictional demo</span>
+              </div>
+              <figcaption><strong>Bathroom fit-offs</strong><span>Rough-in · fixtures · testing</span><p>Keep the plumbing practical, coordinated and ready for the finish around it.</p></figcaption>
+            </figure>
+            <figure class="planned-card planned-card--portrait" data-reveal data-delay="2">
+              <div class="planned-card__image">
+                <img src="img/headland-plumbing/hot-water-install.webp" width="972" height="1619" alt="Illustrative concept image of a plumber checking an unbranded outdoor hot water system at a Queensland home." loading="lazy" decoding="async">
+                <span class="image-disclosure">Concept image · fictional demo</span>
+              </div>
+              <figcaption><strong>Hot water</strong><span>Repair · replace · improve</span><p>Assess the existing system, explain the options and install the agreed solution neatly.</p></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit" id="how-it-works" aria-labelledby="visit-title" data-reveal>
+        <svg class="plumbing-motif visit__valve-motif" viewBox="0 0 360 300" aria-hidden="true" focusable="false">
+          <path d="M0 150h112m136 0h112"/>
+          <circle cx="180" cy="150" r="72"/>
+          <circle class="motif-accent" cx="180" cy="150" r="24"/>
+          <path d="M180 78v144M108 150h144m-123-51 102 102m0-102L129 201"/>
+          <path class="motif-fine" d="M94 136v28m18-28v28m136-28v28m18-28v28"/>
+        </svg>
+        <div class="section-inner">
+          <div class="visit__heading">
+            <div><p class="eyebrow eyebrow--light">What happens next</p><h2 class="display" id="visit-title">The calmest part of a plumbing problem.</h2></div>
+            <p>Clear communication matters most when something has already gone wrong. The process should feel simple from the first conversation.</p>
+          </div>
+          <ol class="visit__steps" aria-label="Plumbing service process">
+            <span class="visit__line" aria-hidden="true"></span>
+            <li><span class="visit__number">01</span><h3>Tell us what is happening</h3><p>Call for an urgent problem or send the short job brief for planned work.</p></li>
+            <li><span class="visit__number">02</span><h3>Inspect &amp; diagnose</h3><p>Look beyond the visible symptom and identify the likely source.</p></li>
+            <li><span class="visit__number">03</span><h3>Agree on the fix</h3><p>Understand the recommended work before the repair begins.</p></li>
+            <li><span class="visit__number">04</span><h3>Test &amp; leave tidy</h3><p>Check the repair, clean the work area and explain what was done.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="areas" id="areas" aria-labelledby="areas-title" data-reveal>
+        <div class="section-inner">
+          <div class="areas__layout">
+            <div class="areas__copy">
+              <p class="eyebrow">Local service</p>
+              <h2 class="display" id="areas-title">Across the Sunshine Coast.</h2>
+              <p>Based around Maroochydore and set up for coastal and hinterland plumbing work. Add your suburb to the job brief so the location can be confirmed.</p>
+              <dl class="area-groups">
+                <div><dt>Coastal</dt><dd>Noosa · Coolum · Maroochydore · Mooloolaba · Caloundra</dd></div>
+                <div><dt>Hinterland</dt><dd>Nambour · Buderim · Maleny · Montville</dd></div>
+              </dl>
+            </div>
+            <div class="areas__route" aria-label="Illustrative route across Sunshine Coast service areas">
+              <svg viewBox="0 0 540 440" preserveAspectRatio="none" aria-hidden="true">
+                <path class="areas__pipe" d="M86 52H250V148H442V206H132V244H260V336H414V398H476"/>
+                <circle cx="86" cy="52" r="7"/><circle cx="442" cy="148" r="7"/><circle cx="132" cy="244" r="7"/><circle cx="414" cy="336" r="7"/><circle cx="476" cy="398" r="7"/>
+                <g class="areas__valve" transform="translate(260 336)"><circle r="18"/><path d="M-18 0h36M0-18v36M-13-13l26 26m0-26-26 26"/></g>
+                <path class="areas__drop" d="M492 383c0-8 9-16 9-25 0 9 9 17 9 25a9 9 0 1 1-18 0Z"/>
+              </svg>
+              <span class="areas__label areas__label--one">Noosa &amp; Coolum</span>
+              <span class="areas__label areas__label--two">Maroochydore</span>
+              <span class="areas__label areas__label--three">Buderim &amp; Nambour</span>
+              <span class="areas__label areas__label--four">Caloundra</span>
+              <span class="areas__key">Illustrative service route</span>
+            </div>
+          </div>
+          <div class="faq" aria-labelledby="faq-title">
+            <div class="faq__heading">
+              <div class="faq__intro">
+                <h2 class="display" id="faq-title">Good to know.</h2>
+                <svg class="plumbing-motif faq__trap-motif" viewBox="0 0 280 210" aria-hidden="true" focusable="false">
+                  <path d="M42 18v72c0 54 35 88 83 88s83-34 83-88V50c0-21 15-32 36-32h21"/>
+                  <path class="motif-fine" d="M29 18h26m-26 13h26M196 48h25m-25 13h25"/>
+                  <path class="motif-accent" d="M105 203c0-9 10-18 10-28 0 10 10 19 10 28a10 10 0 1 1-20 0Z"/>
+                </svg>
+              </div>
+              <div class="faq__list">
+                <details><summary>What counts as urgent?</summary><p>An active leak, burst pipe, overflowing fixture, blocked only toilet or sudden loss of hot water may need a call rather than a form. If there is an immediate electrical or structural risk, make the area safe and contact the appropriate emergency service first.</p></details>
+                <details><summary>Will I understand the work first?</summary><p>That is the aim of the experience shown here: diagnose the likely cause, explain the recommended fix and agree on the work before starting.</p></details>
+                <details><summary>Can I send a photo of the problem?</summary><p>Yes. The live version of this job brief can accept useful photos. In this public demo, files stay on your device and nothing is uploaded.</p></details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="job-brief" id="job-brief" aria-labelledby="brief-title">
+        <svg class="plumbing-motif job-brief__drip-motif" viewBox="0 0 330 410" aria-hidden="true" focusable="false">
+          <path d="M12 70h112c36 0 59 24 59 60v24h95"/>
+          <path d="M278 154v24c0 28-22 50-50 50h-35"/>
+          <circle cx="113" cy="70" r="34"/>
+          <path d="M113 12v116M55 70h116"/>
+          <path class="motif-accent" d="M217 284c0-13 15-25 15-39 0 14 15 26 15 39a15 15 0 1 1-30 0Zm35 71c0-10 12-20 12-31 0 11 12 21 12 31a12 12 0 1 1-24 0Zm-78 45c0-7 8-14 8-22 0 8 8 15 8 22a8 8 0 1 1-16 0Z"/>
+        </svg>
+        <div class="section-inner job-brief__layout">
+          <div class="job-brief__intro" data-reveal>
+            <p class="eyebrow eyebrow--light">Start with a few details</p>
+            <h2 class="display" id="brief-title">Tell us what needs sorting.</h2>
+            <p>Share the suburb, the symptom and how urgent it feels. A live site would route this straight to the plumbing team.</p>
+            <a class="job-brief__phone" href="tel:0755507788"><span>Urgent problem? Call</span>(07) 5550 7788</a>
+            <p class="job-brief__demo">This is a SiteRefresh interaction demo. Headline Plumbing is fictional and the form does not send or store your details.</p>
+          </div>
+          <form class="brief-form" id="brief-form" data-reveal data-delay="1">
+            <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <div class="field"><label for="suburb">Suburb or postcode</label><input id="suburb" name="suburb" type="text" autocomplete="postal-code" required></div>
+            <div class="field"><label for="urgency">How urgent?</label><select id="urgency" name="urgency" required><option value="">Choose one</option><option>Active problem — call preferred</option><option>Soon — something is not right</option><option>Planned work — quote or advice</option></select></div>
+            <div class="field field--full"><label for="job-type">Job type</label><select id="job-type" name="job-type" required><option value="">Choose the closest fit</option><option>Emergency plumbing</option><option>Blocked drains</option><option>Leaks and burst pipes</option><option>Hot water</option><option>Taps and toilets</option><option>Kitchen, bathroom or laundry</option><option>Property maintenance</option><option>Not sure yet</option></select></div>
+            <div class="field field--full"><label for="message">What is happening?</label><textarea id="message" name="message" rows="4" required></textarea></div>
+            <div class="field field--full"><label for="photo">Add a photo <span>optional · demo only</span></label><input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-note"><p class="sr-only" id="photo-note">Files selected here are not uploaded or sent.</p></div>
+            <div class="brief-form__footer">
+              <button class="button" type="submit">Preview the enquiry<span class="button__line" aria-hidden="true"></span></button>
+              <p>Nothing leaves this page. The live client site would use secure form delivery and spam protection.</p>
+            </div>
+            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+              <span class="form-success__icon" aria-hidden="true">✓</span>
+              <div><strong>That is how the live enquiry will feel.</strong><p>No details or files were sent — this public demo stops safely here.</p></div>
+              <button type="button" id="form-reset">Try it again</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__about">
+        <a class="brand" href="#top" aria-label="Headline Plumbing home">
+          <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="3" fill="#173f46"/><path d="M14 11v14c0 7 5 12 12 12h10V27H27c-2 0-3-1-3-3V11" fill="none" stroke="#df9b68" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="11" r="3" fill="#fffdf8"/><circle cx="36" cy="37" r="3" fill="#fffdf8"/></svg>
+          <span class="brand__copy"><strong>Headline Plumbing</strong><small>Repairs · Maintenance · Hot Water</small></span>
+        </a>
+        <p>A fictional Sunshine Coast plumbing brand created to demonstrate a clearer, faster and more useful trade website experience.</p>
+      </div>
+      <nav aria-label="Footer navigation"><p class="site-footer__label">Explore</p><a href="#problems">Problems</a><a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#areas">Areas</a></nav>
+      <div class="site-footer__contact"><p class="site-footer__label">Demo contact</p><a href="tel:0755507788">(07) 5550 7788</a><a href="#job-brief">Preview the job brief</a><p>Maroochydore, QLD 4558</p></div>
+      <div class="site-footer__bottom"><p>© <span id="year"></span> Headline Plumbing · fictional business · concept imagery throughout</p><p>Website concept by <a href="/">SiteRefresh</a></p></div>
+    </footer>
+
+    <div class="mobile-actions" id="mobile-actions" data-visible="false" aria-hidden="true">
+      <a href="tel:0755507788" tabindex="-1">Call now</a>
+      <a href="#job-brief" tabindex="-1">Describe the job</a>
+    </div>
+
+    <button class="whatsapp-launcher" id="whatsapp-launcher" type="button" aria-label="Preview WhatsApp enquiry" aria-expanded="false" aria-controls="whatsapp-panel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4Zm-3 3.6c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6L10 8c-.1-.3-.3-.4-.5-.4H9Z"/></svg>
+    </button>
+    <aside class="whatsapp-panel" id="whatsapp-panel" role="dialog" aria-labelledby="whatsapp-title" aria-describedby="whatsapp-description" hidden>
+      <header class="whatsapp-panel__header">
+        <span class="whatsapp-panel__avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a9.9 9.9 0 0 0-8.5 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4Z"/></svg></span>
+        <span><strong id="whatsapp-title">Headline Plumbing</strong><small>WhatsApp enquiry preview</small></span>
+        <button type="button" id="whatsapp-close" aria-label="Close WhatsApp preview">×</button>
+      </header>
+      <div class="whatsapp-panel__body">
+        <p id="whatsapp-description">G’day. Tell us briefly what is happening and where you are.</p>
+        <label class="sr-only" for="whatsapp-message">Your WhatsApp message</label>
+        <input id="whatsapp-message" type="text" maxlength="300" placeholder="e.g. Our hot water stopped this morning">
+        <button type="button" id="whatsapp-preview">Preview WhatsApp handoff</button>
+        <p class="whatsapp-panel__note">Demo only — this does not open WhatsApp or send a message.</p>
+        <p class="whatsapp-panel__status" id="whatsapp-status" role="status" aria-live="polite" hidden>That is where the live site would hand over to WhatsApp. Nothing was sent.</p>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var root = document.documentElement;
+      var body = document.body;
+      var year = document.getElementById('year');
+      year.textContent = new Date().getFullYear();
+
+      var menuButton = document.querySelector('.menu-button');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var menuReturnFocus = null;
+
+      function menuFocusables() {
+        return Array.prototype.slice.call(mobileMenu.querySelectorAll('a, button:not([disabled])'));
+      }
+
+      function openMenu() {
+        menuReturnFocus = document.activeElement;
+        mobileMenu.hidden = false;
+        menuButton.setAttribute('aria-expanded', 'true');
+        menuButton.setAttribute('aria-label', 'Close menu');
+        body.classList.add('menu-open');
+        var first = menuFocusables()[0];
+        if (first) first.focus();
+      }
+
+      function closeMenu(restoreFocus) {
+        mobileMenu.hidden = true;
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open menu');
+        body.classList.remove('menu-open');
+        if (restoreFocus && menuReturnFocus) menuReturnFocus.focus();
+      }
+
+      menuButton.addEventListener('click', function () {
+        if (menuButton.getAttribute('aria-expanded') === 'true') closeMenu(true);
+        else openMenu();
+      });
+
+      mobileMenu.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeMenu(true);
+          return;
+        }
+        if (event.key !== 'Tab') return;
+        var focusable = menuFocusables();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          menuButton.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          menuButton.focus();
+        }
+      });
+
+      menuButton.addEventListener('keydown', function (event) {
+        if (event.key === 'Tab' && menuButton.getAttribute('aria-expanded') === 'true' && !event.shiftKey) {
+          var first = menuFocusables()[0];
+          if (first) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { closeMenu(false); });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1180 && menuButton.getAttribute('aria-expanded') === 'true') closeMenu(false);
+      });
+
+      var triageData = {
+        urgent: {
+          status: 'Urgent help',
+          title: 'Water is moving where it should not.',
+          copy: 'For an active leak, burst pipe, overflowing toilet or sudden loss of hot water, call first. We can ask the right questions while you make the area safe.',
+          items: ['Active leaks and burst pipes', 'Overflowing or blocked toilets', 'No hot water', 'Water damage risk'],
+          label: 'Call (07) 5550 7788',
+          href: 'tel:0755507788',
+          urgency: 'Active problem — call preferred',
+          job: 'Emergency plumbing'
+        },
+        repair: {
+          status: 'Repair and maintenance',
+          title: 'Something keeps leaking, blocking or running.',
+          copy: 'Recurring problems usually deserve more than a quick patch. Describe the symptom, where it is and when it happens so the right diagnostic approach can be planned.',
+          items: ['Recurring blockages', 'Leaking taps or toilets', 'Low pressure', 'Hidden or intermittent leaks'],
+          label: 'Describe the problem',
+          href: '#job-brief',
+          urgency: 'Soon — something is not right',
+          job: 'Not sure yet'
+        },
+        upgrade: {
+          status: 'Planned plumbing',
+          title: 'You are replacing, renovating or improving.',
+          copy: 'For hot water replacements and room renovations, start with the scope, timing and any photos or plans you already have.',
+          items: ['Hot water replacements', 'Bathroom fit-offs', 'Kitchen and laundry plumbing', 'Fixture upgrades'],
+          label: 'Start a job brief',
+          href: '#job-brief',
+          urgency: 'Planned work — quote or advice',
+          job: 'Kitchen, bathroom or laundry'
+        }
+      };
+
+      var triageButtons = document.querySelectorAll('[data-triage]');
+      var triageStatus = document.getElementById('triage-status');
+      var triageTitle = document.getElementById('triage-title');
+      var triageCopy = document.getElementById('triage-copy');
+      var triageList = document.getElementById('triage-list');
+      var triageAction = document.getElementById('triage-action');
+      var jobType = document.getElementById('job-type');
+      var urgency = document.getElementById('urgency');
+
+      function setSelect(select, value) {
+        Array.prototype.some.call(select.options, function (option) {
+          if (option.text === value || option.value === value) {
+            select.value = option.value;
+            return true;
+          }
+          return false;
+        });
+      }
+
+      triageButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var key = button.getAttribute('data-triage');
+          var data = triageData[key];
+          triageButtons.forEach(function (item) {
+            var active = item === button;
+            item.setAttribute('aria-pressed', String(active));
+            item.querySelector('.triage-option__mark').textContent = active ? '—' : '+';
+          });
+          triageStatus.textContent = data.status;
+          triageTitle.textContent = data.title;
+          triageCopy.textContent = data.copy;
+          triageList.replaceChildren();
+          data.items.forEach(function (item) {
+            var li = document.createElement('li');
+            li.textContent = item;
+            triageList.appendChild(li);
+          });
+          triageAction.textContent = data.label;
+          var line = document.createElement('span');
+          line.className = 'button__line';
+          line.setAttribute('aria-hidden', 'true');
+          triageAction.appendChild(line);
+          triageAction.href = data.href;
+          setSelect(jobType, data.job);
+          setSelect(urgency, data.urgency);
+        });
+      });
+
+      document.querySelectorAll('[data-job]').forEach(function (link) {
+        link.addEventListener('click', function () { setSelect(jobType, link.getAttribute('data-job')); });
+      });
+
+      var revealNodes = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        revealNodes.forEach(function (node) {
+          if (node.getBoundingClientRect().top < window.innerHeight * .92) node.classList.add('entered');
+        });
+        root.setAttribute('data-motion', 'ready');
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('entered');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12, rootMargin: '0px 0px -4% 0px' });
+        revealNodes.forEach(function (node) {
+          if (!node.classList.contains('entered')) revealObserver.observe(node);
+        });
+      } else {
+        revealNodes.forEach(function (node) { node.classList.add('entered'); });
+      }
+
+      var areasRoute = document.querySelector('.areas__route');
+      if ('IntersectionObserver' in window && !reduceMotion) {
+        var areaObserver = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            areasRoute.classList.add('entered');
+            areaObserver.disconnect();
+          }
+        }, { threshold: .25 });
+        areaObserver.observe(areasRoute);
+      } else {
+        areasRoute.classList.add('entered');
+      }
+
+      var briefForm = document.getElementById('brief-form');
+      var formSuccess = document.getElementById('form-success');
+      var formReset = document.getElementById('form-reset');
+      var formControls = Array.prototype.slice.call(briefForm.querySelectorAll('input, select, textarea, button[type="submit"]'));
+
+      briefForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!briefForm.checkValidity()) {
+          briefForm.reportValidity();
+          return;
+        }
+        formControls.forEach(function (control) { control.disabled = true; });
+        formSuccess.hidden = false;
+        formReset.focus();
+      });
+
+      formReset.addEventListener('click', function () {
+        briefForm.reset();
+        formControls.forEach(function (control) { control.disabled = false; });
+        formSuccess.hidden = true;
+        document.getElementById('name').focus();
+      });
+
+      var mobileActions = document.getElementById('mobile-actions');
+      var mobileActionLinks = mobileActions.querySelectorAll('a');
+      var hero = document.querySelector('.hero');
+      var brief = document.querySelector('.job-brief');
+      var heroVisible = true;
+      var briefVisible = false;
+      var fieldFocused = false;
+
+      function updateMobileActions() {
+        var visible = window.innerWidth <= 760 && !heroVisible && !briefVisible && !fieldFocused;
+        mobileActions.setAttribute('data-visible', String(visible));
+        mobileActions.setAttribute('aria-hidden', String(!visible));
+        mobileActionLinks.forEach(function (link) { link.tabIndex = visible ? 0 : -1; });
+        whatsappLauncher.setAttribute('data-mobile-offset', String(visible));
+        whatsappPanel.setAttribute('data-mobile-offset', String(visible));
+      }
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) { heroVisible = entries[0].isIntersecting; updateMobileActions(); }, { threshold: .08 }).observe(hero);
+        new IntersectionObserver(function (entries) { briefVisible = entries[0].isIntersecting; updateMobileActions(); }, { threshold: .05 }).observe(brief);
+      }
+      briefForm.addEventListener('focusin', function () { fieldFocused = true; updateMobileActions(); });
+      briefForm.addEventListener('focusout', function () { window.setTimeout(function () { fieldFocused = briefForm.contains(document.activeElement); updateMobileActions(); }, 0); });
+      window.addEventListener('resize', updateMobileActions);
+
+      var whatsappLauncher = document.getElementById('whatsapp-launcher');
+      var whatsappPanel = document.getElementById('whatsapp-panel');
+      var whatsappClose = document.getElementById('whatsapp-close');
+      var whatsappMessage = document.getElementById('whatsapp-message');
+      var whatsappPreview = document.getElementById('whatsapp-preview');
+      var whatsappStatus = document.getElementById('whatsapp-status');
+
+      function openWhatsapp() {
+        whatsappPanel.hidden = false;
+        whatsappLauncher.setAttribute('aria-expanded', 'true');
+        whatsappMessage.focus();
+      }
+
+      function closeWhatsapp() {
+        whatsappPanel.hidden = true;
+        whatsappLauncher.setAttribute('aria-expanded', 'false');
+        whatsappLauncher.focus();
+      }
+
+      whatsappLauncher.addEventListener('click', function () {
+        if (whatsappPanel.hidden) openWhatsapp(); else closeWhatsapp();
+      });
+      whatsappClose.addEventListener('click', closeWhatsapp);
+      whatsappPanel.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeWhatsapp(); });
+      whatsappPreview.addEventListener('click', function () {
+        whatsappStatus.hidden = false;
+        whatsappStatus.focus && whatsappStatus.focus();
+      });
+
+      updateMobileActions();
+    }());
+  </script>
+</body>
+</html>
