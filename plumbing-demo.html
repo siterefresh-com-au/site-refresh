@@ -595,29 +595,39 @@
     .areas__layout { display: grid; grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr); gap: clamp(64px, 9vw, 140px); align-items: center; }
     .areas__copy h2 { margin-top: 21px; font-size: clamp(43px, 4.7vw, 72px); }
     .areas__copy > p:not(.eyebrow) { max-width: 500px; margin-top: 27px; color: var(--muted); }
-    .areas__route { position: relative; min-height: 510px; border: 1px solid var(--rule); background: var(--chalk); overflow: hidden; box-shadow: 0 20px 50px rgba(23, 40, 44, .1); }
+    .areas__route { position: relative; min-height: 510px; border: 1px solid var(--rule); background: var(--chalk); overflow: hidden; isolation: isolate; box-shadow: 0 20px 50px rgba(23, 40, 44, .1); }
     .areas__route::before {
       content: "";
       position: absolute;
       inset: 0;
-      opacity: .7;
+      z-index: 0;
+      opacity: .38;
       background:
         linear-gradient(rgba(23, 40, 44, .055) 1px, transparent 1px),
         linear-gradient(90deg, rgba(23, 40, 44, .055) 1px, transparent 1px);
       background-size: 36px 36px, 36px 36px;
     }
     .areas__route svg { position: absolute; inset: 34px 24px; width: calc(100% - 48px); height: calc(100% - 68px); overflow: visible; }
+    .areas__route > .areas__map { z-index: 1; inset: 0; width: 100%; height: 100%; opacity: .34; pointer-events: none; filter: saturate(.78); }
+    .areas__map * { vector-effect: non-scaling-stroke; }
+    .areas__map-sea { fill: #c9e2e6; fill-opacity: .62; }
+    .areas__map-coast { fill: none; stroke: #78a4a6; stroke-width: 1.4; }
+    .areas__map-green { fill: #cbdcca; fill-opacity: .68; }
+    .areas__map-roads { fill: none; stroke: #d2b878; stroke-width: 1.5; }
+    .areas__map-road-main { stroke: #c6a35c; stroke-width: 2.6; }
+    .areas__map-water { fill: none; stroke: #8ebfc8; stroke-width: 1.25; }
+    .areas__route > .areas__network { z-index: 2; }
     .areas__pipe { fill: none; stroke: var(--sea); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1500; stroke-dashoffset: 1500; transition: stroke-dashoffset 1.1s var(--ease-line) .1s; }
     .areas__route.entered .areas__pipe, .areas.entered .areas__route .areas__pipe { stroke-dashoffset: 0; }
     .areas__route circle { fill: var(--chalk); stroke: var(--copper); stroke-width: 3; }
     .areas__valve { fill: none; stroke: var(--copper); stroke-width: 2; stroke-linecap: round; }
     .areas__drop { fill: none; stroke: var(--copper); stroke-width: 2; opacity: .78; }
-    .areas__label { position: absolute; z-index: 2; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 8px 10px; font-size: 11px; font-weight: 720; box-shadow: 0 9px 22px rgba(23, 40, 44, .11); }
+    .areas__label { position: absolute; z-index: 3; border-left: 3px solid var(--copper); background: rgba(255, 253, 248, .94); padding: 8px 10px; font-size: 11px; font-weight: 720; box-shadow: 0 9px 22px rgba(23, 40, 44, .11); }
     .areas__label--one { top: 10%; left: 12%; }
     .areas__label--two { top: 31%; right: 8%; }
     .areas__label--three { top: 53%; left: 19%; }
     .areas__label--four { right: 16%; bottom: 16%; }
-    .areas__key { position: absolute; right: 18px; bottom: 16px; color: var(--muted); font-size: 9px; font-weight: 740; letter-spacing: .11em; text-transform: uppercase; }
+    .areas__key { position: absolute; z-index: 3; right: 18px; bottom: 16px; color: var(--muted); font-size: 9px; font-weight: 740; letter-spacing: .11em; text-transform: uppercase; }
     .area-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 34px; }
     .area-groups div { border-top: 1px solid var(--rule); padding-top: 15px; }
     .area-groups dt { color: var(--oxide); font-size: 10px; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
@@ -849,6 +859,7 @@
 
     @media (max-width: 760px) {
       :root { --gutter: 20px; --section: 84px; }
+      .areas__route > .areas__map { opacity: .27; }
       html { scroll-padding-top: 82px; }
       body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
       .concept-bar__inner { min-height: 42px; }
@@ -981,6 +992,9 @@
       html[data-motion="ready"] [data-reveal]:not(.entered) { opacity: 1; transform: none; }
       .visit__line { transform: scaleX(1); }
       .areas__pipe { stroke-dashoffset: 0; }
+    }
+    @media (forced-colors: active) {
+      .areas__route > .areas__map { display: none; }
     }
   </style>
 </head>
@@ -1217,8 +1231,24 @@
                 <div><dt>Hinterland</dt><dd>Nambour · Buderim · Maleny · Montville</dd></div>
               </dl>
             </div>
-            <div class="areas__route" aria-label="Illustrative route across Sunshine Coast service areas">
-              <svg viewBox="0 0 540 440" preserveAspectRatio="none" aria-hidden="true">
+            <div class="areas__route" role="img" aria-label="Illustrative route across Sunshine Coast service areas">
+              <svg class="areas__map" viewBox="0 0 540 440" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="areas__map-sea" d="M420-8C414 34 431 64 416 96C401 126 426 148 411 179C398 207 418 230 405 261C391 292 410 318 395 348C382 375 405 405 392 448H560V-8Z"/>
+                <path class="areas__map-coast" d="M420-8C414 34 431 64 416 96C401 126 426 148 411 179C398 207 418 230 405 261C391 292 410 318 395 348C382 375 405 405 392 448"/>
+                <g class="areas__map-green">
+                  <path d="M12 16C64 1 126 8 158 42L135 105C91 119 50 107 12 82Z"/>
+                  <path d="M31 143C86 125 153 127 202 163L187 229C135 244 76 244 27 218Z"/>
+                  <path d="M8 281C64 257 126 260 178 298L158 391C104 408 55 397 15 373Z"/>
+                </g>
+                <g class="areas__map-roads">
+                  <path class="areas__map-road-main" d="M292-8C307 36 297 84 313 127S305 210 320 259S316 342 337 448"/>
+                  <path d="M312 82C349 96 378 93 417 108"/><path d="M316 166C276 179 236 177 188 202"/><path d="M321 258C359 269 382 290 403 321"/><path d="M329 351C286 365 241 382 212 423"/>
+                </g>
+                <g class="areas__map-water">
+                  <path d="M365 70C397 65 411 83 437 81"/><path d="M342 164C374 166 397 180 419 173"/><path d="M353 270C381 266 392 283 415 285"/><path d="M377 377C398 387 408 404 421 421"/>
+                </g>
+              </svg>
+              <svg class="areas__network" viewBox="0 0 540 440" preserveAspectRatio="none" aria-hidden="true">
                 <path class="areas__pipe" d="M86 52H250V148H442V206H132V244H260V336H414V398H476"/>
                 <circle cx="86" cy="52" r="7"/><circle cx="442" cy="148" r="7"/><circle cx="132" cy="244" r="7"/><circle cx="414" cy="336" r="7"/><circle cx="476" cy="398" r="7"/>
                 <g class="areas__valve" transform="translate(260 336)"><circle r="18"/><path d="M-18 0h36M0-18v36M-13-13l26 26m0-26-26 26"/></g>
