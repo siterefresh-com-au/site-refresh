@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SiteRefresh — Websites that win work for Australian trades</title>
 <meta name="description" content="We rebuild dated trade websites into fast, modern sites that win better work — then host, secure and look after the lot. Free homepage redesign first. Australia-wide." />
+<link rel="icon" type="image/png" href="assets/siterefresh-favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#121412; --ink2:#33372F; --muted:#5F655D; --bg:#FFFFFF; --soft:#F3F5F1; --soft2:#F7F8F6;
     --card:#FFFFFF; --line:#E6E8E4;
     --acc:#A8F04A; --acc-dk:#478A1B; --acc-soft:#EDFBDA; --dark:#0B0C0A; --cream:#F4F6F0;
     --r:26px; --rs:18px; --maxw:1180px;
-    --f:'Inter',system-ui,sans-serif;
+    --f:'Inter',system-ui,sans-serif; --talk:'Caveat',cursive;
     --sh:0 24px 50px -22px rgba(10,12,9,.18); --shs:0 12px 26px -16px rgba(10,12,9,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -104,7 +105,7 @@
   .state-run{display:flex;align-items:center;flex:none}
   .state-run span{display:flex;align-items:center;gap:2.4rem;font-size:.8rem;font-weight:800;letter-spacing:.18em;padding-left:2.4rem;white-space:nowrap}
   .state-run span::after{content:"◆";color:var(--acc);font-size:.58rem}
-  @keyframes stateScroll{to{transform:translateX(-50%)}}
+  @keyframes stateScroll{to{transform:translateX(-25%)}}
   .state-tape:hover .state-track{animation-play-state:paused}
   .lower-tape{margin-top:-.9vw}
   .trade-list .state-track{animation-duration:30s}
@@ -166,6 +167,11 @@
   .care b{font-size:1.15rem} .care p{color:#CDD1CA;font-size:.95rem;margin-top:.3rem;max-width:60ch}
   .care .amt{display:grid;grid-template-columns:auto auto;align-items:baseline;column-gap:.5rem;font-size:2rem;font-weight:800;line-height:1;color:#A8F04A;white-space:nowrap} .care .amt small{font-size:.66rem;color:#9BA098;letter-spacing:.1em;font-weight:600} .care .amt .price-note{font-size:.48em;color:var(--acc);letter-spacing:0} .care .amt .period{grid-column:1/-1;margin-top:.55rem}
   #pricing{padding-top:126px}
+  @media(min-width:941px){
+    #free{padding-top:204px;padding-bottom:204px}
+    #how{padding-top:159px;padding-bottom:159px}
+    #pricing{padding-top:164px;padding-bottom:207px}
+  }
 
   .faq{max-width:820px;margin:44px auto 0}
   #faq{position:relative;overflow:hidden}
@@ -179,11 +185,18 @@
   .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease} .qa .ans p{padding:0 22px 20px;color:var(--muted)}
 
   .cta{position:relative}
-  .cta .box{background:var(--dark);border-radius:38px;padding:78px 40px;text-align:center;color:var(--cream);position:relative;overflow:hidden;box-shadow:var(--sh)}
+  .cta .box{background:var(--dark);border-radius:38px;padding:0;text-align:left;color:var(--cream);position:relative;overflow:hidden;box-shadow:var(--sh);display:grid;grid-template-columns:44% 56%;align-items:stretch;min-height:430px}
   .cta .box::after{content:"";position:absolute;left:-80px;bottom:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(168,240,74,.14),transparent 60%)}
-  .cta h2{font-size:clamp(2.1rem,4.2vw,3.2rem);position:relative}
-  .cta p{color:#CDD1CA;font-size:1.16rem;margin:1rem auto 0;max-width:44ch;font-weight:500;position:relative}
-  .cta .acts{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;position:relative}
+  .cta-copy{padding:56px 50px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+  .cta h2{position:relative;color:#fff;max-width:none}
+  .cta-name{display:block;white-space:nowrap;font-family:var(--talk);font-size:clamp(3rem,4.5vw,4.25rem);font-weight:700;line-height:.92;letter-spacing:-.025em}
+  .cta-tagline{display:block;margin-top:.65rem;font-family:var(--f);font-size:clamp(1.2rem,1.7vw,1.5rem);font-weight:700;line-height:1.22;letter-spacing:-.02em;color:#fff}
+  .cta p{color:#CDD1CA;font-size:1.12rem;margin:1rem 0 0;max-width:36ch;font-weight:500;position:relative}
+  .cta .acts{display:flex;gap:.7rem;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap;margin-top:2rem;position:relative}
+  .cta .acts .btn{padding:.88rem 1.15rem}
+  .cta-photo{position:relative;min-height:430px;overflow:hidden}
+  .cta-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0,rgba(10,12,9,.72) 4%,transparent 18%);pointer-events:none}
+  .cta-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:52% center}
   .cta .meta{margin-top:1.6rem;font-weight:600;font-size:.92rem;position:relative;opacity:.8}
 
   footer{background:var(--dark);color:#9BA098;padding:56px 0 30px;margin-top:0}
@@ -257,6 +270,8 @@
     .faq-art{display:none}
     .hero .wrap,.hook .wrap{grid-template-columns:1fr;gap:44px} .vwrap{order:-1}
     .grid4,.steps{grid-template-columns:repeat(2,1fr)} .grid3{grid-template-columns:repeat(2,1fr)} .tiers{grid-template-columns:1fr} .why{grid-template-columns:repeat(2,1fr)}
+    .cta .box{grid-template-columns:1fr minmax(300px,.8fr)}
+    .cta-copy{padding:46px 34px}
     footer .top{grid-template-columns:1fr 1fr}
   }
   @media(max-width:600px){
@@ -267,7 +282,7 @@
     .hero .vwrap{order:initial}
     .grid4,.steps{grid-template-columns:1fr} .grid3,.why{grid-template-columns:1fr} .sec{padding:72px 0} .stage{aspect-ratio:4/5} .m-hero{grid-template-columns:1fr} .m-himg{display:none} .m-cards{grid-template-columns:1fr 1fr}
     .hero-quote{right:-14px;top:7%;width:max-content;padding:1rem 1.1rem;border-radius:20px;font-size:clamp(.82rem,3.7vw,1.05rem)} footer .top{grid-template-columns:1fr}
-    .care{flex-direction:column;align-items:flex-start} .cta .box{padding:52px 24px} .frow{grid-template-columns:1fr} .bname small{display:none} .fmwrap{padding:20px 16px}
+    .care{flex-direction:column;align-items:flex-start} .cta .box{grid-template-columns:1fr;min-height:0;padding:0} .cta-copy{padding:46px 24px 42px}.cta h2{max-width:none}.cta-photo{min-height:320px}.cta-photo::after{background:linear-gradient(180deg,var(--dark) 0,rgba(10,12,9,.35) 12%,transparent 35%)} .frow{grid-template-columns:1fr} .bname small{display:none} .fmwrap{padding:20px 16px}
   }
   @keyframes srFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   @keyframes srPop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
@@ -587,7 +602,7 @@
     <div>
       <span class="chip">We do</span>
       <h1 style="margin-top:1.1rem">Professional websites for<br> <span class="hl">Aussie Trades</span></h1>
-      <p class="lead">We rebuild dated trade and service websites into fast, modern sites that help, <span class="work-hl">win more work!</span></p>
+      <p class="lead">We rebuild dated trade and service websites into fast, modern sites that <span class="work-hl">win more work!</span></p>
       <div class="acts">
         <a class="btn btn-acc" href="#contact">Get your free redesign</a>
         <a class="btn btn-ghost" href="#how">How it works</a>
@@ -608,6 +623,8 @@
 <div class="state-tape upper-tape trade-list" aria-label="Websites for Australian trades and services">
   <div class="state-track">
     <div class="state-run"><span>Plumbers</span><span>Electricians</span><span>Construction</span><span>Landscapers</span><span>Builders</span><span>Carpenters</span><span>Tilers</span><span>Painters</span><span>Roofers</span><span>Concretors</span><span>Air Conditioning</span><span>Handymen</span></div>
+    <div class="state-run" aria-hidden="true"><span>Plumbers</span><span>Electricians</span><span>Construction</span><span>Landscapers</span><span>Builders</span><span>Carpenters</span><span>Tilers</span><span>Painters</span><span>Roofers</span><span>Concretors</span><span>Air Conditioning</span><span>Handymen</span></div>
+    <div class="state-run" aria-hidden="true"><span>Plumbers</span><span>Electricians</span><span>Construction</span><span>Landscapers</span><span>Builders</span><span>Carpenters</span><span>Tilers</span><span>Painters</span><span>Roofers</span><span>Concretors</span><span>Air Conditioning</span><span>Handymen</span></div>
     <div class="state-run" aria-hidden="true"><span>Plumbers</span><span>Electricians</span><span>Construction</span><span>Landscapers</span><span>Builders</span><span>Carpenters</span><span>Tilers</span><span>Painters</span><span>Roofers</span><span>Concretors</span><span>Air Conditioning</span><span>Handymen</span></div>
   </div>
 </div>
@@ -641,6 +658,8 @@
   <div class="state-track">
     <div class="state-run"><span>Queensland</span><span>New South Wales</span><span>Victoria</span><span>South Australia</span><span>Western Australia</span><span>Northern Territory</span><span>Australian Capital Territory</span><span>Tasmania</span></div>
     <div class="state-run" aria-hidden="true"><span>Queensland</span><span>New South Wales</span><span>Victoria</span><span>South Australia</span><span>Western Australia</span><span>Northern Territory</span><span>Australian Capital Territory</span><span>Tasmania</span></div>
+    <div class="state-run" aria-hidden="true"><span>Queensland</span><span>New South Wales</span><span>Victoria</span><span>South Australia</span><span>Western Australia</span><span>Northern Territory</span><span>Australian Capital Territory</span><span>Tasmania</span></div>
+    <div class="state-run" aria-hidden="true"><span>Queensland</span><span>New South Wales</span><span>Victoria</span><span>South Australia</span><span>Western Australia</span><span>Northern Territory</span><span>Australian Capital Territory</span><span>Tasmania</span></div>
   </div>
 </div>
 
@@ -648,7 +667,7 @@
 <!-- BEFORE/AFTER EXAMPLE -->
 <section class="sec" id="examples">
   <div class="wrap">
-    <div class="sec-head center reveal"><span class="chip">See the difference</span><h2>From dated, to bringing in work.</h2><p>Drag the slider — this is the kind of transformation we build.</p></div>
+    <div class="sec-head center reveal"><span class="chip">See the difference</span><h2>From dated, to bringing in work.</h2><p>Drag the slider (and click/tap to see the full demo site).<br>This is the kind of transformation we build.</p></div>
     <div class="ba reveal" style="margin-top:42px">
       <div class="stage" data-pos="52">
         <div class="layer after">
@@ -673,7 +692,6 @@
         <div class="handle" tabindex="0" role="slider" aria-label="Reveal before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52"><div class="grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
       </div>
       <div class="seebtn-row reveal"><a class="seebtn" href="https://siterefresh.com.au/demo-site-1.html" target="_blank" rel="noopener">See the live demo site &rarr;</a></div>
-      <p class="cap"><b>What changed:</b> from a 2010 template to a fast, mobile-first site with a gallery, quote form and click-to-call. Slide across, then open the live demo and click around it for real. </p>
       <p class="mockn">&ldquo;Coastal Tiling&rdquo; is a mock business — we keep our real clients&rsquo; work private, so our demos are always fictional companies.</p>
     </div>
   </div>
@@ -687,7 +705,7 @@
     <div class="sec-head reveal"><span class="chip">How it works</span><h2>Four steps. You stay on the tools.</h2></div>
     <div class="steps">
       <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.5 9.3A8 8 0 0 1 18 6.6" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.6 2.6v4.2h-4.2" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 14.7A8 8 0 0 1 6 17.4" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.4 21.4v-4.2h4.2" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Free redesign</h3><p>We rebuild your homepage and send a live preview — no cost, no obligation.</p></div>
-      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="2.5" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 9h18M6.2 6.8h.01M8.7 6.8h.01" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m8.8 14.4 2.3 2.3 4.4-4.7" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Build &amp; approve</h3><p>Love it? We build the full site around your brand, photos and services — with as many revision rounds as it takes.</p></div>
+      <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="2.5" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 9h18M6.2 6.8h.01M8.7 6.8h.01" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m8.8 14.4 2.3 2.3 4.4-4.7" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Build &amp; approve</h3><p>Love it? We build the full site around your brand, photos and services — with unlimited revisions to get it perfect!</p></div>
       <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 8.5h13l-3-3M20 15.5H7l3 3" stroke="#A8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Zero-downtime switch</h3><p>Same domain name, faster hosting.</p></div>
       <div class="stp reveal"><div class="no"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill="#A8F04A" d="M11.5 6.5 13.4 10l3.9.6-2.8 2.8.6 4-3.6-1.9L7.9 17.4l.6-4-2.8-2.8 3.9-.6 1.9-3.5Z"/><path fill="#A8F04A" d="M6 2.6l.8 1.6 1.7.8-1.7.8L6 7.4l-.8-1.6-1.7-.8 1.7-.8L6 2.6Z"/><path fill="#A8F04A" d="M18.6 3.8l.7 1.3 1.4.7-1.4.7-.7 1.3-.7-1.3-1.4-.7 1.4-.7.7-1.3Z"/><path fill="#A8F04A" d="M19.3 16.8l.6 1.1 1.2.6-1.2.6-.6 1.1-.6-1.1-1.2-.6 1.2-.6.6-1.1Z"/></svg></div><h3>We keep it fresh</h3><p>Hosting, security, updates and support, all handled.</p></div>
     </div>
@@ -864,12 +882,15 @@
   <svg class="sdeco s2" style="bottom:-80px;right:-70px;--sr:-6deg" width="380" height="380" viewBox="0 0 380 380" fill="none" aria-hidden="true"><defs><linearGradient id="sg4" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#A8F04A" stop-opacity=".5"/><stop offset="1" stop-color="#A8F04A" stop-opacity="0"/></linearGradient></defs><g stroke="url(#sg4)" stroke-width="2.5" stroke-linecap="round"><path d="M300 340a170 170 0 0 0-14-238M260 340a130 130 0 0 0-11-182M220 340a90 90 0 0 0-8-126"/></g></svg>
   <div class="wrap cta">
     <div class="box reveal">
-      <h2>Ready for a fresh look?</h2>
-      <p>Tell us about your business — it takes two minutes — and we'll rebuild your homepage free. Open the link, then decide.</p>
-      <div class="acts">
-        <a class="btn btn-acc" href="#contact">Get my free homepage redesign</a>
-        <a class="btn btn-line" href="tel:+611800953006">Call: 1800 953 006</a>
-        <a class="btn btn-line" href="mailto:hello@siterefresh.com.au">Email: hello@siterefresh.com.au</a>
+      <div class="cta-copy">
+        <h2><span class="cta-name">Hi, I&rsquo;m Ryan</span><span class="cta-tagline">Let&rsquo;s get your website sorted.</span></h2>
+        <p>Tell us about your business — it takes two minutes — and we'll rebuild your homepage free.</p>
+        <div class="acts">
+          <a class="btn btn-acc" href="#contact">Get my free homepage redesign</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="assets/ryan-working-cta.png" alt="Ryan working at his computer" loading="lazy">
       </div>
     </div>
   </div>
