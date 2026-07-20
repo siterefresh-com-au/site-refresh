@@ -61,6 +61,8 @@
   .hero-photo img{position:relative;width:100%;height:min(620px,120vw);object-fit:cover;object-position:center center;border-radius:30px;box-shadow:var(--sh);border:1px solid rgba(18,20,18,.08)}
   .hero-quote{position:absolute;z-index:3;top:8%;right:clamp(-140px,-7vw,-52px);width:max-content;max-width:none;white-space:nowrap;background:#fff;color:var(--ink);padding:1rem 1.2rem;border-radius:22px;font-size:clamp(1rem,1.55vw,1.25rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;box-shadow:var(--sh);border:1px solid var(--line)}
   .hero-quote::after{content:"";position:absolute;left:38px;bottom:-17px;width:34px;height:26px;background:#fff;clip-path:polygon(0 0,100% 0,18% 100%)}
+  .hero-review-stars{position:absolute;z-index:4;top:calc(8% + 82px);right:clamp(-96px,-5vw,-38px);display:flex;align-items:center;width:max-content;background:#fff;padding:11px 16px;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 32px -14px rgba(10,12,9,.28);transform:rotate(1.5deg)}
+  .hero-review-stars .star-row{color:#FBBC04;font-size:1.65rem;line-height:1;letter-spacing:.06em;text-shadow:0 1px 0 rgba(134,92,0,.08)}
   .blob{position:absolute;inset:0;background:linear-gradient(150deg,var(--acc) 0%,#8CE032 100%);border-radius:44px;transform:rotate(-3deg);box-shadow:var(--sh)}
   .blob::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 15%,rgba(255,255,255,.4),transparent 45%);border-radius:44px}
   .device{position:relative;background:#fff;border-radius:22px;box-shadow:var(--sh);overflow:hidden;transform:rotate(1deg)}
@@ -281,7 +283,7 @@
     .hero h1 br{display:none}
     .hero .vwrap{order:initial}
     .grid4,.steps{grid-template-columns:1fr} .grid3,.why{grid-template-columns:1fr} .sec{padding:72px 0} .stage{aspect-ratio:4/5} .m-hero{grid-template-columns:1fr} .m-himg{display:none} .m-cards{grid-template-columns:1fr 1fr}
-    .hero-quote{right:-14px;top:7%;width:max-content;padding:1rem 1.1rem;border-radius:20px;font-size:clamp(.82rem,3.7vw,1.05rem)} footer .top{grid-template-columns:1fr}
+    .hero-quote{right:-14px;top:7%;width:max-content;padding:1rem 1.1rem;border-radius:20px;font-size:clamp(.82rem,3.7vw,1.05rem)} .hero-review-stars{top:calc(7% + 72px);right:-5px;padding:9px 12px;border-radius:13px}.hero-review-stars .star-row{font-size:1.2rem} footer .top{grid-template-columns:1fr}
     .care{flex-direction:column;align-items:flex-start} .cta .box{grid-template-columns:1fr;min-height:0;padding:0} .cta-copy{padding:46px 24px 42px}.cta h2{max-width:none}.cta-photo{min-height:320px}.cta-photo::after{background:linear-gradient(180deg,var(--dark) 0,rgba(10,12,9,.35) 12%,transparent 35%)} .frow{grid-template-columns:1fr} .bname small{display:none} .fmwrap{padding:20px 16px}
   }
   @keyframes srFadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
@@ -616,6 +618,7 @@
     <div class="hero-photo">
       <img src="assets/hero-quote-couple-v3.png" alt="Woman looking at her phone while her husband sits in the background" width="1024" height="1280">
       <div class="hero-quote">“Honey. These guys look decent.”</div>
+      <div class="hero-review-stars" aria-label="Five-star Google reviews"><span class="star-row" aria-hidden="true">★★★★★</span></div>
     </div>
   </div>
 </section>
