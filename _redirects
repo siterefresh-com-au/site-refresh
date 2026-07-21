@@ -1,2 +1,3 @@
 /our-work/  /our-work  301
-/our-work   /work.html  200
+/work.html  /our-work  301
+/work       /our-work  301
