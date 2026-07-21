@@ -382,6 +382,13 @@
     }
     .hero-photo .concept-label { right: max(24px, calc((100vw - var(--max)) / 2)); bottom: 18px; color: rgba(255,255,255,.72); background: rgba(10, 13, 14, .48); }
 
+    @media (min-width: 1200px) {
+      .hero-photo img {
+        object-fit: contain;
+        object-position: center top;
+      }
+    }
+
     .signal-section { position: relative; overflow: hidden; padding: 112px 0 120px; background: var(--ink); color: var(--chalk); }
     .signal-section::before {
       position: absolute; inset: 0; content: ""; opacity: .17;
