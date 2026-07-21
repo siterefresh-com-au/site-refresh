@@ -116,14 +116,14 @@
   #free{padding-top:136px;padding-bottom:136px}
   .state-tape{position:relative;z-index:4;width:102%;margin-left:-1%;overflow:hidden;background:var(--ink);color:#fff;padding:20px 0;transform:rotate(1.03deg);transform-origin:center;box-shadow:0 8px 22px -16px rgba(0,0,0,.5)}
   .upper-tape{margin-bottom:-.9vw}
-  .state-track{display:flex;width:max-content;will-change:transform;animation:stateScroll 22s linear infinite}
+  .state-track{display:flex;width:max-content;will-change:transform;animation:stateScroll 30s linear infinite}
   .state-run{display:flex;align-items:center;flex:none}
-  .state-run span{display:flex;align-items:center;gap:2.65rem;font-size:.95rem;font-weight:800;line-height:1;letter-spacing:.18em;padding-left:2.65rem;white-space:nowrap}
+  .state-run span{display:flex;align-items:center;gap:3.1rem;font-size:.95rem;font-weight:800;line-height:1;letter-spacing:.18em;padding-left:3.1rem;white-space:nowrap}
   .state-run span::after{content:"◆";color:var(--acc);font-size:.66rem}
   @keyframes stateScroll{to{transform:translateX(-25%)}}
   .state-tape:hover .state-track{animation-play-state:paused}
   .lower-tape{margin-top:-.9vw}
-  .trade-list .state-track{animation-duration:30s}
+  .trade-list .state-track{animation-duration:38s}
   .soft{background-color:var(--soft);position:relative}
   .soft::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(14,16,12,.095) 1.7px,transparent 1.7px);background-size:19px 19px;-webkit-mask-image:linear-gradient(180deg,#000 6%,rgba(0,0,0,.22) 42%,rgba(0,0,0,.22) 58%,#000 94%);mask-image:linear-gradient(180deg,#000 6%,rgba(0,0,0,.22) 42%,rgba(0,0,0,.22) 58%,#000 94%)}
   .soft2{background-color:var(--soft2);background-image:linear-gradient(rgba(14,16,12,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(14,16,12,.055) 1px,transparent 1px);background-size:56px 56px}
@@ -291,7 +291,7 @@
   }
   @media(max-width:600px){
     .state-tape{padding:18px 0}
-    .state-run span{gap:2rem;font-size:.88rem;letter-spacing:.16em;padding-left:2rem}
+    .state-run span{gap:2.3rem;font-size:.88rem;letter-spacing:.16em;padding-left:2.3rem}
     .state-run span::after{font-size:.62rem}
     .nav{height:76px;gap:.45rem}
     .nav.wrap{padding-left:12px;padding-right:12px}
