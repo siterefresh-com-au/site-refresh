@@ -12,15 +12,15 @@
   <meta property="og:title" content="Northshore Electrical | Website concept by Site Refresh">
   <meta property="og:description" content="A premium fictional electrician website spanning faults and replacements through to lighting, switchboards, EV chargers and complete fit-outs.">
   <meta property="og:url" content="https://siterefresh.com.au/electrician-demo">
-  <meta property="og:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v2.webp">
-  <meta property="og:image:width" content="1823">
-  <meta property="og:image:height" content="863">
+  <meta property="og:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v3.webp">
+  <meta property="og:image:width" content="1832">
+  <meta property="og:image:height" content="859">
   <meta property="og:image:alt" content="Electrician testing a compact residential switchboard in a home garage">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Northshore Electrical | Website concept by Site Refresh">
   <meta name="twitter:description" content="A premium fictional electrician website spanning faults and replacements through to lighting, switchboards, EV chargers and complete fit-outs.">
   <meta name="twitter:url" content="https://siterefresh.com.au/electrician-demo">
-  <meta name="twitter:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v2.webp">
+  <meta name="twitter:image" content="https://siterefresh.com.au/img/northshore-electrical/hero-switchboard-v3.webp">
   <title>Northshore Electrical | Website concept by Site Refresh</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='2' fill='%23171b1d'/%3E%3Cpath d='M13 9v14c0 7 4 11 11 11h11' fill='none' stroke='%23f3c945' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M23 9v10c0 3 2 5 5 5h7' fill='none' stroke='%23f5f1e8' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -370,8 +370,8 @@
     .hero-credential strong { color: var(--white); font-family: var(--sans); font-size: .87rem; font-weight: 800; line-height: 1.1; }
     .hero-credential span { color: rgba(255, 255, 255, .58); font-size: .57rem; font-weight: 700; line-height: 1.35; }
     .hero-media { position: absolute; top: 0; bottom: 0; left: 50%; z-index: 1; width: 100vw; transform: translateX(-50%); }
-    .hero-photo { position: absolute; inset: 0; overflow: hidden; background: #111516 url("img/northshore-electrical/hero-switchboard-v2.webp") center / cover no-repeat; }
-    .hero-photo img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: 50% center; }
+    .hero-photo { position: absolute; inset: 0; overflow: hidden; background: #111516; }
+    .hero-photo img { position: absolute; top: var(--header-h); left: 0; width: 100%; height: calc(100% - var(--header-h)); object-fit: cover; object-position: 50% top; }
     .hero-photo::after {
       position: absolute;
       inset: 0;
@@ -381,15 +381,6 @@
         linear-gradient(0deg, rgba(8, 11, 12, .88) 0%, rgba(8, 11, 12, .15) 48%, rgba(8, 11, 12, .34) 100%);
     }
     .hero-photo .concept-label { right: max(24px, calc((100vw - var(--max)) / 2)); bottom: 18px; color: rgba(255,255,255,.72); background: rgba(10, 13, 14, .48); }
-
-    @media (min-width: 1200px) and (min-aspect-ratio: 13 / 5) {
-      .hero-photo img {
-        object-fit: contain;
-        object-position: center;
-        -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-        mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-      }
-    }
 
     .signal-section { position: relative; overflow: hidden; padding: 112px 0 120px; background: var(--ink); color: var(--chalk); }
     .signal-section::before {
@@ -768,7 +759,7 @@
 
       <div class="hero-media">
         <figure class="hero-photo">
-          <img src="img/northshore-electrical/hero-switchboard-v2.webp" width="1823" height="863" alt="Electrician safely testing a compact residential switchboard in a North Shore home garage" fetchpriority="high" decoding="async">
+          <img src="img/northshore-electrical/hero-switchboard-v3.webp" width="1832" height="859" alt="Electrician safely testing a compact residential switchboard in a North Shore home garage" fetchpriority="high" decoding="async">
           <figcaption class="concept-label">Concept image · fictional demo</figcaption>
         </figure>
       </div>
