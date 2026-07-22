@@ -16,9 +16,11 @@ const contents = new Map();
 for (const file of required) contents.set(file, await readFile(file, "utf8"));
 
 const redirects = contents.get("_redirects");
-for (const route of ["/terms", "/privacy", "/start", "/payment-success", "/hosting-confirmed"]) {
-  assert.match(redirects, new RegExp(`^${route.replace("/", "\\/")}\\s`, "m"), `Missing clean route ${route}`);
-}
+assert.doesNotMatch(
+  redirects,
+  /^\/(?:terms|privacy|start|payment-success|hosting-confirmed)\s+\S+\.html\s+200$/m,
+  "Pages supplies clean HTML routes automatically; explicit rewrites cause redirect loops",
+);
 
 const start = contents.get("start.html");
 for (const field of [
