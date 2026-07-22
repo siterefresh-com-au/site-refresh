@@ -1,0 +1,7 @@
+STRIPE_RESTRICTED_KEY=replace_in_cloudflare_secret_store
+STRIPE_WEBHOOK_SECRET=replace_in_cloudflare_secret_store
+STRIPE_GST_TAX_RATE_ID=replace_with_test_tax_rate_id
+STRIPE_HOSTING_PRICE_ID=replace_with_test_price_id
+WORKFLOW_AUTH_TOKEN=replace_with_a_long_random_value
+PUBLIC_SITE_URL=http://localhost:8788
+TERMS_VERSION=2026-07-draft

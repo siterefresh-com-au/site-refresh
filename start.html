@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Start your SiteRefresh project</title>
+  <meta name="description" content="Tell SiteRefresh what you want from your new website.">
+  <link rel="icon" href="assets/siterefresh-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/client-flow.css">
+</head>
+<body>
+  <div class="draft-banner">DRAFT FOR RYAN'S REVIEW — NOT PUBLISHED</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" aria-label="SiteRefresh home"><img class="logo" src="assets/siterefresh-logo-transparent.png" alt="SiteRefresh"></a>
+      <a class="header-contact" href="tel:+61481827200">Need help? 0481 827 200</a>
+    </div>
+  </header>
+
+  <section class="hero-simple">
+    <div class="hero-inner">
+      <span class="eyebrow">Your website brief</span>
+      <h1>Let’s build a website that feels like your business.</h1>
+      <p class="lead">This usually takes 10–15 minutes. Your answers give us the direction, content and practical details needed to prepare your website for review within one week.</p>
+    </div>
+  </section>
+
+  <main class="page-shell">
+    <div class="progress-wrap" aria-label="Form progress">
+      <div class="progress-meta"><span id="progress-label">Step 1 of 5</span><span>Saved when submitted</span></div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+
+    <div id="form-message" class="message" role="alert"></div>
+    <form id="onboarding-form" novalidate>
+      <section class="form-step active panel">
+        <h2>First, the business basics</h2>
+        <p class="step-intro">Use the details customers should see. Never enter passwords here—we’ll use secure account invitations where access is required.</p>
+        <div class="field-grid">
+          <label>Contact name *<input name="contact_name" autocomplete="name" required></label>
+          <label>Your role<input name="contact_role" placeholder="Owner, manager…"></label>
+          <label>Trading/business name *<input name="business_name" autocomplete="organization" required></label>
+          <label>Legal entity name<input name="legal_name" autocomplete="organization"></label>
+          <label>Email *<input type="email" name="email" autocomplete="email" required></label>
+          <label>Phone *<input type="tel" name="phone" autocomplete="tel" required></label>
+          <label>ABN<input name="abn" inputmode="numeric" placeholder="Optional"></label>
+          <label>Current website<input type="url" name="current_website" placeholder="https://"></label>
+          <label>Domain name<input name="domain_name" placeholder="yourbusiness.com.au"></label>
+          <label>Domain/registrar provider<input name="domain_provider" placeholder="For example Cloudflare, GoDaddy or Crazy Domains."></label>
+          <label class="full">Where should website enquiries go?<input type="email" name="form_recipient" placeholder="Email address for contact forms"></label>
+        </div>
+        <div class="form-actions"><span></span><button class="btn btn-primary" type="button" data-next>Continue</button></div>
+      </section>
+
+      <section class="form-step panel">
+        <h2>What do you want the site to achieve?</h2>
+        <p class="step-intro">Tell us what you sell, who you want more of, and what a good enquiry looks like.</p>
+        <div class="field-grid">
+          <label class="full">Main services *<span class="hint">List them in priority order.</span><textarea name="services" required></textarea></label>
+          <label class="full">Service areas *<textarea name="service_areas" required></textarea></label>
+          <label class="full">Ideal customer or project *<textarea name="ideal_customer" required></textarea></label>
+          <label>Primary customer action *
+            <select name="primary_action" required>
+              <option value="">Select one</option>
+              <option>Request a quote</option><option>Call the business</option><option>Book a consultation</option><option>Buy online</option><option>Visit a location</option>
+            </select>
+          </label>
+          <label>Secondary customer action<input name="secondary_action" placeholder="Optional"></label>
+          <label class="full">Pages or sections you expect<span class="hint">There is no fixed page count; the approved quote controls scope.</span><textarea name="pages" placeholder="Home, About, Services, Gallery, Contact…"></textarea></label>
+          <label class="full">Anything functional beyond standard pages and forms?<span class="hint">Bookings, ecommerce, portals, calculators and integrations may require an additional quote.</span><textarea name="special_features"></textarea></label>
+        </div>
+        <div class="form-actions"><button class="btn btn-secondary" type="button" data-previous>Back</button><button class="btn btn-primary" type="button" data-next>Continue</button></div>
+      </section>
+
+      <section class="form-step panel">
+        <h2>Choose the visual direction</h2>
+        <p class="step-intro">You don’t need design language—just tell us what feels right.</p>
+        <label>Choose any words that fit</label>
+        <div class="choice-grid">
+          <label class="choice"><input type="checkbox" name="style_words" value="Modern and minimal">Modern and minimal</label>
+          <label class="choice"><input type="checkbox" name="style_words" value="Premium and established">Premium and established</label>
+          <label class="choice"><input type="checkbox" name="style_words" value="Friendly and approachable">Friendly and approachable</label>
+          <label class="choice"><input type="checkbox" name="style_words" value="Bold and energetic">Bold and energetic</label>
+          <label class="choice"><input type="checkbox" name="style_words" value="Technical and precise">Technical and precise</label>
+          <label class="choice"><input type="checkbox" name="style_words" value="Natural and relaxed">Natural and relaxed</label>
+        </div>
+        <div class="field-grid" style="margin-top:20px">
+          <label class="full">Design notes *<textarea name="design_notes" required placeholder="What should customers feel when they arrive?"></textarea></label>
+          <label class="full">Websites you like<span class="hint">Add up to three links and what you like about each.</span><textarea name="inspiration_urls"></textarea></label>
+          <label>Preferred colours<input name="preferred_colours"></label>
+          <label>Colours or styles to avoid<input name="avoid_colours"></label>
+          <label class="full">Anything you definitely do not want?<textarea name="design_avoid"></textarea></label>
+        </div>
+        <div class="form-actions"><button class="btn btn-secondary" type="button" data-previous>Back</button><button class="btn btn-primary" type="button" data-next>Continue</button></div>
+      </section>
+
+      <section class="form-step panel">
+        <h2>Content, proof and assets</h2>
+        <p class="step-intro">Share what already exists. We’ll write and design the site, but your real proof makes it credible.</p>
+        <div class="field-grid">
+          <label class="full">Secure asset folder link<span class="hint">Google Drive, Dropbox or OneDrive containing your logo and approved photos. Give access to hello@siterefresh.com.au.</span><input type="url" name="asset_folder_url" placeholder="https://"></label>
+          <label class="full">Key facts and reasons customers choose you<textarea name="business_proof" placeholder="Years operating, qualifications, licence numbers, guarantees, process…"></textarea></label>
+          <label class="full">Testimonials or review links<textarea name="testimonials"></textarea></label>
+          <label>Google Business Profile URL<input type="url" name="google_business_url" placeholder="https://"></label>
+          <label>Social media links<input name="social_urls"></label>
+          <label class="full">Competitors or businesses you want to differentiate from<textarea name="competitors"></textarea></label>
+          <label class="full">Legal, licence or industry wording we must use<textarea name="compliance_notes"></textarea></label>
+          <label class="full">Analytics or tracking requirements<textarea name="analytics_notes" placeholder="Existing Google Analytics, Meta Pixel, Google Ads…"></textarea></label>
+        </div>
+        <div class="form-actions"><button class="btn btn-secondary" type="button" data-previous>Back</button><button class="btn btn-primary" type="button" data-next>Continue</button></div>
+      </section>
+
+      <section class="form-step panel">
+        <h2>Final checks</h2>
+        <p class="step-intro">Your one-week production window begins after this completed form and the required assets/information are available.</p>
+        <div class="field-grid">
+          <label class="full">Anything else Ryan should know?<textarea name="other_notes"></textarea></label>
+          <label class="full">Best times to contact you<input name="contact_times"></label>
+        </div>
+        <div class="callout">
+          <strong>Access and ownership</strong><br>
+          Keep your domain in your own account. If we need access, invite SiteRefresh using the provider’s official team/collaborator controls. Never send passwords through this form or email.
+        </div>
+        <label class="choice"><input type="checkbox" name="content_rights" value="confirmed" required>I confirm I have permission to provide and use the submitted logos, photos, testimonials and business information.</label>
+        <label class="choice" style="margin-top:10px"><input type="checkbox" name="details_accurate" value="confirmed" required>I confirm the business claims, contact details and licence information supplied are accurate.</label>
+        <label class="choice" style="margin-top:10px"><input type="checkbox" name="terms_accepted" value="yes" required>I have read and accept the <a href="/terms" target="_blank" rel="noopener">SiteRefresh project and hosting terms</a> and <a href="/privacy" target="_blank" rel="noopener">privacy notice</a>.</label>
+        <div class="form-actions"><button class="btn btn-secondary" type="button" data-previous>Back</button><button class="btn btn-dark" id="submit-button" type="submit">Submit project brief</button></div>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span>Site Refresh · ABN 36 137 041 322</span><span><a href="mailto:hello@siterefresh.com.au">hello@siterefresh.com.au</a> · 0481 827 200</span></div></footer>
+  <script type="module" src="assets/onboarding.js"></script>
+</body>
+</html>
