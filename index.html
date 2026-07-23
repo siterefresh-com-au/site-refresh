@@ -225,7 +225,10 @@
   footer a:hover{color:var(--acc)}
   footer .top>div:last-child li:first-child a{color:var(--acc)}
   footer .top>div:last-child li:first-child a:hover{color:#fff}
-  footer .bot{padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+  footer .bot{padding-top:20px;font-size:.8rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem 1.25rem}
+  .footer-utility{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:.45rem .85rem;font-size:.76rem}
+  .footer-utility a{color:#858b82}
+  .footer-utility a:hover{color:#dfe2dc}
 
   .ba{max-width:960px;margin:0 auto;width:100%}
   .ba .head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:16px;flex-wrap:wrap}
@@ -931,7 +934,16 @@
       <div><h4>Explore</h4><ul><li><a href="#how">How it works</a></li><li><a href="/our-work">Our Work</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>Get started</h4><ul><li><a href="#contact">Free homepage redesign</a></li><li><a href="mailto:hello@siterefresh.com.au">hello@siterefresh.com.au</a></li><li><a href="tel:+611800953006">1800 953 006</a></li><li>Australia-wide</li></ul></div>
     </div>
-    <div class="bot"><span>© <span id="yr"></span> SiteRefresh. Custom websites for local services &amp; trades.</span><span>Australia-wide</span></div>
+    <div class="bot">
+      <span>© <span id="yr"></span> SiteRefresh. Custom websites for local services &amp; trades.</span>
+      <nav class="footer-utility" aria-label="Client and legal links">
+        <a href="/start">Client onboarding</a>
+        <a href="https://billing.stripe.com/p/login/7sYdR8erxb2c84cepd5sA00">Manage billing</a>
+        <a href="mailto:hello@siterefresh.com.au?subject=SiteRefresh%20support">Support</a>
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
